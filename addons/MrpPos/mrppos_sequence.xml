@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<openerp>
+<data noupdate="1">
+
+    #
+    # Sequences for pos.order
+    #
+
+    <record model="ir.sequence.type" id="seq_type_mrppos_order">
+        <field name="name">MRPPOS Order</field>
+        <field name="code">mrppos.order</field>
+    </record>
+    <record model="ir.sequence" id="seq_mrppos_order">
+        <field name="name">MRPPOS Order</field>
+        <field name="code">mrppos.order</field>
+        <field name="padding">8</field>
+    </record>
+    
+    <record model="ir.sequence.type" id="seq_type_mrppos_order_line">
+        <field name="name">MRPPOS order line</field>
+        <field name="code">mrppos.order.line</field>
+        <field name="prefix">%(year)s</field>
+        <field name="padding">8</field>
+    </record>
+    <record model="ir.sequence" id="seq_mrppos_order_line">
+        <field name="name">MRPPOS order line</field>
+        <field name="code">mrppos.order.line</field>
+        <field name="prefix">%(year)s</field>
+        <field name="padding">8</field>
+    </record>
+
+</data>
+</openerp>
