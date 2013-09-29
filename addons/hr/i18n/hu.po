@@ -1,20 +1,21 @@
-# Translation of OpenERP Server.
-# This file contains the translation of the following modules:
-#	* hr
+# Hungarian translation for openobject-addons
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the openobject-addons package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 6.0dev\n"
-"Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2012-12-21 17:04+0000\n"
-"PO-Revision-Date: 2013-02-15 18:13+0000\n"
+"Project-Id-Version: openobject-addons\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-06-07 19:36+0000\n"
+"PO-Revision-Date: 2013-03-10 20:46+0000\n"
 "Last-Translator: krnkris <Unknown>\n"
-"Language-Team: \n"
+"Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-02-16 04:57+0000\n"
-"X-Generator: Launchpad (build 16491)\n"
+"X-Launchpad-Export-Date: 2013-07-11 05:59+0000\n"
+"X-Generator: Launchpad (build 16696)\n"
 
 #. module: hr
 #: model:process.node,name:hr.process_node_openerpuser0
@@ -146,9 +147,9 @@ msgid "Expected in Recruitment"
 msgstr "Várható felvételek"
 
 #. module: hr
-#: field:res.users,employee_ids:0
-msgid "Related employees"
-msgstr "Ide kapcsolódó alkalmazottak"
+#: view:hr.employee:0
+msgid "Other Information ..."
+msgstr "Egyéb információ ..."
 
 #. module: hr
 #: constraint:hr.employee.category:0
@@ -189,7 +190,7 @@ msgstr "Főrészleg"
 #. module: hr
 #: model:ir.ui.menu,name:hr.menu_open_view_attendance_reason_config
 msgid "Leaves"
-msgstr "Szabadságok"
+msgstr "eltávozások"
 
 #. module: hr
 #: selection:hr.employee,marital:0
@@ -377,12 +378,12 @@ msgstr "Alkalmazotti űrlap és struktúra"
 #. module: hr
 #: field:hr.config.settings,module_hr_expense:0
 msgid "Manage employees expenses"
-msgstr ""
+msgstr "Alkalmazottak fizetésének kezelése"
 
 #. module: hr
 #: view:hr.employee:0
 msgid "Tel:"
-msgstr ""
+msgstr "Tel:"
 
 #. module: hr
 #: selection:hr.employee,marital:0
@@ -407,6 +408,11 @@ msgid "Employee Contact"
 msgstr "Alkalmazotti kapcsolat"
 
 #. module: hr
+#: view:hr.employee:0
+msgid "e.g. Part Time"
+msgstr "Pl. Rész időben"
+
+#. module: hr
 #: model:ir.actions.act_window,help:hr.action_hr_job
 msgid ""
 "<p class=\"oe_view_nocontent_create\">\n"
@@ -428,6 +434,21 @@ msgid ""
 "              </p>\n"
 "            "
 msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                Kattintson új munkahely létrehozásához.\n"
+"              </p><p>\n"
+"                Munkahelyek a munkák  és követelményeinek meghatározásához "
+"használtak.\n"
+"                Nyomon követheti hány alkalmazottja van a munkahelyhez \n"
+"                és nyomon követheti az értékeléseket melyeket a jövőre "
+"vonatkozóan \n"
+"                betervezett.\n"
+"              </p><p>\n"
+"                Állásokhoz felméréseket végezhet. Ezeket használhatják\n"
+"                az állás interjú folyamatoknál a munkahelyre felvételiző\n"
+"               értékeléséhez.\n"
+"              </p>\n"
+"            "
 
 #. module: hr
 #: selection:hr.employee,gender:0
@@ -440,26 +461,28 @@ msgid ""
 "$('.oe_employee_picture').load(function() { if($(this).width() > "
 "$(this).height()) { $(this).addClass('oe_employee_picture_wide') } });"
 msgstr ""
+"$('.oe_employee_picture').load(function() { if($(this).width() > "
+"$(this).height()) { $(this).addClass('oe_employee_picture_wide') } });"
 
 #. module: hr
 #: help:hr.config.settings,module_hr_evaluation:0
 msgid "This installs the module hr_evaluation."
-msgstr ""
+msgstr "Ez a hr_evaluation modult telepíti."
 
 #. module: hr
 #: constraint:hr.employee:0
 msgid "Error! You cannot create recursive hierarchy of Employee(s)."
-msgstr ""
+msgstr "Hiba! Nem készíthet visszatérő rangsorú alklamazott(ak) listát."
 
 #. module: hr
 #: help:hr.config.settings,module_hr_attendance:0
 msgid "This installs the module hr_attendance."
-msgstr ""
+msgstr "Ez a hr_attendance modult telepíti."
 
 #. module: hr
 #: field:hr.employee,image_small:0
 msgid "Smal-sized photo"
-msgstr ""
+msgstr "Kis-méretű fotó"
 
 #. module: hr
 #: view:hr.employee.category:0
@@ -470,22 +493,22 @@ msgstr "Alkalmazotti kategória"
 #. module: hr
 #: field:hr.employee,category_ids:0
 msgid "Tags"
-msgstr ""
+msgstr "Címkék"
 
 #. module: hr
 #: help:hr.config.settings,module_hr_contract:0
 msgid "This installs the module hr_contract."
-msgstr ""
+msgstr "Ez a hr_contract modult telepíti."
 
 #. module: hr
 #: view:hr.employee:0
 msgid "Related User"
-msgstr ""
+msgstr "Kapcsolódó felhasználó"
 
 #. module: hr
 #: view:hr.config.settings:0
 msgid "or"
-msgstr ""
+msgstr "vagy"
 
 #. module: hr
 #: field:hr.employee.category,name:0
@@ -495,12 +518,12 @@ msgstr "Kategória"
 #. module: hr
 #: view:hr.job:0
 msgid "Stop Recruitment"
-msgstr ""
+msgstr "Felvételiztetés megállítása"
 
 #. module: hr
 #: field:hr.config.settings,module_hr_attendance:0
 msgid "Install attendances feature"
-msgstr ""
+msgstr "Jelenlét tulajdonság telepítés"
 
 #. module: hr
 #: help:hr.employee,bank_account_id:0
@@ -523,9 +546,14 @@ msgid "Contact Information"
 msgstr "Kapcsolat információk"
 
 #. module: hr
+#: field:res.users,employee_ids:0
+msgid "Related employees"
+msgstr "Ide kapcsolódó alkalmazottak"
+
+#. module: hr
 #: field:hr.config.settings,module_hr_holidays:0
 msgid "Manage holidays, leaves and allocation requests"
-msgstr ""
+msgstr "Szünnapok kezelése, eltávozások és juttatás igények"
 
 #. module: hr
 #: field:hr.department,child_ids:0
@@ -552,12 +580,12 @@ msgstr "Munkavállalói szerződés"
 #. module: hr
 #: view:hr.config.settings:0
 msgid "Contracts"
-msgstr ""
+msgstr "Szerződések"
 
 #. module: hr
 #: help:hr.job,message_ids:0
 msgid "Messages and communication history"
-msgstr ""
+msgstr "Üzenetek és kommunikáció történet"
 
 #. module: hr
 #: field:hr.employee,ssnid:0
@@ -567,12 +595,12 @@ msgstr "Adóazonosító jele"
 #. module: hr
 #: field:hr.job,message_is_follower:0
 msgid "Is a Follower"
-msgstr ""
+msgstr "Ez egy követő"
 
 #. module: hr
 #: field:hr.config.settings,module_hr_recruitment:0
 msgid "Manage the recruitment process"
-msgstr ""
+msgstr "Állás pályázati folyamat kezelése"
 
 #. module: hr
 #: view:hr.employee:0
@@ -582,12 +610,12 @@ msgstr "Aktív"
 #. module: hr
 #: view:hr.config.settings:0
 msgid "Human Resources Management"
-msgstr ""
+msgstr "Emberi erőforrás kezelés"
 
 #. module: hr
 #: view:hr.config.settings:0
 msgid "Install your country's payroll"
-msgstr ""
+msgstr "Telepítse az országához tasrtozó bérlistát"
 
 #. module: hr
 #: field:hr.employee,bank_account_id:0
@@ -602,7 +630,7 @@ msgstr "Vállalatok"
 #. module: hr
 #: field:hr.job,message_summary:0
 msgid "Summary"
-msgstr ""
+msgstr "Összegzés"
 
 #. module: hr
 #: model:process.transition,note:hr.process_transition_contactofemployee0
@@ -627,21 +655,30 @@ msgid ""
 "              </p>\n"
 "            "
 msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                Kattintson új alkalmazott hozzáadásához.\n"
+"              </p><p>\n"
+"                Eggyetlen kattintással eljuthat az OpenERP alkalmazottak "
+"képernyőjéhez, ahol \n"
+"                könnyen megtalálhatja a kívánt információkat mindenkiről;\n"
+"                kapcsolati adatok, munkahely, elérhetőség, stb.\n"
+"              </p>\n"
+"            "
 
 #. module: hr
 #: view:hr.employee:0
 msgid "HR Settings"
-msgstr ""
+msgstr "Emberi erőforrás beállítások"
 
 #. module: hr
 #: view:hr.employee:0
 msgid "Citizenship & Other Info"
-msgstr ""
+msgstr "Állampolgárság & egyéb adatok"
 
 #. module: hr
 #: constraint:hr.department:0
 msgid "Error! You cannot create recursive departments."
-msgstr ""
+msgstr "Hiba! Nem hozhat létre egymásba épülő osztályokat."
 
 #. module: hr
 #: field:hr.employee,address_id:0
@@ -651,7 +688,7 @@ msgstr "Munkahely címe"
 #. module: hr
 #: view:hr.employee:0
 msgid "Public Information"
-msgstr ""
+msgstr "Nyilvános adat"
 
 #. module: hr
 #: field:hr.employee,marital:0
@@ -666,7 +703,7 @@ msgstr "ir.actions.act_window"
 #. module: hr
 #: field:hr.employee,last_login:0
 msgid "Latest Connection"
-msgstr ""
+msgstr "Legutoló csatlakozás"
 
 #. module: hr
 #: field:hr.employee,image:0
@@ -676,7 +713,7 @@ msgstr "Fénykép"
 #. module: hr
 #: view:hr.config.settings:0
 msgid "Cancel"
-msgstr ""
+msgstr "Mégsem"
 
 #. module: hr
 #: model:ir.actions.act_window,help:hr.open_module_tree_department
@@ -691,17 +728,28 @@ msgid ""
 "              </p>\n"
 "            "
 msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                Kattintson osztály létrehozásához.\n"
+"              </p><p>\n"
+"                OpenERP osztály szerkezeteit az alkalmazottak  "
+"dokumentumainak\n"
+"                osztályonkénti kezeléséhez használja mint: kiadások, "
+"időkimutatások,\n"
+"                eltávozások és szabadságok, felvételiztetés, stb.\n"
+"              </p>\n"
+"            "
 
 #. module: hr
 #: help:hr.config.settings,module_hr_timesheet:0
 msgid "This installs the module hr_timesheet."
-msgstr ""
+msgstr "Ez a hr_timesheet modult telepíti.."
 
 #. module: hr
 #: help:hr.job,expected_employees:0
 msgid ""
 "Expected number of employees for this job position after new recruitment."
 msgstr ""
+"Elvárt munkahelyek száma ehhez a munkához az új felvételiztetés után."
 
 #. module: hr
 #: model:ir.actions.act_window,help:hr.view_department_form_installer
@@ -716,6 +764,15 @@ msgid ""
 "              </p>\n"
 "            "
 msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                Kattintson új osztály meghatározásához.\n"
+"              </p><p>\n"
+"                Az osztály szerkezet az osztály általi alkalmazottakhoz\n"
+"                kapcsolódó összes dokumentum kezelésére szolgál:\n"
+"                kiadások és időkimutatások,\n"
+"                eltávozások és szabadságok, felvételiztetések, stb.\n"
+"              </p>\n"
+"            "
 
 #. module: hr
 #: view:hr.employee:0
@@ -740,12 +797,20 @@ msgstr "Munkahelyi mobil"
 #. module: hr
 #: selection:hr.job,state:0
 msgid "Recruitement in Progress"
-msgstr ""
+msgstr "Felvételiztetési a folyamatokban"
 
 #. module: hr
 #: field:hr.config.settings,module_account_analytic_analysis:0
 msgid ""
 "Allow invoicing based on timesheets (the sale application will be installed)"
+msgstr ""
+"Időkimutatáson alapuló számlázás engedélyezése (az Eladás alkalmazás "
+"telepítve lesz)"
+
+#. module: hr
+#: code:addons/hr/hr.py:221
+#, python-format
+msgid "Welcome to %s! Please help him/her take the first steps with OpenERP!"
 msgstr ""
 
 #. module: hr
@@ -761,7 +826,7 @@ msgstr "Otthoni cím"
 #. module: hr
 #: field:hr.config.settings,module_hr_timesheet:0
 msgid "Manage timesheets"
-msgstr ""
+msgstr "Időkimutatások kezelése"
 
 #. module: hr
 #: model:ir.actions.act_window,name:hr.open_payroll_modules
@@ -786,12 +851,12 @@ msgstr "Pozícióban"
 #. module: hr
 #: help:hr.config.settings,module_hr_payroll:0
 msgid "This installs the module hr_payroll."
-msgstr ""
+msgstr "Ez a hr_payroll modult telepíti."
 
 #. module: hr
 #: field:hr.config.settings,module_hr_contract:0
 msgid "Record contracts per employee"
-msgstr ""
+msgstr "Alkalmazottonkénti szerződések feljegyzése"
 
 #. module: hr
 #: view:hr.department:0
@@ -806,7 +871,7 @@ msgstr "Nemzetiség"
 #. module: hr
 #: view:hr.config.settings:0
 msgid "Additional Features"
-msgstr ""
+msgstr "Kiegészítő lehetőségek"
 
 #. module: hr
 #: field:hr.employee,notes:0
@@ -816,7 +881,7 @@ msgstr "Megjegyzések"
 #. module: hr
 #: model:ir.actions.act_window,name:hr.action2
 msgid "Subordinate Hierarchy"
-msgstr ""
+msgstr "Alárendeltségi rangsor"
 
 #. module: hr
 #: field:hr.employee,resource_id:0
@@ -859,23 +924,23 @@ msgstr "Részleg neve"
 #. module: hr
 #: model:ir.ui.menu,name:hr.menu_hr_reporting_timesheet
 msgid "Reports"
-msgstr ""
+msgstr "Kimutatások"
 
 #. module: hr
 #: field:hr.config.settings,module_hr_payroll:0
 msgid "Manage payroll"
-msgstr ""
+msgstr "Fizetési jegyzés kezelése"
 
 #. module: hr
 #: view:hr.config.settings:0
 #: model:ir.actions.act_window,name:hr.action_human_resources_configuration
 msgid "Configure Human Resources"
-msgstr ""
+msgstr "Emberi erőforrás beállítása"
 
 #. module: hr
 #: selection:hr.job,state:0
 msgid "No Recruitment"
-msgstr ""
+msgstr "Nincs felvételiztetés"
 
 #. module: hr
 #: help:hr.employee,ssnid:0
@@ -895,7 +960,7 @@ msgstr "Bejelentkezés"
 #. module: hr
 #: field:hr.job,expected_employees:0
 msgid "Total Forecasted Employees"
-msgstr ""
+msgstr "Összes előjegyzett alkalmazott"
 
 #. module: hr
 #: help:hr.job,state:0
@@ -903,11 +968,13 @@ msgid ""
 "By default 'In position', set it to 'In Recruitment' if recruitment process "
 "is going on for this job position."
 msgstr ""
+"alapértelmezetten 'a munkahelyen', a 'Felvételiztetésen' állapotra állított, "
+"ha felvételi folyamat van erre az állásra."
 
 #. module: hr
 #: model:ir.model,name:hr.model_res_users
 msgid "Users"
-msgstr ""
+msgstr "Felhasználók"
 
 #. module: hr
 #: model:ir.actions.act_window,name:hr.action_hr_job
@@ -933,6 +1000,24 @@ msgid ""
 "              </div>\n"
 "            "
 msgstr ""
+"<div class=\"oe_empty_custom_dashboard\">\n"
+"                  <p>\n"
+"                    <b>Emberi erőforrás műszerfal üres.</b>\n"
+"                  </p><p>\n"
+"                    Az első jelentését úgy tudja a műszerfalhoz adni, hogy "
+"bemegy\n"
+"                    bármelyik menübe, átvált lista vagy grafikon nézetben, "
+"ott a \n"
+"                    kiterjesztett keresési lehetőségeknél rákattint "
+"<i>'Adjad\n"
+"                    hozzá a műszerfalhoz'</i> l.\n"
+"                  </p><p>\n"
+"                    A kereső lehetőség műszerfal beillesztése előtt "
+"szűrheti\n"
+"                    és csoportosíthatja az adatokat.\n"
+"                  </p>\n"
+"              </div>\n"
+"            "
 
 #. module: hr
 #: view:hr.employee:0
@@ -943,17 +1028,17 @@ msgstr "Tréner"
 #. module: hr
 #: sql_constraint:hr.job:0
 msgid "The name of the job position must be unique per company!"
-msgstr ""
+msgstr "A munkahely nevének egyedinek kell lenneie vállalatonként!"
 
 #. module: hr
 #: help:hr.config.settings,module_hr_expense:0
 msgid "This installs the module hr_expense."
-msgstr ""
+msgstr "Ez a hr_expense modult telepíti."
 
 #. module: hr
 #: model:ir.model,name:hr.model_hr_config_settings
 msgid "hr.config.settings"
-msgstr ""
+msgstr "hr.config.settings"
 
 #. module: hr
 #: field:hr.department,manager_id:0
@@ -975,241 +1060,4 @@ msgstr "Beosztottak"
 #. module: hr
 #: view:hr.config.settings:0
 msgid "Apply"
-msgstr ""
-
-#~ msgid "Simplifies the management of employee's attendances."
-#~ msgstr "Egyszerűsíti az alkalmazott jelenléteinek kezelését."
-
-#~ msgid "Holidays"
-#~ msgstr "Szabadságok"
-
-#~ msgid "title"
-#~ msgstr "pozíció"
-
-#~ msgid "Mark as Old"
-#~ msgstr "Bejelölés réginek"
-
-#~ msgid "Employee Marital Status"
-#~ msgstr "Alkalmazott családi állapota"
-
-#~ msgid "Employee's Contracts"
-#~ msgstr "Munkavállalói szerződések"
-
-#~ msgid "My Departments Employee"
-#~ msgstr "Részlegem alkalmazottai"
-
-#~ msgid "Social IDs"
-#~ msgstr "Személyes adatok"
-
-#~ msgid "Periodic Evaluations"
-#~ msgstr "Időszakos értékelések"
-
-#~ msgid "Timesheets"
-#~ msgstr "Munkaidő-kimutatások"
-
-#~ msgid "Work E-mail"
-#~ msgstr "Munkahelyi e-mailcím"
-
-#~ msgid "Number of employee with that job."
-#~ msgstr "Alkalmazottak száma ezzel a munkakörrel"
-
-#~ msgid "Reporting"
-#~ msgstr "Jelentés"
-
-#~ msgid "Categories"
-#~ msgstr "Kategóriák"
-
-#~ msgid "Categories of Employee"
-#~ msgstr "Alkalmazotti kategóriák"
-
-#~ msgid "Error ! You cannot create recursive Categories."
-#~ msgstr "Hiba ! Nem hozhat lérte rekurzív kategóriákat."
-
-#~ msgid "Image"
-#~ msgstr "Kép"
-
-#~ msgid "hr.department"
-#~ msgstr "hr.department"
-
-#~ msgid "HR Manager Dashboard"
-#~ msgstr "HR menedzser vezérlőpult"
-
-#~ msgid "Categories structure"
-#~ msgstr "Kategóriák strukturája"
-
-#~ msgid "unknown"
-#~ msgstr "ismeretlen"
-
-#~ msgid "Configure"
-#~ msgstr "Beállítás"
-
-#~ msgid "Error ! You cannot create recursive Hierarchy of Employees."
-#~ msgstr "Hiba! Nem hozhat létre rekurzív alkalmazotti hierarchiát."
-
-#~ msgid "Old"
-#~ msgstr "Régi"
-
-#~ msgid "Status Description"
-#~ msgstr "Státusz leírása"
-
-#~ msgid "Current Activity"
-#~ msgstr "Jelenlegi tevékenység"
-
-#~ msgid "res.users"
-#~ msgstr "res.users"
-
-#~ msgid "Description"
-#~ msgstr "Leírás"
-
-#~ msgid "Human Resources Application Configuration"
-#~ msgstr "HR alkalmazások beállítása"
-
-#~ msgid "hr.installer"
-#~ msgstr "hr.installer"
-
-#~ msgid "Mobile"
-#~ msgstr "Mobilszám"
-
-#~ msgid "Error! You can not create recursive departments."
-#~ msgstr "Hiba! Nem hozhat létre rekurzív részlegeket."
-
-#~ msgid "Employee Hierarchy"
-#~ msgstr "Dolgozói hierarchia"
-
-#~ msgid "Employee Passport Information"
-#~ msgstr "Alkalmazott útlevél információja"
-
-#~ msgid ""
-#~ "Error ! You cannot select a department for which the employee is the manager."
-#~ msgstr ""
-#~ "Hiba! Nem választhat ki olyan részleget, amelynek az alkalmazott a "
-#~ "menedzsere."
-
-#~ msgid "No of Employee"
-#~ msgstr "Alkalmazott sorszáma"
-
-#~ msgid "Expected Employees"
-#~ msgstr "Javasolt alkalmazottak"
-
-#~ msgid "Configuration Progress"
-#~ msgstr "Beállítási folyamat"
-
-#~ msgid "The chosen company is not in the allowed companies for this user"
-#~ msgstr ""
-#~ "A kiválasztott cég nincs az engedélyezett cégek között ehhez a felhasználóhoz"
-
-#~ msgid "Holidays / Leaves Management"
-#~ msgstr "Munkaszüneti napok / Szabadságok kezelése"
-
-#~ msgid "You can not have two users with the same login !"
-#~ msgstr "Nem létezhet két felhasználó ugyanazzal a felhasználói névvel !"
-
-#~ msgid ""
-#~ "\n"
-#~ "    Module for human resource management. You can manage:\n"
-#~ "    * Employees and hierarchies : You can define your employee with User and "
-#~ "display hierarchies\n"
-#~ "    * HR Departments\n"
-#~ "    * HR Jobs\n"
-#~ "    "
-#~ msgstr ""
-#~ "\n"
-#~ "    Modul az emberi erőforrás kezeléshez. Ezzel tudja kezelni:\n"
-#~ "    * Alkalmazottak és hierarchiák : Megadhatja a dolgozók felhasználói "
-#~ "hozzáférését és hierarchiájukat\n"
-#~ "    * HR Részlegeket\n"
-#~ "    * HR munkákat\n"
-#~ "    "
-
-#~ msgid "State"
-#~ msgstr "Állapot"
-
-#~ msgid "Required number of Employees in total for that job."
-#~ msgstr "Szükséges a dolgozók összlétszámát megadni ehhez a munkához."
-
-#~ msgid "Attendances"
-#~ msgstr "Jelenlétek"
-
-#~ msgid "Extends employee profiles to help manage their contracts."
-#~ msgstr "Kibővíti a munkavállalói adatlapot a szerződések kezelésével."
-
-#~ msgid "Current"
-#~ msgstr "Jelenlegi"
-
-#~ msgid "HR Manager Board"
-#~ msgstr "HR Vezető munkalap"
-
-#~ msgid "Expenses"
-#~ msgstr "Költségek"
-
-#~ msgid "Configure Your Human Resources Application"
-#~ msgstr "Testreszabja a HR programot"
-
-#~ msgid ""
-#~ "You can enhance the base HR Application by installing few HR-related "
-#~ "functionalities."
-#~ msgstr ""
-#~ "Növelheti  az alap HR modul hatékonyságát további kiegészítők telepítésével."
-
-#~ msgid "It is linked with manager of Department"
-#~ msgstr "Összekapcsolva a részleg vezetőjével."
-
-#~ msgid ""
-#~ "Tracks and helps employees encode and validate timesheets and attendances."
-#~ msgstr ""
-#~ "Nyomon követi és segíti az alkalmazottakat a munkaidő-kimutatások és a "
-#~ "jelenlétek berögzítésében és jóváhagyásában."
-
-#~ msgid ""
-#~ "Tracks and manages employee expenses, and can automatically re-invoice "
-#~ "clients if the expenses are project-related."
-#~ msgstr ""
-#~ "Nyomon követi és kezeli a dolgozói költségeket, amelyeket automatikusan "
-#~ "tovább lehet számlázni az ügyfeleknek, ha a projekttel kapcsolatban merültek "
-#~ "fel a költségek."
-
-#~ msgid "Generic Payroll system Integrated with Accountings."
-#~ msgstr "A könyvelésbe integrált általános bérszámfejtő rendszer."
-
-#~ msgid ""
-#~ "Partner that is related to the current employee. Accounting transaction will "
-#~ "be written on this partner belongs to employee."
-#~ msgstr ""
-#~ "Partner, aki ehhez az alkalmazotthoz tartozik. Az alkalmazottra vonatkozó "
-#~ "könyvelési tranzakciók erre a partnerre lesznek berögzítve."
-
-#~ msgid "Generic Payroll system."
-#~ msgstr "Általános bérszámfejtő rendszer"
-
-#~ msgid "Payroll Accounting"
-#~ msgstr "Bérfeladás könyvelése"
-
-#~ msgid ""
-#~ "Your Company's Department Structure is used to manage all documents related "
-#~ "to employees by departments: expenses and timesheet validation, leaves "
-#~ "management, recruitments, etc."
-#~ msgstr ""
-#~ "A vállalatának szervezeti felosztása arra használható, hogy szervezetenként "
-#~ "kezelje az alkalmazottakkal kapcsolatos minden dokumentumot, úgymint "
-#~ "költségek és munkaidő-kimutatások jóváhagyása, szabadságok kezelése, "
-#~ "toborzás, stb."
-
-#~ msgid "Recruitment Process"
-#~ msgstr "Toborzási folyamat"
-
-#~ msgid "Helps you manage and streamline your recruitment process."
-#~ msgstr "Segíti a munkaerő toborzási folyamat kezelését és racionalizálását."
-
-#~ msgid "In Recruitement"
-#~ msgstr "Toborzás folyamatban"
-
-#~ msgid "Tracks employee leaves, allocation requests and planning."
-#~ msgstr ""
-#~ "Számon tartja az alkalmazottak szabadságát, a szabadságolási kérelmeket és a "
-#~ "tervezést."
-
-#~ msgid "My Board"
-#~ msgstr "Saját vezérlőpult"
-
-#~ msgid "Dashboard"
-#~ msgstr "Vezérlőpult"
+msgstr "Alkalmaz"

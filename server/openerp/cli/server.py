@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
@@ -181,9 +180,9 @@ def dumpstacks(sig, frame):
                 code.append("  %s" % (line.strip()))
     _logger.info("\n".join(code))
 
-def setup_signal_handlers(signal_handler):
-    """ Register the given signal handler. """
-    SIGNALS = (signal.SIGINT, signal.SIGTERM)
+def setup_signal_handlers():
+    """ Register the signal handler defined above. """
+    SIGNALS = map(lambda x: getattr(signal, "SIG%s" % x), "INT TERM".split())
     if os.name == 'posix':
         map(lambda sig: signal.signal(sig, signal_handler), SIGNALS)
         signal.signal(signal.SIGQUIT, dumpstacks)
@@ -218,25 +217,9 @@ def quit_on_signals():
         os.unlink(config['pidfile'])
     sys.exit(0)
 
-def configure_babel_localedata_path():
-    # Workaround: py2exe and babel.
-    if hasattr(sys, 'frozen'):
-        import babel
-        babel.localedata._dirname = os.path.join(os.path.dirname(sys.executable), 'localedata')
-
 def main(args):
-    os.environ["TZ"] = "UTC"
-
     check_root_user()
     openerp.tools.config.parse_config(args)
-
-    if openerp.tools.config.options["gevent"]:
-        openerp.evented = True
-        _logger.info('Using gevent mode')
-        import gevent.monkey
-        gevent.monkey.patch_all()
-        import gevent_psycopg2
-        gevent_psycopg2.monkey_patch()
 
     check_postgres_user()
     openerp.netsvc.init_logger()
@@ -244,9 +227,7 @@ def main(args):
 
     config = openerp.tools.config
 
-    configure_babel_localedata_path()
-
-    setup_signal_handlers(signal_handler)
+    setup_signal_handlers()
 
     if config["test_file"]:
         run_test_file(config['db_name'], config['test_file'])

@@ -25,27 +25,26 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
-# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 #
 ##############################################################################
 
 from openerp.osv import fields, osv
-import openerp.report.interface
-from openerp.report.report_sxw import rml_parse
-
+from openerp import netsvc
 from webkit_report import WebKitParser
+from openerp.report.report_sxw import rml_parse
 
 def register_report(name, model, tmpl_path, parser=rml_parse):
     """Register the report into the services"""
     name = 'report.%s' % name
-    if name in openerp.report.interface.report_int._reports:
-        service = openerp.report.interface.report_int._reports[name]
+    if netsvc.Service._services.get(name, False):
+        service = netsvc.Service._services[name]
         if isinstance(service, WebKitParser):
             #already instantiated properly, skip it
             return
         if hasattr(service, 'parser'):
             parser = service.parser
-        del openerp.report.interface.report_int._reports[name]
+        del netsvc.Service._services[name]
     WebKitParser(name, model, tmpl_path, parser=parser)
 
 

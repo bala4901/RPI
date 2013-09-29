@@ -28,10 +28,6 @@ class account_invoice(report_sxw.rml_parse):
         self.localcontext.update({
             'time': time,
         })
-        
-    def exclude_dec(self, value):
-        return value
-    
 report_sxw.report_sxw(
     'report.account.invoice',
     'account.invoice',

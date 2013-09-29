@@ -1,21 +1,21 @@
 # Russian translation for openobject-addons
-# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the openobject-addons package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: openobject-addons\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-12-21 17:05+0000\n"
-"PO-Revision-Date: 2011-02-21 18:14+0000\n"
+"POT-Creation-Date: 2013-06-07 19:36+0000\n"
+"PO-Revision-Date: 2013-07-24 07:25+0000\n"
 "Last-Translator: Chertykov Denis <chertykov@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-12-22 05:56+0000\n"
-"X-Generator: Launchpad (build 16378)\n"
+"X-Launchpad-Export-Date: 2013-07-25 05:43+0000\n"
+"X-Generator: Launchpad (build 16700)\n"
 
 #. module: analytic
 #: field:account.analytic.account,child_ids:0
@@ -25,12 +25,17 @@ msgstr "Субсчета"
 #. module: analytic
 #: selection:account.analytic.account,state:0
 msgid "In Progress"
-msgstr ""
+msgstr "Выполняется"
 
 #. module: analytic
 #: code:addons/analytic/analytic.py:229
 #, python-format
 msgid "Contract: "
+msgstr "Договор: "
+
+#. module: analytic
+#: model:mail.message.subtype,description:analytic.mt_account_pending
+msgid "Contract pending"
 msgstr ""
 
 #. module: analytic
@@ -40,8 +45,9 @@ msgstr "Шаблон"
 
 #. module: analytic
 #: view:account.analytic.account:0
+#: field:account.analytic.account,date:0
 msgid "End Date"
-msgstr ""
+msgstr "Дата окончания"
 
 #. module: analytic
 #: help:account.analytic.line,unit_amount:0
@@ -52,19 +58,6 @@ msgstr "Определяет итоговую сумму для расчета."
 #: field:account.analytic.account,debit:0
 msgid "Debit"
 msgstr "Дебет"
-
-#. module: analytic
-#: help:account.analytic.account,type:0
-msgid ""
-"If you select the View Type, it means you won't allow to create journal "
-"entries using that account.\n"
-"The type 'Analytic account' stands for usual accounts that you only want to "
-"use in accounting.\n"
-"If you select Contract or Project, it offers you the possibility to manage "
-"the validity and the invoicing options for this account.\n"
-"The special type 'Template of Contract' allows you to define a template with "
-"default data that you can reuse easily."
-msgstr ""
 
 #. module: analytic
 #: view:account.analytic.account:0
@@ -83,12 +76,12 @@ msgstr ""
 #. module: analytic
 #: selection:account.analytic.account,type:0
 msgid "Contract or Project"
-msgstr ""
+msgstr "Договор или проект"
 
 #. module: analytic
 #: field:account.analytic.account,name:0
 msgid "Account/Contract Name"
-msgstr ""
+msgstr "Наименование счета/договора"
 
 #. module: analytic
 #: field:account.analytic.account,manager_id:0
@@ -98,7 +91,7 @@ msgstr "Управляющий счётом"
 #. module: analytic
 #: field:account.analytic.account,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Подписчики"
 
 #. module: analytic
 #: selection:account.analytic.account,state:0
@@ -108,28 +101,28 @@ msgstr "Закрыто"
 #. module: analytic
 #: model:mail.message.subtype,name:analytic.mt_account_pending
 msgid "Contract to Renew"
-msgstr ""
+msgstr "Договор к продлению"
 
 #. module: analytic
 #: selection:account.analytic.account,state:0
 msgid "New"
-msgstr ""
+msgstr "Создать"
 
 #. module: analytic
 #: field:account.analytic.account,user_id:0
 msgid "Project Manager"
-msgstr ""
+msgstr "Руководитель проекта"
 
 #. module: analytic
 #: field:account.analytic.account,state:0
 msgid "Status"
-msgstr ""
+msgstr "Статус"
 
 #. module: analytic
-#: code:addons/analytic/analytic.py:268
+#: code:addons/analytic/analytic.py:271
 #, python-format
 msgid "%s (copy)"
-msgstr ""
+msgstr "%s (копия)"
 
 #. module: analytic
 #: model:ir.model,name:analytic.model_account_analytic_line
@@ -143,14 +136,20 @@ msgid "Description"
 msgstr "Описание"
 
 #. module: analytic
+#: code:addons/analytic/analytic.py:262
+#, python-format
+msgid "Quick account creation disallowed."
+msgstr "Быстрое создание счета запрещено."
+
+#. module: analytic
 #: field:account.analytic.account,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Непрочитанные сообщения"
 
 #. module: analytic
 #: constraint:account.analytic.account:0
 msgid "Error! You cannot create recursive analytic accounts."
-msgstr ""
+msgstr "Ошибка! Вы не можете создавать рекурсивные аналитические счета."
 
 #. module: analytic
 #: field:account.analytic.account,company_id:0
@@ -161,17 +160,21 @@ msgstr "Компания"
 #. module: analytic
 #: view:account.analytic.account:0
 msgid "Renewal"
-msgstr ""
+msgstr "Продление"
 
 #. module: analytic
-#: help:account.analytic.account,message_ids:0
-msgid "Messages and communication history"
+#: help:account.analytic.account,message_summary:0
+msgid ""
+"Holds the Chatter summary (number of messages, ...). This summary is "
+"directly in html format in order to be inserted in kanban views."
 msgstr ""
+"Содержит сводку по Чаттеру (количество сообщений,...). Эта сводка в формате "
+"html для возможности использования в канбан виде"
 
 #. module: analytic
-#: model:mail.message.subtype,description:analytic.mt_account_opened
-msgid "Stage <b>opened</b>"
-msgstr ""
+#: help:account.analytic.account,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr "Если отмечено, новые сообщения требуют вашего внимания."
 
 #. module: analytic
 #: help:account.analytic.account,quantity_max:0
@@ -195,7 +198,7 @@ msgstr ""
 #. module: analytic
 #: field:account.analytic.account,message_is_follower:0
 msgid "Is a Follower"
-msgstr ""
+msgstr "Подписан"
 
 #. module: analytic
 #: field:account.analytic.line,user_id:0
@@ -203,9 +206,9 @@ msgid "User"
 msgstr "Пользователь"
 
 #. module: analytic
-#: model:mail.message.subtype,description:analytic.mt_account_pending
-msgid "Contract <b>pending</b>"
-msgstr ""
+#: field:account.analytic.account,parent_id:0
+msgid "Parent Analytic Account"
+msgstr "Основной аналитический счет"
 
 #. module: analytic
 #: field:account.analytic.line,date:0
@@ -215,12 +218,12 @@ msgstr "Дата"
 #. module: analytic
 #: model:mail.message.subtype,name:analytic.mt_account_closed
 msgid "Contract Finished"
-msgstr ""
+msgstr "Договор завершен"
 
 #. module: analytic
 #: view:account.analytic.account:0
 msgid "Terms and Conditions"
-msgstr ""
+msgstr "Правила и условия"
 
 #. module: analytic
 #: help:account.analytic.line,amount:0
@@ -234,7 +237,7 @@ msgstr ""
 #. module: analytic
 #: field:account.analytic.account,partner_id:0
 msgid "Customer"
-msgstr ""
+msgstr "Заказчик"
 
 #. module: analytic
 #: field:account.analytic.account,child_complete_ids:0
@@ -244,28 +247,33 @@ msgstr "Иерархия счета"
 #. module: analytic
 #: field:account.analytic.account,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Сообщения"
 
 #. module: analytic
-#: field:account.analytic.account,parent_id:0
-msgid "Parent Analytic Account"
-msgstr "Основной аналитический счет"
+#: help:account.analytic.account,message_ids:0
+msgid "Messages and communication history"
+msgstr "Сообщения и история общения"
+
+#. module: analytic
+#: constraint:account.analytic.line:0
+msgid "You cannot create analytic line on view account."
+msgstr ""
 
 #. module: analytic
 #: view:account.analytic.account:0
 msgid "Contract Information"
-msgstr ""
+msgstr "Информация договора"
 
 #. module: analytic
 #: field:account.analytic.account,template_id:0
 #: selection:account.analytic.account,type:0
 msgid "Template of Contract"
-msgstr ""
+msgstr "Шаблон договора"
 
 #. module: analytic
 #: field:account.analytic.account,message_summary:0
 msgid "Summary"
-msgstr ""
+msgstr "Сводка"
 
 #. module: analytic
 #: field:account.analytic.account,quantity_max:0
@@ -280,11 +288,19 @@ msgstr "Кредит"
 #. module: analytic
 #: model:mail.message.subtype,name:analytic.mt_account_opened
 msgid "Contract Opened"
-msgstr ""
+msgstr "Договор открыт"
 
 #. module: analytic
-#: model:mail.message.subtype,description:analytic.mt_account_closed
-msgid "Contract <b>closed</b>"
+#: help:account.analytic.account,type:0
+msgid ""
+"If you select the View Type, it means you won't allow to create journal "
+"entries using that account.\n"
+"The type 'Analytic account' stands for usual accounts that you only want to "
+"use in accounting.\n"
+"If you select Contract or Project, it offers you the possibility to manage "
+"the validity and the invoicing options for this account.\n"
+"The special type 'Template of Contract' allows you to define a template with "
+"default data that you can reuse easily."
 msgstr ""
 
 #. module: analytic
@@ -303,14 +319,14 @@ msgid "Balance"
 msgstr "Баланс"
 
 #. module: analytic
-#: help:account.analytic.account,message_unread:0
-msgid "If checked new messages require your attention."
-msgstr ""
+#: field:account.analytic.account,complete_name:0
+msgid "Full Name"
+msgstr "Полное название"
 
 #. module: analytic
 #: selection:account.analytic.account,state:0
 msgid "To Renew"
-msgstr ""
+msgstr "К продлению"
 
 #. module: analytic
 #: field:account.analytic.account,quantity:0
@@ -319,35 +335,30 @@ msgid "Quantity"
 msgstr "Количество"
 
 #. module: analytic
-#: field:account.analytic.account,date:0
-msgid "Date End"
-msgstr "Дата окончания"
-
-#. module: analytic
 #: field:account.analytic.account,code:0
 msgid "Reference"
-msgstr ""
+msgstr "Ссылка"
 
 #. module: analytic
 #: code:addons/analytic/analytic.py:160
 #, python-format
 msgid "Error!"
-msgstr ""
+msgstr "Ошибка!"
+
+#. module: analytic
+#: model:mail.message.subtype,description:analytic.mt_account_closed
+msgid "Contract closed"
+msgstr "Контракт закрыт"
 
 #. module: analytic
 #: model:res.groups,name:analytic.group_analytic_accounting
 msgid "Analytic Accounting"
-msgstr ""
+msgstr "Аналитический учет"
 
 #. module: analytic
 #: field:account.analytic.line,amount:0
 msgid "Amount"
 msgstr "Суммма"
-
-#. module: analytic
-#: field:account.analytic.account,complete_name:0
-msgid "Full Account Name"
-msgstr "Полное название счета"
 
 #. module: analytic
 #: view:account.analytic.account:0
@@ -360,129 +371,42 @@ msgstr "Счет аналитики"
 #. module: analytic
 #: field:account.analytic.account,currency_id:0
 msgid "Currency"
-msgstr ""
+msgstr "Валюта"
 
 #. module: analytic
-#: help:account.analytic.account,message_summary:0
-msgid ""
-"Holds the Chatter summary (number of messages, ...). This summary is "
-"directly in html format in order to be inserted in kanban views."
-msgstr ""
+#: model:mail.message.subtype,description:analytic.mt_account_opened
+msgid "Contract opened"
+msgstr "Контракт открыт"
+
+#. module: analytic
+#: code:addons/analytic/analytic.py:262
+#, python-format
+msgid "Warning"
+msgstr "Внимание"
 
 #. module: analytic
 #: field:account.analytic.account,type:0
 msgid "Type of Account"
-msgstr ""
+msgstr "Тип счёта"
 
 #. module: analytic
 #: field:account.analytic.account,date_start:0
 msgid "Start Date"
-msgstr ""
-
-#. module: analytic
-#: constraint:account.analytic.line:0
-msgid "You cannot create analytic line on view account."
-msgstr ""
+msgstr "Дата начала"
 
 #. module: analytic
 #: field:account.analytic.account,line_ids:0
 msgid "Analytic Entries"
 msgstr "Проводки аналитики"
 
-#~ msgid "Account Name"
-#~ msgstr "Название счета"
+#~ msgid "Date End"
+#~ msgstr "Дата окончания"
 
-#~ msgid "State"
-#~ msgstr "Состояние"
+#~ msgid "Full Account Name"
+#~ msgstr "Полное название счета"
 
-#~ msgid "Draft"
-#~ msgstr "Черновик"
+#~ msgid "Contract <b>pending</b>"
+#~ msgstr "Договор <b>в ожидании</b>"
 
-#~ msgid "Maximum Quantity"
-#~ msgstr "Максимальное количество"
-
-#~ msgid "Normal"
-#~ msgstr "Обычный"
-
-#~ msgid "Account Type"
-#~ msgstr "Тип счета"
-
-#~ msgid "Pending"
-#~ msgstr "В ожидании"
-
-#~ msgid "Contact"
-#~ msgstr "Контакт"
-
-#~ msgid "Account currency"
-#~ msgstr "Валюта счета"
-
-#~ msgid ""
-#~ "Error! The currency has to be the same as the currency of the selected "
-#~ "company"
-#~ msgstr "Ошибка! Валюта должна совпадать с валютой выбранной компании"
-
-#~ msgid "View"
-#~ msgstr "Вид"
-
-#~ msgid "Account Code"
-#~ msgstr "Код счета"
-
-#~ msgid "Date Start"
-#~ msgstr "Дата начала"
-
-#~ msgid ""
-#~ "Module for defining analytic accounting object.\n"
-#~ "    "
-#~ msgstr ""
-#~ "Модуль для определения объектов аналитического учета.\n"
-#~ "    "
-
-#~ msgid "Open"
-#~ msgstr "Открыто"
-
-#~ msgid ""
-#~ "If you select the View Type, it means you won't allow to create journal "
-#~ "entries using that account."
-#~ msgstr ""
-#~ "Если вы выберите тип Вид, то будет нельзя создавать записи в журнале, "
-#~ "используя этот счет."
-
-#~ msgid "Error! You can not create recursive analytic accounts."
-#~ msgstr "Ошибка! Вы не можете создавать рекурсивные аналитический счета."
-
-#~ msgid "Sets the higher limit of quantity of hours."
-#~ msgstr "Устанавливает верхний предел количества часов."
-
-#~ msgid ""
-#~ "* When an account is created its in 'Draft' state.                           "
-#~ "       \n"
-#~ "* If any associated partner is there, it can be in 'Open' state.             "
-#~ "                     \n"
-#~ "* If any pending balance is there it can be in 'Pending'.                    "
-#~ "               \n"
-#~ "* And finally when all the transactions are over, it can be in 'Close' "
-#~ "state.                                   \n"
-#~ "* The project can be in either if the states 'Template' and 'Running'.\n"
-#~ " If it is template then we can make projects based on the template projects. "
-#~ "If its in 'Running' state it is a normal project.                            "
-#~ "     \n"
-#~ " If it is to be reviewed then the state is 'Pending'.\n"
-#~ " When the project is completed the state is set to 'Done'."
-#~ msgstr ""
-#~ "* При создании счёта учёта, он находится в состоянии \"Черновик\".           "
-#~ "                       \n"
-#~ "* Если присутствует хотя бы один связанный партнёр, счёт может быть в "
-#~ "состоянии \"Открыт\".                                  \n"
-#~ "* Если присутствует хотя бы один ожидающий баланс, счёт может быть в "
-#~ "состоянии \"В ожидании\".                                   \n"
-#~ "* И наконец, при завершении всех транзакций, счёт может быть в состоянии "
-#~ "\"Закрыт\".                                   \n"
-#~ "* Проект может быть в сотояниях \"Шаблон\" или \"Выполняется\".\n"
-#~ " Если он в состоянии \"Шаблон\", на его основе можно составлять другие "
-#~ "проекты. Если он в состоянии \"Выполняется\" — это нормальный проект.        "
-#~ "                         \n"
-#~ " Если он требует рассмотрения, он находится в состоянии \"В ожидании\".\n"
-#~ " При завершении проекта, состояние устанавливается в \"Выполнен\"."
-
-#~ msgid "Partner"
-#~ msgstr "Контрагент"
+#~ msgid "Contract <b>closed</b>"
+#~ msgstr "Договор <b>закрыт</b>"

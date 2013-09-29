@@ -1,20 +1,21 @@
-# Translation of OpenERP Server.
-# This file contains the translation of the following modules:
-#    * project_issue
+# Hungarian translation for openobject-addons
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the openobject-addons package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 6.0dev\n"
-"Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2012-12-21 17:04+0000\n"
-"PO-Revision-Date: 2013-01-24 16:56+0000\n"
+"Project-Id-Version: openobject-addons\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-06-07 19:36+0000\n"
+"PO-Revision-Date: 2013-03-10 20:23+0000\n"
 "Last-Translator: krnkris <Unknown>\n"
-"Language-Team: \n"
+"Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-01-25 05:24+0000\n"
-"X-Generator: Launchpad (build 16445)\n"
+"X-Launchpad-Export-Date: 2013-07-11 06:18+0000\n"
+"X-Generator: Launchpad (build 16696)\n"
 
 #. module: project_issue
 #: model:project.category,name:project_issue.project_issue_category_03
@@ -119,7 +120,7 @@ msgid "Days to Open"
 msgstr "Megnyitásig hátralévő napok"
 
 #. module: project_issue
-#: code:addons/project_issue/project_issue.py:465
+#: code:addons/project_issue/project_issue.py:479
 #, python-format
 msgid ""
 "You cannot escalate this issue.\n"
@@ -269,18 +270,10 @@ msgid "Extra Info"
 msgstr "Extra információ"
 
 #. module: project_issue
-#: model:ir.actions.act_window,help:project_issue.action_project_issue_report
-msgid ""
-"This report on the project issues allows you to analyse the quality of your "
-"support or after-sales services. You can track the issues per age. You can "
-"analyse the time required to open or close an issue, the number of email to "
-"exchange and the time spent on average by issues."
-msgstr ""
-"Ez a projekt ügyi jelentés lehetővé teszi a támogatása minőségének és az "
-"eladás utáni szolgáltatásainak az elemzését. Nyomon követheti az ügyet koruk "
-"szerint. Elemezheti az ügy megnyitásához és bezárásához felhasznált időt, az "
-"ügyben váltott emailek számát és az átlag időt, mennyit töltöttek egyes "
-"ügyekkel."
+#: code:addons/project_issue/project_issue.py:479
+#, python-format
+msgid "Warning!"
+msgstr "Figyelem!"
 
 #. module: project_issue
 #: view:project.issue:0
@@ -293,6 +286,12 @@ msgid "Responsible"
 msgstr "Felelős"
 
 #. module: project_issue
+#: model:mail.message.subtype,name:project_issue.mt_issue_blocked
+#: model:mail.message.subtype,name:project_issue.mt_project_issue_blocked
+msgid "Issue Blocked"
+msgstr "Ügy blokkolva"
+
+#. module: project_issue
 #: view:project.issue:0
 msgid "Statistics"
 msgstr "Statisztika"
@@ -303,7 +302,7 @@ msgid "Kanban State"
 msgstr "Kanban státusz"
 
 #. module: project_issue
-#: code:addons/project_issue/project_issue.py:360
+#: code:addons/project_issue/project_issue.py:366
 #, python-format
 msgid "Project issue <b>converted</b> to task."
 msgstr "Project ügy <b>átalakítása</b> feladattá."
@@ -337,9 +336,9 @@ msgid "New"
 msgstr "Új"
 
 #. module: project_issue
-#: model:ir.actions.act_window,name:project_issue.project_issue_categ_action
-msgid "Issue Categories"
-msgstr "Ügy kategóriák"
+#: view:project.project:0
+msgid "{'invisible': [('use_tasks', '=', False),('use_issues','=',False)]}"
+msgstr ""
 
 #. module: project_issue
 #: field:project.issue,email_from:0
@@ -359,7 +358,7 @@ msgid "Lowest"
 msgstr "Legalacsonyabb"
 
 #. module: project_issue
-#: code:addons/project_issue/project_issue.py:382
+#: code:addons/project_issue/project_issue.py:388
 #, python-format
 msgid "%s (copy)"
 msgstr "%s (másolat)"
@@ -410,9 +409,18 @@ msgid "July"
 msgstr "Július"
 
 #. module: project_issue
-#: model:ir.ui.menu,name:project_issue.menu_project_issue_category_act
-msgid "Categories"
-msgstr "Kategóriák"
+#: model:ir.actions.act_window,help:project_issue.action_project_issue_report
+msgid ""
+"This report on the project issues allows you to analyse the quality of your "
+"support or after-sales services. You can track the issues per age. You can "
+"analyse the time required to open or close an issue, the number of email to "
+"exchange and the time spent on average by issues."
+msgstr ""
+"Ez a projekt ügyi jelentés lehetővé teszi a támogatása minőségének és az "
+"eladás utáni szolgáltatásainak az elemzését. Nyomon követheti az ügyet koruk "
+"szerint. Elemezheti az ügy megnyitásához és bezárásához felhasznált időt, az "
+"ügyben váltott emailek számát és az átlag időt, mennyit töltöttek egyes "
+"ügyekkel."
 
 #. module: project_issue
 #: view:project.issue:0
@@ -430,7 +438,7 @@ msgid "Issues Analysis"
 msgstr "Ügyek elemzése"
 
 #. module: project_issue
-#: code:addons/project_issue/project_issue.py:485
+#: code:addons/project_issue/project_issue.py:516
 #, python-format
 msgid "No Subject"
 msgstr "Nincs tárgy"
@@ -454,7 +462,7 @@ msgid "Delete"
 msgstr "Törlés"
 
 #. module: project_issue
-#: code:addons/project_issue/project_issue.py:365
+#: code:addons/project_issue/project_issue.py:371
 #, python-format
 msgid "Tasks"
 msgstr "Feladatok"
@@ -493,11 +501,6 @@ msgstr "Kis probléma"
 #: view:project.project:0
 msgid "creates"
 msgstr "létrehozott"
-
-#. module: project_issue
-#: model:crm.case.categ,name:project_issue.feature_request_categ
-msgid "Feature Requests"
-msgstr "Igények tulajdonsága"
 
 #. module: project_issue
 #: field:project.issue,write_date:0
@@ -552,11 +555,6 @@ msgstr ""
 "email felsorolását vesszővel elválasztva adja meg."
 
 #. module: project_issue
-#: model:crm.case.categ,name:project_issue.bug_categ
-msgid "Maintenance"
-msgstr "Karbantartás"
-
-#. module: project_issue
 #: selection:project.issue.report,state:0
 msgid "Draft"
 msgstr "Tervezet"
@@ -608,11 +606,6 @@ msgstr "Augusztus"
 #: selection:project.issue.report,priority:0
 msgid "Normal"
 msgstr "Normál"
-
-#. module: project_issue
-#: field:project.project,issue_count:0
-msgid "unknown"
-msgstr "ismeretlen"
 
 #. module: project_issue
 #: view:project.issue:0
@@ -671,10 +664,10 @@ msgid "November"
 msgstr "November"
 
 #. module: project_issue
-#: code:addons/project_issue/project_issue.py:465
+#: code:addons/project_issue/project_issue.py:499
 #, python-format
-msgid "Warning!"
-msgstr "Figyelem!"
+msgid "Customer Email"
+msgstr "Vevői e-mail"
 
 #. module: project_issue
 #: view:project.issue.report:0
@@ -682,9 +675,9 @@ msgid "Search"
 msgstr "Keresés"
 
 #. module: project_issue
-#: selection:project.issue.report,month:0
-msgid "October"
-msgstr "Október"
+#: view:project.issue:0
+msgid "Creation Month"
+msgstr "Létrehozás hónapja"
 
 #. module: project_issue
 #: help:project.issue,days_since_creation:0
@@ -741,17 +734,12 @@ msgstr "Aktuális tuajdonság"
 #. module: project_issue
 #: view:project.issue.version:0
 msgid "Issue Version"
-msgstr "Ügy verzió"
+msgstr "Ügy változata"
 
 #. module: project_issue
 #: field:project.issue.version,name:0
 msgid "Version Number"
 msgstr "Verziószám"
-
-#. module: project_issue
-#: view:project.issue:0
-msgid "Cancel"
-msgstr "Visszavonás"
 
 #. module: project_issue
 #: selection:project.issue.report,state:0
@@ -789,8 +777,13 @@ msgstr "Projekt ügy"
 
 #. module: project_issue
 #: view:project.issue:0
-msgid "Creation Month"
-msgstr "Hónap létrehozás"
+msgid "Add an internal note..."
+msgstr "Belső jegyzet hozzáadása..."
+
+#. module: project_issue
+#: view:project.issue:0
+msgid "Cancel Issue"
+msgstr "Ügy visszavonása"
 
 #. module: project_issue
 #: help:project.issue,progress:0
@@ -798,10 +791,20 @@ msgid "Computed as: Time Spent / Total Time."
 msgstr "Kiszámítható: Eltöltött idő / Teljes idő"
 
 #. module: project_issue
+#: field:project.project,issue_count:0
+msgid "Unclosed Issues"
+msgstr "Befejezetlen ügyek"
+
+#. module: project_issue
 #: view:project.issue:0
 #: selection:project.issue,kanban_state:0
 msgid "Ready for next stage"
 msgstr "Következő fokra ugorhat"
+
+#. module: project_issue
+#: selection:project.issue.report,month:0
+msgid "October"
+msgstr "Október"
 
 #. module: project_issue
 #: view:project.issue.report:0
@@ -872,10 +875,10 @@ msgid "Issue Created"
 msgstr "Ügy létrehozva"
 
 #. module: project_issue
-#: model:mail.message.subtype,name:project_issue.mt_issue_blocked
-#: model:mail.message.subtype,name:project_issue.mt_project_issue_blocked
-msgid "Issue Blocked"
-msgstr "Ügy blokkolva"
+#: code:addons/project_issue/project_issue.py:497
+#, python-format
+msgid "Customer"
+msgstr "Vevő"
 
 #. module: project_issue
 #: selection:project.issue.report,month:0
@@ -947,11 +950,6 @@ msgstr "Április"
 #: view:project.issue:0
 msgid "⇒ Escalate"
 msgstr "⇒ Leágaztatás"
-
-#. module: project_issue
-#: view:project.issue:0
-msgid "References"
-msgstr "Hivatkozások"
 
 #. module: project_issue
 #: model:mail.message.subtype,description:project_issue.mt_issue_new
@@ -1026,97 +1024,23 @@ msgstr "Időtartam"
 msgid "Issue Started"
 msgstr "Ügy elindítva"
 
-#~ msgid "Error! project start-date must be lower then project end-date."
-#~ msgstr ""
-#~ "Hiba! A projekt kezdő dátumának előbbinek kell lennie, mint a projekt "
-#~ "befejező dátumának."
+#~ msgid "Categories"
+#~ msgstr "Kategóriák"
 
-#~ msgid "Add Internal Note"
-#~ msgstr "Belső jegyzet hozzáadása"
+#~ msgid "References"
+#~ msgstr "Hivatkozások"
 
-#~ msgid "Date Closed"
-#~ msgstr "Lezárás dátuma"
+#~ msgid "Issue Categories"
+#~ msgstr "Ügy kategóriák"
 
-#, python-format
-#~ msgid "Warning !"
-#~ msgstr "Vigyázat !"
+#~ msgid "Feature Requests"
+#~ msgstr "Igények tulajdonsága"
 
-#~ msgid "Mobile"
-#~ msgstr "Mobil"
+#~ msgid "unknown"
+#~ msgstr "ismeretlen"
 
-#, python-format
-#~ msgid " (copy)"
-#~ msgstr " (másolat)"
+#~ msgid "Maintenance"
+#~ msgstr "Karbantartás"
 
-#~ msgid "Partner"
-#~ msgstr "Partner"
-
-#~ msgid "Previous"
-#~ msgstr "Előző"
-
-#~ msgid "Send New Email"
-#~ msgstr "Új e-mail küldése"
-
-#~ msgid "Next"
-#~ msgstr "Következő"
-
-#~ msgid "Today"
-#~ msgstr "Ma"
-
-#~ msgid "Phone"
-#~ msgstr "Telefon"
-
-#~ msgid "Reset to Draft"
-#~ msgstr "Visszaállítás Tervezet állapotba"
-
-#~ msgid "History Information"
-#~ msgstr "Előzmény"
-
-#~ msgid "Category"
-#~ msgstr "Kategória"
-
-#~ msgid "Extended Filters..."
-#~ msgstr "Kiterjesztett szűrők…"
-
-#~ msgid "General"
-#~ msgstr "Általános"
-
-#~ msgid "Attachments"
-#~ msgstr "Mellékletek"
-
-#~ msgid "History"
-#~ msgstr "Előzmény"
-
-#~ msgid "Partner Contact"
-#~ msgstr "Partner kapcsolat"
-
-#~ msgid "Resolution"
-#~ msgstr "Döntés"
-
-#~ msgid "Current"
-#~ msgstr "Jelenleg"
-
-#~ msgid "Close"
-#~ msgstr "Zárás"
-
-#~ msgid "Details"
-#~ msgstr "Részletek"
-
-#~ msgid "Reply"
-#~ msgstr "Válasz"
-
-#~ msgid "Employee's Name"
-#~ msgstr "Alkalmazott neve"
-
-#~ msgid "Sale Team    "
-#~ msgstr "Értékesítési csapat    "
-
-#, python-format
-#~ msgid "No Title"
-#~ msgstr "Nincs cím"
-
-#~ msgid "State"
-#~ msgstr "Állapot"
-
-#~ msgid "Month-1"
-#~ msgstr "Előző hónap"
+#~ msgid "Cancel"
+#~ msgstr "Visszavonás"

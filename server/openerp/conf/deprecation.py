@@ -32,7 +32,6 @@ by the user to check if her code is future proof.
 # without the 'openerp.' prefix. E.g. openerp.osv.osv and osv.osv refer to the
 # same module.
 # Introduced around 2011.02.
-# Change to False around 2013.02.
-open_openerp_namespace = False
+open_openerp_namespace = True
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

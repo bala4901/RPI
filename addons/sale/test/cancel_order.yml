@@ -51,10 +51,11 @@
   I cancel all the invoices.
 -
   !python {model: sale.order}: |
+    import netsvc
     invoice_ids = self.browse(cr, uid, ref("sale_order_8")).invoice_ids
-    account_invoice_obj = self.pool.get('account.invoice')
+    wf_service = netsvc.LocalService("workflow")
     for invoice in invoice_ids:
-        account_invoice_obj.signal_invoice_cancel(cr, uid, [invoice.id])
+        wf_service.trg_validate(uid, 'account.invoice', invoice.id, 'invoice_cancel', cr)
 -
   I check order status in "Invoice Exception" and related invoice is in cancel state.
 -

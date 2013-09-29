@@ -83,7 +83,7 @@ class ir_attachment(osv.osv):
             if bin_size:
                 r = os.path.getsize(full_path)
             else:
-                r = open(full_path).read().encode('base64')
+                r = open(full_path,'rb').read().encode('base64')
         except IOError:
             _logger.error("_read_file reading %s",full_path)
         return r
@@ -198,7 +198,7 @@ class ir_attachment(osv.osv):
                     continue
                 res_ids.setdefault(rmod,set()).add(rid)
         if values:
-            if 'res_model' in values and 'res_id' in values:
+            if values.get('res_model') and 'res_id' in values:
                 res_ids.setdefault(values['res_model'],set()).add(values['res_id'])
 
         ima = self.pool.get('ir.model.access')

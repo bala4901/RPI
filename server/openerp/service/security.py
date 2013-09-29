@@ -23,6 +23,7 @@ import openerp.exceptions
 import openerp.pooler as pooler
 import openerp.tools as tools
 
+#.apidoc title: Authentication helpers
 
 def login(db, login, password):
     pool = pooler.get_pool(db)

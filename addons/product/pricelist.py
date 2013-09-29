@@ -95,6 +95,7 @@ class product_pricelist(osv.osv):
 
     _name = "product.pricelist"
     _description = "Pricelist"
+    _order = 'name'
     _columns = {
         'name': fields.char('Pricelist Name',size=64, required=True, translate=True),
         'active': fields.boolean('Active', help="If unchecked, it will allow you to hide the pricelist without removing it."),
@@ -112,6 +113,27 @@ class product_pricelist(osv.osv):
             name = pl.name + ' ('+ pl.currency_id.name + ')'
             result.append((pl.id,name))
         return result
+
+    def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=100):
+        if name and operator == '=' and not args:
+            # search on the name of the pricelist and its currency, opposite of name_get(),
+            # Used by the magic context filter in the product search view.
+            query_args = {'name': name, 'limit': limit}
+            query = """SELECT p.id
+                       FROM product_pricelist p JOIN
+                            res_currency c ON (p.currency_id = c.id)
+                       WHERE p.name || ' (' || c.name || ')' = %(name)s
+                       ORDER BY p.name"""
+            if limit:
+                query += " LIMIT %(limit)s"
+            cr.execute(query, query_args)
+            ids = [r[0] for r in cr.fetchall()]
+            # regular search() to apply ACLs - may limit results below limit in some cases
+            ids = self.search(cr, uid, [('id', 'in', ids)], limit=limit, context=context)
+            if ids:
+                return self.name_get(cr, uid, ids, context)
+        return super(product_pricelist, self).name_search(
+            cr, uid, name, args, operator=operator, context=context, limit=limit)
 
 
     def _get_currency(self, cr, uid, ctx):
@@ -151,9 +173,7 @@ class product_pricelist(osv.osv):
         if context is None:
             context = {}
 
-        date = time.strftime('%Y-%m-%d')
-        if 'date' in context:
-            date = context['date']
+        date = context.get('date') or time.strftime('%Y-%m-%d')
 
         currency_obj = self.pool.get('res.currency')
         product_obj = self.pool.get('product.product')
@@ -236,7 +256,10 @@ class product_pricelist(osv.osv):
                                         qty, context=context)[res['base_pricelist_id']]
                                 ptype_src = self.browse(cr, uid, res['base_pricelist_id']).currency_id.id
                                 uom_price_already_computed = True
-                                price = currency_obj.compute(cr, uid, ptype_src, res['currency_id'], price_tmp, round=False)
+                                price = currency_obj.compute(cr, uid,
+                                        ptype_src, res['currency_id'],
+                                        price_tmp, round=False,
+                                        context=context)
                         elif res['base'] == -2:
                             # this section could be improved by moving the queries outside the loop:
                             where = []
@@ -374,7 +397,7 @@ class product_pricelist_item(osv.osv):
             result.append((line.id, line.name))
 
         result.append((-1, _('Other Pricelist')))
-        result.append((-2, _('Partner section of the product form')))
+        result.append((-2, _('Supplier Prices on the product form')))
         return result
 
     _name = "product.pricelist.item"

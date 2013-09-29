@@ -7,15 +7,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-addons\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-12-21 17:05+0000\n"
-"PO-Revision-Date: 2012-12-09 18:38+0000\n"
+"POT-Creation-Date: 2013-06-07 19:37+0000\n"
+"PO-Revision-Date: 2013-06-08 10:03+0000\n"
 "Last-Translator: Erwin van der Ploeg (Endian Solutions) <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-12-22 06:07+0000\n"
-"X-Generator: Launchpad (build 16378)\n"
+"X-Launchpad-Export-Date: 2013-07-11 06:14+0000\n"
+"X-Generator: Launchpad (build 16696)\n"
+
+#. module: portal_hr_employees
+#: view:hr.employee:0
+msgid "Here you can write information about you to be shown in the portal..."
+msgstr ""
+"Hier kunt u informatie over uzelf weergeven, welke wordt weergegeven in de "
+"portaal."
 
 #. module: portal_hr_employees
 #: view:hr.employee:0
@@ -26,7 +33,7 @@ msgstr "Coach"
 #: model:ir.actions.act_window,name:portal_hr_employees.action_team
 #: view:portal_crm.crm_contact_us:0
 msgid "Our Team"
-msgstr ""
+msgstr "Ons Team"
 
 #. module: portal_hr_employees
 #: view:hr.employee:0
@@ -37,6 +44,11 @@ msgstr "Groepeer op..."
 #: view:hr.employee:0
 msgid "Company"
 msgstr "Bedrijf"
+
+#. module: portal_hr_employees
+#: view:hr.employee:0
+msgid "Mobile:"
+msgstr "Mobiel:"
 
 #. module: portal_hr_employees
 #: selection:hr.employee,visibility:0
@@ -59,6 +71,12 @@ msgid "Manager"
 msgstr "Manager"
 
 #. module: portal_hr_employees
+#: view:hr.employee:0
+#: field:portal_crm.crm_contact_us,employee_ids:0
+msgid "Employees"
+msgstr "Werknemers"
+
+#. module: portal_hr_employees
 #: model:ir.model,name:portal_hr_employees.model_hr_employee
 msgid "Employee"
 msgstr "Werknemer"
@@ -76,7 +94,7 @@ msgstr "Zichtbaarheid"
 #. module: portal_hr_employees
 #: field:hr.employee,public_info:0
 msgid "Public Info"
-msgstr ""
+msgstr "Publieke informatie"
 
 #. module: portal_hr_employees
 #: model:ir.model,name:portal_hr_employees.model_portal_crm_crm_contact_us
@@ -90,6 +108,14 @@ msgstr "Afdeling"
 
 #. module: portal_hr_employees
 #: view:hr.employee:0
-#: field:portal_crm.crm_contact_us,employee_ids:0
-msgid "Employees"
-msgstr "Werknemers"
+msgid ""
+"$('.oe_employee_picture').load(function() { if($(this).width() > "
+"$(this).height()) { $(this).addClass('oe_employee_picture_wide') } });"
+msgstr ""
+"$('.oe_employee_picture').load(function() { if($(this).width() > "
+"$(this).height()) { $(this).addClass('oe_employee_picture_wide') } });"
+
+#. module: portal_hr_employees
+#: view:hr.employee:0
+msgid "Tel:"
+msgstr "Tel:"

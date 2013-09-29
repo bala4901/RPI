@@ -420,6 +420,11 @@ class product_product(osv.osv):
         pricelist = context.get('pricelist', False)
         partner = context.get('partner', False)
         if pricelist:
+            # Support context pricelists specified as display_name or ID for compatibility
+            if isinstance(pricelist, basestring):
+                pricelist_ids = self.pool.get('product.pricelist').name_search(
+                    cr, uid, pricelist, operator='=', context=context, limit=1)
+                pricelist = pricelist_ids[0][0] if pricelist_ids else pricelist
             for id in ids:
                 try:
                     price = self.pool.get('product.pricelist').price_get(cr,uid,[pricelist], id, quantity, partner=partner, context=context)[pricelist]
@@ -554,7 +559,7 @@ class product_product(osv.osv):
         'price_extra': fields.float('Variant Price Extra', digits_compute=dp.get_precision('Product Price')),
         'price_margin': fields.float('Variant Price Margin', digits_compute=dp.get_precision('Product Price')),
         'pricelist_id': fields.dummy(string='Pricelist', relation='product.pricelist', type='many2one'),
-        'name_template': fields.related('product_tmpl_id', 'name', string="Name", type='char', size=128, store=True, select=True),
+        'name_template': fields.related('product_tmpl_id', 'name', string="Template Name", type='char', size=128, store=True, select=True),
         'color': fields.integer('Color Index'),
         # image: all image fields are base64 encoded and PIL-supported
         'image': fields.binary("Image",
@@ -588,10 +593,13 @@ class product_product(osv.osv):
             # Check if the product is last product of this template
             other_product_ids = self.search(cr, uid, [('product_tmpl_id', '=', tmpl_id), ('id', '!=', product.id)], context=context)
             if not other_product_ids:
-                 unlink_product_tmpl_ids.append(tmpl_id)
+                unlink_product_tmpl_ids.append(tmpl_id)
             unlink_ids.append(product.id)
+        res = super(product_product, self).unlink(cr, uid, unlink_ids, context=context)
+        # delete templates after calling super, as deleting template could lead to deleting
+        # products due to ondelete='cascade'
         self.pool.get('product.template').unlink(cr, uid, unlink_product_tmpl_ids, context=context)
-        return super(product_product, self).unlink(cr, uid, unlink_ids, context=context)
+        return res
 
     def onchange_uom(self, cursor, user, ids, uom_id, uom_po_id):
         if uom_id and uom_po_id:
@@ -748,7 +756,7 @@ class product_product(osv.osv):
             context = {}
         if context and context.get('search_default_categ_id', False):
             args.append((('categ_id', 'child_of', context['search_default_categ_id'])))
-        return super(product_product, self).search(cr, uid, args, offset=offset, limit=limit, order=order, context=context, count=False)
+        return super(product_product, self).search(cr, uid, args, offset=offset, limit=limit, order=order, context=context, count=count)
 
 product_product()
 

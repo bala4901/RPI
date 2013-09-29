@@ -19,14 +19,12 @@
 #
 ##############################################################################
 
-try:
-    import cStringIO as StringIO
-except ImportError:
-    import StringIO
+import io
+import StringIO
 
 from PIL import Image
 from PIL import ImageOps
-from random import randint
+from random import random
 
 # ----------------------------------------
 # Image resizing
@@ -66,7 +64,7 @@ def image_resize_image(base64_source, size=(1024, 1024), encoding='base64', file
         return False
     if size == (None, None):
         return base64_source
-    image_stream = StringIO.StringIO(base64_source.decode(encoding))
+    image_stream = io.BytesIO(base64_source.decode(encoding))
     image = Image.open(image_stream)
 
     asked_width, asked_height = size
@@ -80,9 +78,11 @@ def image_resize_image(base64_source, size=(1024, 1024), encoding='base64', file
     if avoid_if_small and image.size[0] <= size[0] and image.size[1] <= size[1]:
         return base64_source
 
-    if image.size != size:
+    if image.size <> size:
         # If you need faster thumbnails you may use use Image.NEAREST
         image = ImageOps.fit(image, size, Image.ANTIALIAS)
+    if image.mode not in ["1", "L", "P", "RGB", "RGBA"]:
+        image = image.convert("RGB")
 
     background_stream = StringIO.StringIO()
     image.save(background_stream, filetype)
@@ -120,11 +120,11 @@ def image_colorize(original, randomize=True, color=(255, 255, 255)):
         :param color: background-color, if not randomize
     """
     # create a new image, based on the original one
-    original = Image.open(StringIO.StringIO(original))
+    original = Image.open(io.BytesIO(original))
     image = Image.new('RGB', original.size)
     # generate the background color, past it as background
     if randomize:
-        color = (randint(32, 224), randint(32, 224), randint(32, 224))
+        color = (int(random() * 192 + 32), int(random() * 192 + 32), int(random() * 192 + 32))
     image.paste(color)
     image.paste(original, mask=original)
     # return the new image

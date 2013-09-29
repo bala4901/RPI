@@ -1,21 +1,21 @@
 # Croatian translation for openobject-addons
-# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the openobject-addons package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: openobject-addons\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-12-21 17:05+0000\n"
-"PO-Revision-Date: 2012-12-14 09:36+0000\n"
-"Last-Translator: Bruno Bardić <bruno.bardic@procudo.hr>\n"
+"POT-Creation-Date: 2013-06-07 19:37+0000\n"
+"PO-Revision-Date: 2013-09-20 10:13+0000\n"
+"Last-Translator: Krešimir Jeđud <kresimir.jedud@infokom.hr>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-12-22 05:57+0000\n"
-"X-Generator: Launchpad (build 16378)\n"
+"X-Launchpad-Export-Date: 2013-09-21 05:59+0000\n"
+"X-Generator: Launchpad (build 16765)\n"
 
 #. module: fetchmail
 #: selection:fetchmail.server,state:0
@@ -69,7 +69,7 @@ msgstr ""
 #. module: fetchmail
 #: view:base.config.settings:0
 msgid "Configure the incoming email gateway"
-msgstr ""
+msgstr "Konfiguracija ulaznog e-mail gateway-a"
 
 #. module: fetchmail
 #: view:fetchmail.server:0
@@ -137,7 +137,7 @@ msgstr ""
 #. module: fetchmail
 #: view:fetchmail.server:0
 msgid "# of emails"
-msgstr ""
+msgstr "# e-mailova"
 
 #. module: fetchmail
 #: field:fetchmail.server,original:0
@@ -166,7 +166,7 @@ msgid "Incoming Mail Server"
 msgstr "Poslužitelj dolaznih poruka"
 
 #. module: fetchmail
-#: code:addons/fetchmail/fetchmail.py:155
+#: code:addons/fetchmail/fetchmail.py:163
 #, python-format
 msgid "Connection test failed!"
 msgstr "Greška pri testiranju povezivanja!"
@@ -187,7 +187,7 @@ msgid "Name"
 msgstr "Naziv"
 
 #. module: fetchmail
-#: code:addons/fetchmail/fetchmail.py:155
+#: code:addons/fetchmail/fetchmail.py:163
 #, python-format
 msgid ""
 "Here is what we got instead:\n"
@@ -329,27 +329,3 @@ msgstr "POP poslužitelj"
 #: field:fetchmail.server,port:0
 msgid "Port"
 msgstr "Port"
-
-#~ msgid "User Name"
-#~ msgstr "Korisničko ime"
-
-#~ msgid "Group By..."
-#~ msgstr "Grupiraj po..."
-
-#~ msgid "Type"
-#~ msgstr "Vrsta"
-
-#~ msgid "State"
-#~ msgstr "Stanje"
-
-#~ msgid "Confirm"
-#~ msgstr "Potvrdi"
-
-#~ msgid "Description"
-#~ msgstr "Opis"
-
-#~ msgid "User"
-#~ msgstr "Korisnik"
-
-#~ msgid "Date"
-#~ msgstr "Datum"

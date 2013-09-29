@@ -1,20 +1,21 @@
-# Translation of OpenERP Server.
-# This file contains the translation of the following modules:
-# 	* document
+# Turkish translation for openobject-addons
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the openobject-addons package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 6.0dev\n"
-"Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2012-12-21 17:05+0000\n"
-"PO-Revision-Date: 2012-05-10 17:53+0000\n"
-"Last-Translator: Raphael Collet (OpenERP) <Unknown>\n"
-"Language-Team: \n"
+"Project-Id-Version: openobject-addons\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-06-07 19:36+0000\n"
+"PO-Revision-Date: 2013-03-10 14:59+0000\n"
+"Last-Translator: Ayhan KIZILTAN <Unknown>\n"
+"Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-12-22 05:52+0000\n"
-"X-Generator: Launchpad (build 16378)\n"
+"X-Launchpad-Export-Date: 2013-07-11 05:57+0000\n"
+"X-Generator: Launchpad (build 16696)\n"
 
 #. module: document
 #: field:document.directory,parent_id:0
@@ -22,7 +23,7 @@ msgid "Parent Directory"
 msgstr "Ana Dizin"
 
 #. module: document
-#: code:addons/document/document.py:336
+#: code:addons/document/document.py:350
 #, python-format
 msgid "Directory name contains special characters!"
 msgstr "Klasör adında özel karakterler var!"
@@ -48,7 +49,7 @@ msgstr "Gruplandır..."
 #. module: document
 #: view:ir.attachment:0
 msgid "Modification"
-msgstr ""
+msgstr "Değiştirme"
 
 #. module: document
 #: view:document.directory:0
@@ -90,7 +91,7 @@ msgstr "Klasör İçeriği"
 #. module: document
 #: view:ir.attachment:0
 msgid "My Document(s)"
-msgstr ""
+msgstr "Belgelerim"
 
 #. module: document
 #: model:ir.ui.menu,name:document.menu_document_management_configuration
@@ -111,19 +112,19 @@ msgstr ""
 #. module: document
 #: help:document.directory.dctx,field:0
 msgid "The name of the field."
-msgstr ""
+msgstr "Alanın adı."
 
 #. module: document
-#: code:addons/document/document.py:326
-#: code:addons/document/document.py:331
+#: code:addons/document/document.py:340
+#: code:addons/document/document.py:345
 #, python-format
 msgid "Directory name must be unique!"
-msgstr "Klasör adı eşsiz olmalı !"
+msgstr "Dizin adı eşsiz olmalı !"
 
 #. module: document
 #: view:ir.attachment:0
 msgid "Filter on my documents"
-msgstr "Dökümanlarımdaki filtreler"
+msgstr "Belgelerimdeki süzgeçler"
 
 #. module: document
 #: view:ir.attachment:0
@@ -181,7 +182,7 @@ msgstr "Bilgi Birikimi Uygulama Ayarları"
 #: view:ir.attachment:0
 #: field:ir.attachment,partner_id:0
 msgid "Partner"
-msgstr "Paydaş"
+msgstr "İş Ortağı"
 
 #. module: document
 #: model:ir.actions.act_window,name:document.act_res_partner_document
@@ -201,11 +202,18 @@ msgid ""
 "          </p>\n"
 "        "
 msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"            Yeni bir belge oluşturmak için tıklayın. \n"
+"          </p><p>\n"
+"            Belge havuzu, epostalar, proje belgeleri, faturalar, vb. gibi\n"
+"            bütün eklere erişmenizi sağlar.\n"
+"          </p>\n"
+"        "
 
 #. module: document
-#: code:addons/document/document.py:326
-#: code:addons/document/document.py:331
-#: code:addons/document/document.py:336
+#: code:addons/document/document.py:340
+#: code:addons/document/document.py:345
+#: code:addons/document/document.py:350
 #, python-format
 msgid "ValidateError"
 msgstr "DoğrulamaHatası"
@@ -243,19 +251,19 @@ msgstr "İçerik Türü"
 #: view:document.directory:0
 #: field:document.directory,type:0
 msgid "Type"
-msgstr "Tür"
+msgstr "Tip"
 
 #. module: document
 #: sql_constraint:ir.attachment:0
 msgid "The filename must be unique in a directory !"
-msgstr ""
+msgstr "Bir dizindeki dosya adı eşsiz olmalı !"
 
 #. module: document
 #: code:addons/document/document.py:110
-#: code:addons/document/document.py:296
+#: code:addons/document/document.py:310
 #, python-format
 msgid "%s (copy)"
-msgstr ""
+msgstr "%s (kopya)"
 
 #. module: document
 #: help:document.directory,ressource_type_id:0
@@ -277,7 +285,7 @@ msgstr ""
 #. module: document
 #: constraint:document.directory:0
 msgid "Error! You cannot create recursive directories."
-msgstr ""
+msgstr "Hata! Özyinelemeli dizinler oluşturamazsınız."
 
 #. module: document
 #: field:document.directory,resource_field:0
@@ -287,7 +295,7 @@ msgstr "Ad alanı"
 #. module: document
 #: field:document.directory,dctx_ids:0
 msgid "Context fields"
-msgstr "Bağlam Alanları"
+msgstr "İçerik Alanları"
 
 #. module: document
 #: view:document.directory:0
@@ -316,7 +324,7 @@ msgid "Virtual Files"
 msgstr "Sanal Dosyalar"
 
 #. module: document
-#: code:addons/document/document.py:562
+#: code:addons/document/document.py:576
 #, python-format
 msgid "Error at doc write!"
 msgstr "Belge yazımında hata !"
@@ -332,8 +340,8 @@ msgid ""
 "When executing this wizard, it will configure your directories automatically "
 "according to modules installed."
 msgstr ""
-"Bu sihirbazı yürütürken, dizinlerinizi otomatikmen kurulu bulunan modüllere "
-"göre yapılandıracaktır."
+"Bu sihirbazı yürütürken, dizinlerinizi kendiliğinden kurulu bulunan "
+"modüllere göre yapılandıracaktır."
 
 #. module: document
 #: field:document.directory.content,directory_id:0
@@ -361,12 +369,12 @@ msgstr "Son Değiştiren Kullanıcı"
 #: model:ir.actions.act_window,name:document.action_view_files_by_user_graph
 #: view:report.document.user:0
 msgid "Files by User"
-msgstr ""
+msgstr "Kullanıcıya göre Dosyalar"
 
 #. module: document
 #: view:ir.attachment:0
 msgid "on"
-msgstr ""
+msgstr "üzerinde"
 
 #. module: document
 #: field:document.directory,domain:0
@@ -419,12 +427,12 @@ msgstr "Bütün alt dizinler ve dosyalar için içerik kelimelerini tanımla"
 #. module: document
 #: view:document.directory:0
 msgid "Static"
-msgstr "Durağan"
+msgstr "Statik"
 
 #. module: document
 #: field:report.document.user,user:0
 msgid "unknown"
-msgstr ""
+msgstr "bilinmeyen"
 
 #. module: document
 #: view:document.directory:0
@@ -459,13 +467,13 @@ msgid ""
 "If set, the directory will have to be a resource one."
 msgstr ""
 "Dosya adının kayıt adını içermesini istiyorsanız bu alanı işaretleyin.\n"
-"Eğer ayarlandıysa, dizin kaynak olandan olmalı."
+"Eğer ayarlıysa, dizin kaynak olandan olmalı."
 
 #. module: document
 #: view:document.configuration:0
 #: model:ir.actions.act_window,name:document.action_config_auto_directory
 msgid "Configure Directories"
-msgstr "Klasörleri Ayarla"
+msgstr "Dizinleri Yapılandır"
 
 #. module: document
 #: field:document.directory.content,include_name:0
@@ -500,7 +508,7 @@ msgstr ""
 #: code:addons/document/static/src/js/document.js:6
 #, python-format
 msgid "Attachment(s)"
-msgstr ""
+msgstr "Ek(ler)"
 
 #. module: document
 #: selection:report.document.user,month:0
@@ -577,7 +585,7 @@ msgstr "Ocak"
 #. module: document
 #: view:document.directory:0
 msgid "Document Directory"
-msgstr "Dökümanlar Klasörü"
+msgstr "Belgeler Dizini"
 
 #. module: document
 #: sql_constraint:document.directory:0
@@ -587,7 +595,7 @@ msgstr "Dizin adı eşsiz olmalı"
 #. module: document
 #: view:ir.attachment:0
 msgid "Attachments"
-msgstr ""
+msgstr "Ek(ler)"
 
 #. module: document
 #: field:document.directory,create_uid:0
@@ -604,7 +612,7 @@ msgid ""
 msgstr ""
 "OpenERP Belge Yönetim Sistemi sanal klasörlerin belgelerle "
 "eşleştirilmelerini destekler. Bir belgenin sanal klasörü belgelere ekli "
-"dosyaların yönetilmesi  ya da herhangi bir raporu yazdırmak ve indirmek için "
+"dosyaların yönetilmesi  veya herhangi bir raporu yazdırmak ve indirmek için "
 "kullanılır. Bu araç, kurulu bulunan modüllere göre dizinleri otomatikmen "
 "oluşturacaktır."
 
@@ -675,12 +683,12 @@ msgstr "ir.attachment"
 #. module: document
 #: view:report.document.user:0
 msgid "Users File"
-msgstr ""
+msgstr "Kullanıcı Dosyası"
 
 #. module: document
 #: model:ir.model,name:document.model_document_configuration
 msgid "Directory Configuration"
-msgstr "Klasör Ayarları"
+msgstr "Dizin Yapılandırması"
 
 #. module: document
 #: help:document.directory,type:0
@@ -725,7 +733,7 @@ msgstr "Dosya Sayısı"
 #. module: document
 #: model:ir.model,name:document.model_document_directory_content_type
 msgid "Directory Content Type"
-msgstr "Klasör İçerik Tipi"
+msgstr "Dizin İçerik Tipi"
 
 #. module: document
 #: view:document.directory:0
@@ -739,7 +747,7 @@ msgstr "Bu dizine ve dosyalarına, yalnızca bu grubun üyeleri erişebilirler."
 #: code:addons/document/static/src/js/document.js:17
 #, python-format
 msgid "%s (%s)"
-msgstr ""
+msgstr "%s (%s)"
 
 #. module: document
 #: field:document.directory.content,sequence:0
@@ -786,302 +794,3 @@ msgstr "Saklama Ortamı"
 #: field:document.directory.content,extension:0
 msgid "Document Type"
 msgstr "Belge Türü"
-
-#~ msgid "Notes"
-#~ msgstr "Notlar"
-
-#~ msgid "Invalid XML for View Architecture!"
-#~ msgstr "Görüntüleme mimarisi için Geçersiz XML"
-
-#~ msgid "Document Configuration"
-#~ msgstr "Döküman Ayarları"
-
-#~ msgid "Preview"
-#~ msgstr "Ön Bakış"
-
-#~ msgid "Storing Method"
-#~ msgstr "Depolama Yöntemi"
-
-#~ msgid "Other Resources"
-#~ msgstr "Diğer Kaynaklar"
-
-#~ msgid "Document Management System."
-#~ msgstr "Döküman Yönetim Sistemi"
-
-#~ msgid "Directorie's Structure"
-#~ msgstr "Klasör Yapısı"
-
-#~ msgid "File Information"
-#~ msgstr "Dosya Bilgisi"
-
-#~ msgid "Resource Title"
-#~ msgstr "Kaynak Ünvanı"
-
-#~ msgid "Link"
-#~ msgstr "Bağlantı"
-
-#~ msgid "Browse Files Using FTP"
-#~ msgstr "FTP Kullanarak Dosyalara Gözat"
-
-#~ msgid "History"
-#~ msgstr "Geçmiş Bilgisi"
-
-#~ msgid "Others Info"
-#~ msgstr "Diğer Bilgiler"
-
-#~ msgid "Server Address"
-#~ msgstr "Sunucu Adresi"
-
-#~ msgid "Search a File"
-#~ msgstr "Bir Dosya Ara"
-
-#~ msgid "Cancel"
-#~ msgstr "İptal"
-
-#~ msgid "Files per Month"
-#~ msgstr "Aylık Dosyalar"
-
-#~ msgid "Reporting"
-#~ msgstr "Raporlama"
-
-#~ msgid "This Month"
-#~ msgstr "Bu Ay"
-
-#~ msgid "User"
-#~ msgstr "Kullanıcı"
-
-#~ msgid "This Year"
-#~ msgstr "Bu Yıl"
-
-#, python-format
-#~ msgid "Error!"
-#~ msgstr "Hata!"
-
-#~ msgid "Project"
-#~ msgstr "Proje"
-
-#~ msgid "Created"
-#~ msgstr "Oluşturulma"
-
-#~ msgid "Attachment"
-#~ msgstr "Ek"
-
-#~ msgid "Online"
-#~ msgstr "Çevrimiçi"
-
-#~ msgid "Database"
-#~ msgstr "Veritabanı"
-
-#~ msgid "Read Only"
-#~ msgstr "Salt Okunur"
-
-#~ msgid "Product"
-#~ msgstr "Ürün"
-
-#, python-format
-#~ msgid "(copy)"
-#~ msgstr "(Kopya)"
-
-#~ msgid "Sale Order"
-#~ msgstr "Satış Siparişi"
-
-#~ msgid "Auto Directory Configuration"
-#~ msgstr "Otomatik Klasör Yapılandırması"
-
-#~ msgid "Document board"
-#~ msgstr "Döküman Paneli"
-
-#~ msgid "Process Node"
-#~ msgstr "İşlem Düğümü"
-
-#~ msgid "title"
-#~ msgstr "unvan"
-
-#~ msgid "Path"
-#~ msgstr "Yol"
-
-#~ msgid "Files by Users"
-#~ msgstr "Kullanıcıya göre Dosyalar"
-
-#~ msgid "Auto directory configuration for Products."
-#~ msgstr "Ürünler için otomatik dizin yapılandırması"
-
-#~ msgid "Document directory"
-#~ msgstr "Belge Dizini"
-
-#~ msgid "Error! You can not create recursive Directories."
-#~ msgstr "Hata! Yinelenen Dizinler oluşturamazsınız."
-
-#~ msgid "Configure Resource Directory"
-#~ msgstr "Kaynak Dizini Yapılandırması"
-
-#~ msgid "Storage"
-#~ msgstr "Saklama"
-
-#~ msgid "Files Per Partner"
-#~ msgstr "Paydaş başına Dosya"
-
-#~ msgid "Document Dashboard"
-#~ msgstr "Belge Paneli"
-
-#~ msgid "Stored Filename"
-#~ msgstr "Saklanan Dosya adı"
-
-#~ msgid "Modified"
-#~ msgstr "Değiştirilmiş"
-
-#~ msgid "Files by Partner"
-#~ msgstr "Paydaşa göre Dosyalar"
-
-#~ msgid "Configuration Progress"
-#~ msgstr "Yapılandırma Gelişimi"
-
-#~ msgid ""
-#~ "This is a complete document management system:\n"
-#~ "    * User Authentication\n"
-#~ "    * Document Indexation :- .pptx and .docx files are not support in "
-#~ "windows platform.\n"
-#~ "    * Dashboard for Document that includes:\n"
-#~ "        * New Files (list)\n"
-#~ "        * Files by Resource Type (graph)\n"
-#~ "        * Files by Partner (graph)\n"
-#~ "        * Files by Month (graph)\n"
-#~ "    ATTENTION:\n"
-#~ "    - When you install this module in a running company that have already "
-#~ "PDF files stored into the database,\n"
-#~ "      you will lose them all.\n"
-#~ "    - After installing this module PDF's are no longer stored into the "
-#~ "database,\n"
-#~ "      but in the servers rootpad like /server/bin/filestore.\n"
-#~ msgstr ""
-#~ "Bu bir tam belge yönetim sistemidir:\n"
-#~ "    * Kullanıcı doğrulanması\n"
-#~ "    *Belge indekslenmesi :- .pptx ve .docx dosyaları windows ortamında "
-#~ "desteklenmez.\n"
-#~ "    * Belge için Kontrol Paneli şunları içerir:\n"
-#~ "        * Yeni Dosyalar (liste)\n"
-#~ "        * Kaynak Türüne göre Dosyalar (grafik)\n"
-#~ "        * Paydaşa göre Dosyalar (grafik)\n"
-#~ "        * Aya göre Dosya (grafik)\n"
-#~ "    DİKKAT:\n"
-#~ "    - Bu modülü, halihazırda veritabanında saklı PDF dosyaları olan "
-#~ "çalışılmakta olan firmaya kurarsanız,\n"
-#~ "      hepsini silinir ve kaybedersiniz.\n"
-#~ "    - Bu modül kurulduktan sonra PDF ler artık bu veritabanında saklanmaz,\n"
-#~ "      ama /server/bin/filestore gibi kök tamponda saklanır.\n"
-
-#~ msgid "Image"
-#~ msgstr "Resim"
-
-#~ msgid ""
-#~ "If not checked, media is currently offline and its contents not available"
-#~ msgstr "Eğer işaretlenmediyse, ortam kapalı durumdadır ve içeriği görülmez"
-
-#~ msgid "Auto Configure Directory"
-#~ msgstr "Dizini Otomatik Yapılandır"
-
-#~ msgid "Related to"
-#~ msgstr "Bağlı olduğu"
-
-#~ msgid "Data"
-#~ msgstr "Veri"
-
-#~ msgid "Integrated Document Management System"
-#~ msgstr "Entegre Edilen BelgeYönetim Sistemi"
-
-#~ msgid "Dashboard"
-#~ msgstr "Kontrol paneli"
-
-#~ msgid "Choose the following Resouces to auto directory configuration."
-#~ msgstr "Aşağıdaki kaynakları otomatik dizin yapılandırması için seçin."
-
-#~ msgid "Files By Users"
-#~ msgstr "Kullanıcıya göre Dosyalar"
-
-#~ msgid "Attached To"
-#~ msgstr "Ekli Olduğu"
-
-#~ msgid "Last Posted Time"
-#~ msgstr "Son İşleme Zamanı"
-
-#~ msgid "Wall of Shame"
-#~ msgstr "Utanç Duvarı"
-
-#~ msgid "Files details by Partners"
-#~ msgstr "Paydaşa göre Dosya Ayrıntıları"
-
-#~ msgid "For file storage, the root path of the storage"
-#~ msgstr "Dosya saklamak için, saklama için kök yoldur."
-
-#~ msgid "External file storage"
-#~ msgstr "Dış dosya saklama"
-
-#~ msgid "Users that did not inserted documents since one month"
-#~ msgstr "Bir aydan beri dosya eklemeyen kullanıcılar"
-
-#~ msgid "Files by users"
-#~ msgstr "Kullanıcıya göre dosyalar"
-
-#~ msgid ""
-#~ "The name of the field. Note that the prefix \"dctx_\" will be prepended to "
-#~ "what is typed here."
-#~ msgstr ""
-#~ "Alanın adı. \"dctx_\" önekinin burada yazılanın ekleneceğine dikkat edin."
-
-#~ msgid "Files By Partner"
-#~ msgstr "Paydaşa göre Dosyalar"
-
-#~ msgid "New Files"
-#~ msgstr "Yeni Dosyalar"
-
-#~ msgid ""
-#~ "The Documents repository gives you access to all attachments, such as mails, "
-#~ "project documents, invoices etc."
-#~ msgstr ""
-#~ "Belge havuzu bütün eklere, postalar, proje belgeleri, faturalar, vb. gibi, "
-#~ "erişmenizi sağlar."
-
-#~ msgid "If set, media is for reading only"
-#~ msgstr "Ayarlandıysa, ortam salt okunurdur"
-
-#~ msgid "Statistics by User"
-#~ msgstr "Kullanıcıya göre İstatistikler"
-
-#~ msgid ""
-#~ "Auto directory configuration for Sale Orders and Quotation with report."
-#~ msgstr ""
-#~ "Bu rapordaki Satış Siparişleri ve Tekliflerin otomatik dizin yapılandırması."
-
-#~ msgid "The storage path must be unique!"
-#~ msgstr "Saklama yolu eşsiz olmalı!"
-
-#, python-format
-#~ msgid "File name must be unique!"
-#~ msgstr "Dosya adı eşsiz olmalı !"
-
-#~ msgid "Files by Resource Type"
-#~ msgstr "Kaynak Türüne göre Dosyalar"
-
-#~ msgid "Internal File storage"
-#~ msgstr "İç Dosya saklama"
-
-#~ msgid "Directory must have a parent or a storage"
-#~ msgstr "Dizin ana ya da saklama dizini olmalıdır"
-
-#~ msgid "Search Document storage"
-#~ msgstr "Dosya saklama Ara"
-
-#~ msgid "Auto directory configuration for Projects."
-#~ msgstr "Projelerin Otomatik Dizin yapılandırması"
-
-#~ msgid "Knowledge Management"
-#~ msgstr "Bilgi Yönetimi"
-
-#~ msgid "Indexed Content - experimental"
-#~ msgstr "İndekslenmiş İçerik - Deneysel"
-
-#~ msgid "This Months Files"
-#~ msgstr "Bu ayın Dosyaları"
-
-#~ msgid "All Months Files"
-#~ msgstr "Bütün Ayların Dosyaları"

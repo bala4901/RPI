@@ -25,7 +25,7 @@ from urlparse import urljoin
 
 from openerp.osv import osv, fields
 from openerp.tools.misc import DEFAULT_SERVER_DATETIME_FORMAT
-from openerp.tools.safe_eval import safe_eval
+from ast import literal_eval
 from openerp.tools.translate import _
 
 class SignupError(Exception):
@@ -161,14 +161,12 @@ class res_users(osv.Model):
     def _get_state(self, cr, uid, ids, name, arg, context=None):
         res = {}
         for user in self.browse(cr, uid, ids, context):
-            res[user.id] = ('reset' if user.signup_valid else
-                            'active' if user.login_date else
-                            'new')
+            res[user.id] = ('active' if user.login_date else 'new')
         return res
 
     _columns = {
         'state': fields.function(_get_state, string='Status', type='selection',
-                    selection=[('new', 'New'), ('active', 'Active'), ('reset', 'Resetting Password')]),
+                    selection=[('new', 'Never Connected'), ('active', 'Activated')]),
     }
 
     def signup(self, cr, uid, values, token=None, context=None):
@@ -202,6 +200,9 @@ class res_users(osv.Model):
                     'partner_id': partner.id,
                     'email': values.get('email') or values.get('login'),
                 })
+                if partner.company_id:
+                    values['company_id'] = partner.company_id.id
+                    values['company_ids'] = [(6,0,[partner.company_id.id])]
                 self._signup_create_user(cr, uid, values, context=context)
         else:
             # no token, sign up an external user
@@ -213,12 +214,12 @@ class res_users(osv.Model):
     def _signup_create_user(self, cr, uid, values, context=None):
         """ create a new user from the template user """
         ir_config_parameter = self.pool.get('ir.config_parameter')
-        template_user_id = safe_eval(ir_config_parameter.get_param(cr, uid, 'auth_signup.template_user_id', 'False'))
+        template_user_id = literal_eval(ir_config_parameter.get_param(cr, uid, 'auth_signup.template_user_id', 'False'))
         assert template_user_id and self.exists(cr, uid, template_user_id, context=context), 'Signup: invalid template user'
 
         # check that uninvited users may sign up
         if 'partner_id' not in values:
-            if not safe_eval(ir_config_parameter.get_param(cr, uid, 'auth_signup.allow_uninvited', 'False')):
+            if not literal_eval(ir_config_parameter.get_param(cr, uid, 'auth_signup.allow_uninvited', 'False')):
                 raise SignupError('Signup is not allowed for uninvited users')
 
         assert values.get('login'), "Signup: no login given for new user"
@@ -260,26 +261,15 @@ class res_users(osv.Model):
             template = self.pool.get('ir.model.data').get_object(cr, uid, 'auth_signup', 'reset_password_email')
         mail_obj = self.pool.get('mail.mail')
         assert template._name == 'email.template'
-
         for user in self.browse(cr, uid, ids, context):
             if not user.email:
                 raise osv.except_osv(_("Cannot send email: user has no email address."), user.name)
             mail_id = self.pool.get('email.template').send_mail(cr, uid, template.id, user.id, True, context=context)
             mail_state = mail_obj.read(cr, uid, mail_id, ['state'], context=context)
-
             if mail_state and mail_state['state'] == 'exception':
-                raise self.pool.get('res.config.settings').get_config_warning(cr, _("Cannot send email: no outgoing email server configured.\nYou can configure it under %(menu:base_setup.menu_general_configuration)s."), context)
+                raise osv.except_osv(_("Cannot send email: no outgoing email server configured.\nYou can configure it under Settings/General Settings."), user.name)
             else:
-                return {
-                    'type': 'ir.actions.client',
-                    'name': '_(Server Notification)',
-                    'tag': 'action_notify',
-                    'params': {
-                        'title': 'Mail Sent to: %s' % user.name,
-                        'text': 'You can reset the password by yourself using this <a href=%s>link</a>' % user.partner_id.signup_url,
-                        'sticky': True,
-                    }
-                }
+                return True
 
     def create(self, cr, uid, values, context=None):
         # overridden to automatically invite user to sign up

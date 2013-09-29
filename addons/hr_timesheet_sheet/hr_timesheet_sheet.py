@@ -25,6 +25,7 @@ from dateutil.relativedelta import relativedelta
 
 from openerp.osv import fields, osv
 from openerp.tools.translate import _
+from openerp import netsvc
 
 class hr_timesheet_sheet(osv.osv):
     _name = "hr_timesheet_sheet.sheet"
@@ -92,7 +93,8 @@ class hr_timesheet_sheet(osv.osv):
             self.check_employee_attendance_state(cr, uid, sheet.id, context=context)
             di = sheet.user_id.company_id.timesheet_max_difference
             if (abs(sheet.total_difference) < di) or not di:
-                self.signal_confirm(cr, uid, [sheet.id])
+                wf_service = netsvc.LocalService("workflow")
+                wf_service.trg_validate(uid, 'hr_timesheet_sheet.sheet', sheet.id, 'confirm', cr)
             else:
                 raise osv.except_osv(_('Warning!'), _('Please verify that the total difference of the sheet is lower than %.2f.') %(di,))
         return True
@@ -190,7 +192,9 @@ class hr_timesheet_sheet(osv.osv):
 
     def action_set_to_draft(self, cr, uid, ids, *args):
         self.write(cr, uid, ids, {'state': 'draft'})
-        self.create_workflow(cr, uid, ids)
+        wf_service = netsvc.LocalService('workflow')
+        for id in ids:
+            wf_service.trg_create(uid, self._name, id, cr)
         return True
 
     def name_get(self, cr, uid, ids, context=None):
@@ -213,6 +217,7 @@ class hr_timesheet_sheet(osv.osv):
 
     def onchange_employee_id(self, cr, uid, ids, employee_id, context=None):
         department_id =  False
+        user_id = False
         if employee_id:
             empl_id = self.pool.get('hr.employee').browse(cr, uid, employee_id, context=context)
             department_id = empl_id.department_id.id
@@ -288,7 +293,7 @@ class hr_timesheet_line(osv.osv):
         return ts_line_ids
 
     _columns = {
-        'sheet_id': fields.function(_sheet, string='Sheet',
+        'sheet_id': fields.function(_sheet, string='Sheet', select="1",
             type='many2one', relation='hr_timesheet_sheet.sheet', ondelete="cascade",
             store={
                     'hr_timesheet_sheet.sheet': (_get_hr_timesheet_sheet, ['employee_id', 'date_from', 'date_to'], 10),
@@ -459,7 +464,7 @@ class hr_timesheet_sheet_sheet_day(osv.osv):
                             THEN (SUM(total_attendance) +
                                 CASE WHEN current_date <> name
                                     THEN 1440
-                                    ELSE (EXTRACT(hour FROM current_time) * 60) + EXTRACT(minute FROM current_time)
+                                    ELSE (EXTRACT(hour FROM current_time AT TIME ZONE 'UTC') * 60) + EXTRACT(minute FROM current_time AT TIME ZONE 'UTC')
                                 END
                                 )
                             ELSE SUM(total_attendance)
@@ -474,12 +479,8 @@ class hr_timesheet_sheet_sheet_day(osv.osv):
                                 0.0 as total_attendance
                             from
                                 hr_analytic_timesheet hrt
-                                left join (account_analytic_line l
-                                    LEFT JOIN hr_timesheet_sheet_sheet s
-                                    ON (s.date_to >= l.date
-                                        AND s.date_from <= l.date
-                                        AND s.user_id = l.user_id))
-                                    on (l.id = hrt.line_id)
+                                JOIN account_analytic_line l ON l.id = hrt.line_id
+                                LEFT JOIN hr_timesheet_sheet_sheet s ON s.id = hrt.sheet_id
                             group by l.date::date, s.id
                         ) union (
                             select
@@ -490,14 +491,8 @@ class hr_timesheet_sheet_sheet_day(osv.osv):
                                 SUM(((EXTRACT(hour FROM a.name) * 60) + EXTRACT(minute FROM a.name)) * (CASE WHEN a.action = 'sign_in' THEN -1 ELSE 1 END)) as total_attendance
                             from
                                 hr_attendance a
-                                LEFT JOIN (hr_timesheet_sheet_sheet s
-                                    LEFT JOIN resource_resource r
-                                        LEFT JOIN hr_employee e
-                                        ON (e.resource_id = r.id)
-                                    ON (s.user_id = r.user_id))
-                                ON (a.employee_id = e.id
-                                    AND s.date_to >= date_trunc('day',a.name)
-                                    AND s.date_from <= a.name)
+                                LEFT JOIN hr_timesheet_sheet_sheet s
+                                ON s.id = a.sheet_id
                             WHERE action in ('sign_in', 'sign_out')
                             group by a.name::date, s.id
                         )) AS foo

@@ -1,20 +1,21 @@
-# Translation of OpenERP Server.
-# This file contains the translation of the following modules:
-# 	* document
+# Mongolian translation for openobject-addons
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the openobject-addons package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 6.0.0-rc1\n"
-"Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2012-12-21 17:05+0000\n"
-"PO-Revision-Date: 2012-05-10 17:39+0000\n"
-"Last-Translator: Raphael Collet (OpenERP) <Unknown>\n"
-"Language-Team: \n"
+"Project-Id-Version: openobject-addons\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-06-07 19:36+0000\n"
+"PO-Revision-Date: 2013-02-09 13:58+0000\n"
+"Last-Translator: gobi <Unknown>\n"
+"Language-Team: Mongolian <mn@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-12-22 05:52+0000\n"
-"X-Generator: Launchpad (build 16378)\n"
+"X-Launchpad-Export-Date: 2013-07-11 05:56+0000\n"
+"X-Generator: Launchpad (build 16696)\n"
 
 #. module: document
 #: field:document.directory,parent_id:0
@@ -22,7 +23,7 @@ msgid "Parent Directory"
 msgstr "Эцэг хавтас"
 
 #. module: document
-#: code:addons/document/document.py:336
+#: code:addons/document/document.py:350
 #, python-format
 msgid "Directory name contains special characters!"
 msgstr "Хавтасны нэр онцгой тэмдэгт агуулж болно!"
@@ -49,7 +50,7 @@ msgstr "Бүлэглэх..."
 #. module: document
 #: view:ir.attachment:0
 msgid "Modification"
-msgstr ""
+msgstr "Өөрчлөх"
 
 #. module: document
 #: view:document.directory:0
@@ -70,7 +71,7 @@ msgstr "Дүрслэх төрөл"
 #. module: document
 #: selection:report.document.user,month:0
 msgid "March"
-msgstr "3 сар"
+msgstr "3-р сар"
 
 #. module: document
 #: field:document.directory.dctx,expr:0
@@ -91,12 +92,12 @@ msgstr "Хавтасын агуулга"
 #. module: document
 #: view:ir.attachment:0
 msgid "My Document(s)"
-msgstr ""
+msgstr "Миний баримтууд"
 
 #. module: document
 #: model:ir.ui.menu,name:document.menu_document_management_configuration
 msgid "Document Management"
-msgstr "Баримтын менежмент"
+msgstr "Баримтын удирдлага"
 
 #. module: document
 #: help:document.directory.dctx,expr:0
@@ -112,11 +113,11 @@ msgstr ""
 #. module: document
 #: help:document.directory.dctx,field:0
 msgid "The name of the field."
-msgstr ""
+msgstr "Талбарын нэр"
 
 #. module: document
-#: code:addons/document/document.py:326
-#: code:addons/document/document.py:331
+#: code:addons/document/document.py:340
+#: code:addons/document/document.py:345
 #, python-format
 msgid "Directory name must be unique!"
 msgstr "Хавтасны нэр давхцахгүй!"
@@ -202,14 +203,22 @@ msgid ""
 "          </p>\n"
 "        "
 msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"            Шинэ баримт үүсгэхээр бол дарна уу. \n"
+"          </p><p>\n"
+"            Баримтын агуулах нь бүх төрлийн хавсралт руу хандах\n"
+"            боломжийг өгдөг. Хавсралтууд нь имэйлийн, төслийн, нэхэмжлэлүүд "
+"гэх мэт байж болно.\n"
+"          </p>\n"
+"        "
 
 #. module: document
-#: code:addons/document/document.py:326
-#: code:addons/document/document.py:331
-#: code:addons/document/document.py:336
+#: code:addons/document/document.py:340
+#: code:addons/document/document.py:345
+#: code:addons/document/document.py:350
 #, python-format
 msgid "ValidateError"
-msgstr "ValidateError"
+msgstr "Баталгаатай алдаа"
 
 #. module: document
 #: model:ir.model,name:document.model_ir_actions_report_xml
@@ -249,14 +258,14 @@ msgstr "Төрөл"
 #. module: document
 #: sql_constraint:ir.attachment:0
 msgid "The filename must be unique in a directory !"
-msgstr ""
+msgstr "Файлын нэр хаврас дотроо цор ганц байх ёстой."
 
 #. module: document
 #: code:addons/document/document.py:110
-#: code:addons/document/document.py:296
+#: code:addons/document/document.py:310
 #, python-format
 msgid "%s (copy)"
-msgstr ""
+msgstr "%s (хуулбар)"
 
 #. module: document
 #: help:document.directory,ressource_type_id:0
@@ -276,7 +285,7 @@ msgstr "Хэрэв нөөцүүд дээр шүүлт хэрэглэх бол д
 #. module: document
 #: constraint:document.directory:0
 msgid "Error! You cannot create recursive directories."
-msgstr ""
+msgstr "Алдаа! Та хүрээ хамааралтай хавтас үүсгэх боломжгүй."
 
 #. module: document
 #: field:document.directory,resource_field:0
@@ -315,7 +324,7 @@ msgid "Virtual Files"
 msgstr "Виртуаль файлууд"
 
 #. module: document
-#: code:addons/document/document.py:562
+#: code:addons/document/document.py:576
 #, python-format
 msgid "Error at doc write!"
 msgstr "Бичих алдаа!"
@@ -360,12 +369,12 @@ msgstr "Сүүлд зассан хэрэглэгч"
 #: model:ir.actions.act_window,name:document.action_view_files_by_user_graph
 #: view:report.document.user:0
 msgid "Files by User"
-msgstr ""
+msgstr "Хэрэглэгчийн файлууд"
 
 #. module: document
 #: view:ir.attachment:0
 msgid "on"
-msgstr ""
+msgstr "дээр"
 
 #. module: document
 #: field:document.directory,domain:0
@@ -423,7 +432,7 @@ msgstr "Статик"
 #. module: document
 #: field:report.document.user,user:0
 msgid "unknown"
-msgstr ""
+msgstr "үл мэдэгдэх"
 
 #. module: document
 #: view:document.directory:0
@@ -500,7 +509,7 @@ msgstr ""
 #: code:addons/document/static/src/js/document.js:6
 #, python-format
 msgid "Attachment(s)"
-msgstr ""
+msgstr "хавсралт(-ууд)"
 
 #. module: document
 #: selection:report.document.user,month:0
@@ -588,7 +597,7 @@ msgstr "Хавтасны нэр давхцаж болохгүй!"
 #. module: document
 #: view:ir.attachment:0
 msgid "Attachments"
-msgstr ""
+msgstr "Хавсралтууд"
 
 #. module: document
 #: field:document.directory,create_uid:0
@@ -676,7 +685,7 @@ msgstr "ir.attachment"
 #. module: document
 #: view:report.document.user:0
 msgid "Users File"
-msgstr ""
+msgstr "Хэрэглэгчийн файл"
 
 #. module: document
 #: model:ir.model,name:document.model_document_configuration
@@ -735,15 +744,14 @@ msgid ""
 "Only members of these groups will have access to this directory and its "
 "files."
 msgstr ""
-"Only members of these groups will have access to this directory and its "
-"files."
+"Зөвхөн эдгээр бүлгийн гишүүд энэ хавтас болон файлуудыг ашиглах боломжтой."
 
 #. module: document
 #. openerp-web
 #: code:addons/document/static/src/js/document.js:17
 #, python-format
 msgid "%s (%s)"
-msgstr ""
+msgstr "%s (%s)"
 
 #. module: document
 #: field:document.directory.content,sequence:0
@@ -790,373 +798,3 @@ msgstr "Хадгалах ой"
 #: field:document.directory.content,extension:0
 msgid "Document Type"
 msgstr "Баримтын төрөл"
-
-#~ msgid ""
-#~ "The Object name must start with x_ and not contain any special character !"
-#~ msgstr ""
-#~ "Объектын нэрний эхлэл x_ байх ёстой бөгөөд бусад тусгай тэмдэгтийг агуулж "
-#~ "болохгүй!"
-
-#~ msgid "Preview"
-#~ msgstr "Урьдчилан харах"
-
-#~ msgid "Error! You can not create recursive Directories."
-#~ msgstr "Алдаа! Рекурсив хавтас үүсгэж болохгүй."
-
-#~ msgid "Document Configuration"
-#~ msgstr "Баримтын тохиргоо"
-
-#~ msgid "Storing Method"
-#~ msgstr "Хадгалах арга"
-
-#~ msgid "Other Resources"
-#~ msgstr "Бусад нөөц"
-
-#~ msgid "Document Management System."
-#~ msgstr "Баримтын удирдлагын систем"
-
-#~ msgid "Attachment"
-#~ msgstr "Хавсралт"
-
-#~ msgid "Directorie's Structure"
-#~ msgstr "Хавтасын бүтэц"
-
-#~ msgid "File Information"
-#~ msgstr "Файлын мэдээлэл"
-
-#~ msgid "Resource Title"
-#~ msgstr "Нөөцийн нэр"
-
-#~ msgid "Link"
-#~ msgstr "Холбоос"
-
-#~ msgid "Data"
-#~ msgstr "Өгөгдөл"
-
-#~ msgid "Notes"
-#~ msgstr "Тэмдэглэл"
-
-#~ msgid "Database"
-#~ msgstr "Өгөгдлийн сан"
-
-#~ msgid "Filesystem"
-#~ msgstr "Файлсистем"
-
-#~ msgid "History"
-#~ msgstr "Түүх"
-
-#~ msgid "Server Address"
-#~ msgstr "Сервер хаяг"
-
-#~ msgid "Document directory"
-#~ msgstr "Баримтын хавтас"
-
-#~ msgid "Search a File"
-#~ msgstr "Файл хайх"
-
-#~ msgid "Cancel"
-#~ msgstr "Болих"
-
-#~ msgid "This Month"
-#~ msgstr "Энэ сар"
-
-#~ msgid "User"
-#~ msgstr "Хэрэглэгч"
-
-#~ msgid "Parent Item"
-#~ msgstr "Толгой элемент"
-
-#~ msgid "Invalid model name in the action definition."
-#~ msgstr "Үйлдлийн тодорхойлолтод буруу моделийн нэр байна."
-
-#~ msgid ""
-#~ "Check this field if you want that the name of the file start by the record "
-#~ "name."
-#~ msgstr ""
-#~ "Хэрэв файлын нэрийг бичлэгийн нэрээр эхлүүлэхийг хүсэж байгаа бол энэ "
-#~ "талбарыг чагтлана."
-
-#~ msgid ""
-#~ "This is a complete document management system:\n"
-#~ "    * FTP Interface\n"
-#~ "    * User Authentication\n"
-#~ "    * Document Indexation\n"
-#~ msgstr ""
-#~ "Баримтын иж бүрэн систем:\n"
-#~ "    * FTP интерфэйс\n"
-#~ "    * Хэрэглэгчийн шалгалт\n"
-#~ "    * Баримтын индекслэлт\n"
-
-#~ msgid "document.configuration.wizard"
-#~ msgstr "document.configuration.wizard"
-
-#~ msgid "Integrated Document Management System"
-#~ msgstr "Баримтын удирдлагын систем"
-
-#~ msgid ""
-#~ "This wizard will configure the URL of the server of the document management "
-#~ "system."
-#~ msgstr "Энэ визард нь баримтын удирдлагын серверийн хаягыг тохируулна."
-
-#~ msgid ""
-#~ "Put here the server address or IP. Keep localhost if you don't know what to "
-#~ "write."
-#~ msgstr ""
-#~ "Энд серверийн хаяг эсвэл IP дугаарыг бичнэ. Юу бичихээ мэдэхгүй бол "
-#~ "localhost хэвээр нь үлдээнэ."
-
-#~ msgid "Others Info"
-#~ msgstr "Бусад мэдээлэл"
-
-#~ msgid "Browse Files Using FTP"
-#~ msgstr "FTP-ээр файл хайх"
-
-#~ msgid "Auto-Generated Files"
-#~ msgstr "Автоматаар үүссэн файлууд"
-
-#~ msgid "Files By Partner"
-#~ msgstr "Файлууд, харилцагчаар"
-
-#~ msgid "Files by users"
-#~ msgstr "Файлууд, хэрэглэгчээр"
-
-#~ msgid "Files per Month"
-#~ msgstr "Сарын файлууд"
-
-#~ msgid "Files details by Partners"
-#~ msgstr "Файлын дэлгэрэнгүй, харилцагчаар"
-
-#~ msgid "Reporting"
-#~ msgstr "Тайлан"
-
-#~ msgid "Files By Users"
-#~ msgstr "Файлууд, хэрэглэгчээр"
-
-#~ msgid "Files by Resource Type"
-#~ msgstr "Файлууд, нөөцийн төрлөөр"
-
-#~ msgid "Last Posted Time"
-#~ msgstr "Сүүлд оруулсан огноо"
-
-#~ msgid "Users that did not inserted documents since one month"
-#~ msgstr "Нэг сараас хойш баримт оруулаагүй хэрэглэгчид"
-
-#~ msgid "Stored Filename"
-#~ msgstr "Нөөцөлсөн файлын нэр"
-
-#~ msgid "Attached To"
-#~ msgstr "Хавсаргах"
-
-#~ msgid "Browse Files"
-#~ msgstr "Файл ачаалах"
-
-#~ msgid "Configure"
-#~ msgstr "Тохиргоо"
-
-#~ msgid "Document board"
-#~ msgstr "Баримтын самбар"
-
-#~ msgid "This Year"
-#~ msgstr "Энэ жил"
-
-#~ msgid "Path"
-#~ msgstr "Зам"
-
-#, python-format
-#~ msgid "Error!"
-#~ msgstr "Алдаа!"
-
-#~ msgid "Project"
-#~ msgstr "Төсөл"
-
-#~ msgid "Created"
-#~ msgstr "Үүссэн"
-
-#~ msgid "Image"
-#~ msgstr "Зураг"
-
-#~ msgid "Online"
-#~ msgstr "Онлайн"
-
-#~ msgid "Dashboard"
-#~ msgstr "Хянах самбар"
-
-#~ msgid "Related to"
-#~ msgstr "Холбоотой"
-
-#~ msgid "Product"
-#~ msgstr "Бүтээгдэхүүн"
-
-#~ msgid "Configuration Progress"
-#~ msgstr "Тохиргооны явц"
-
-#~ msgid "title"
-#~ msgstr "гарчиг"
-
-#~ msgid "Invalid XML for View Architecture!"
-#~ msgstr "Дэлгэцийн архитектур алдаатай!"
-
-#~ msgid "Auto Configure Directory"
-#~ msgstr "Автомат тохиргооны хавтас"
-
-#~ msgid "Auto Configure"
-#~ msgstr "Автомат тохиргоо"
-
-#~ msgid "Wall of Shame"
-#~ msgstr "Wall of Shame"
-
-#~ msgid "Auto Directory Configuration"
-#~ msgstr "Автомат тохиргооны хавтас"
-
-#~ msgid "Process Node"
-#~ msgstr "Process Node"
-
-#~ msgid "Sale Order"
-#~ msgstr "Борлуулалтын захиалга"
-
-#~ msgid "Auto directory configuration for Products."
-#~ msgstr "Бүтээгдэхүүний автомат тохиргооны хавтас."
-
-#~ msgid "Files by Users"
-#~ msgstr "Хэрэгдэгчийн файл"
-
-#~ msgid "Storage"
-#~ msgstr "Хадгалалт"
-
-#~ msgid "Files Per Partner"
-#~ msgstr "Харилцагч бүрийн файл"
-
-#~ msgid "Document Dashboard"
-#~ msgstr "Баримт хянах самбар"
-
-#~ msgid "Modified"
-#~ msgstr "Засагдсан"
-
-#~ msgid "Files by Partner"
-#~ msgstr "Харилцагчийн файл"
-
-#~ msgid ""
-#~ "This is a complete document management system:\n"
-#~ "    * User Authentication\n"
-#~ "    * Document Indexation :- .pptx and .docx files are not support in "
-#~ "windows platform.\n"
-#~ "    * Dashboard for Document that includes:\n"
-#~ "        * New Files (list)\n"
-#~ "        * Files by Resource Type (graph)\n"
-#~ "        * Files by Partner (graph)\n"
-#~ "        * Files by Month (graph)\n"
-#~ "    ATTENTION:\n"
-#~ "    - When you install this module in a running company that have already "
-#~ "PDF files stored into the database,\n"
-#~ "      you will lose them all.\n"
-#~ "    - After installing this module PDF's are no longer stored into the "
-#~ "database,\n"
-#~ "      but in the servers rootpad like /server/bin/filestore.\n"
-#~ msgstr ""
-#~ "This is a complete document management system:\n"
-#~ "    * User Authentication\n"
-#~ "    * Document Indexation :- .pptx and .docx files are not support in "
-#~ "windows platform.\n"
-#~ "    * Dashboard for Document that includes:\n"
-#~ "        * New Files (list)\n"
-#~ "        * Files by Resource Type (graph)\n"
-#~ "        * Files by Partner (graph)\n"
-#~ "        * Files by Month (graph)\n"
-#~ "    ATTENTION:\n"
-#~ "    - When you install this module in a running company that have already "
-#~ "PDF files stored into the database,\n"
-#~ "      you will lose them all.\n"
-#~ "    - After installing this module PDF's are no longer stored into the "
-#~ "database,\n"
-#~ "      but in the servers rootpad like /server/bin/filestore.\n"
-
-#~ msgid "Auto directory configuration for Projects."
-#~ msgstr "Төслийн автомат тохиргооны хавтас"
-
-#~ msgid "Read Only"
-#~ msgstr "Зөвхөн уншина"
-
-#~ msgid "External file storage"
-#~ msgstr "Гадна хадгалах файл"
-
-#~ msgid "New Files"
-#~ msgstr "Шинэ файл"
-
-#~ msgid "Statistics by User"
-#~ msgstr "Статистик ( хэрэглэгчээр )"
-
-#, python-format
-#~ msgid "File name must be unique!"
-#~ msgstr "Файлын нэр давхцахгүй!"
-
-#~ msgid "Internal File storage"
-#~ msgstr "Дотор хадгалах файл"
-
-#~ msgid "Search Document storage"
-#~ msgstr "Хайх"
-
-#~ msgid "The storage path must be unique!"
-#~ msgstr "Хадгалах зам нь давхцаж болохгүй!"
-
-#~ msgid ""
-#~ "If not checked, media is currently offline and its contents not available"
-#~ msgstr ""
-#~ "If not checked, media is currently offline and its contents not available"
-
-#~ msgid ""
-#~ "If you put an object here, this directory template will appear bellow all of "
-#~ "these objects. Don't put a parent directory if you select a parent model."
-#~ msgstr ""
-#~ "If you put an object here, this directory template will appear bellow all of "
-#~ "these objects. Don't put a parent directory if you select a parent model."
-
-#~ msgid "For file storage, the root path of the storage"
-#~ msgstr "For file storage, the root path of the storage"
-
-#~ msgid ""
-#~ "The Documents repository gives you access to all attachments, such as mails, "
-#~ "project documents, invoices etc."
-#~ msgstr ""
-#~ "The Documents repository gives you access to all attachments, such as mails, "
-#~ "project documents, invoices etc."
-
-#~ msgid ""
-#~ "The name of the field. Note that the prefix \"dctx_\" will be prepended to "
-#~ "what is typed here."
-#~ msgstr ""
-#~ "The name of the field. Note that the prefix \"dctx_\" will be prepended to "
-#~ "what is typed here."
-
-#~ msgid ""
-#~ "Auto directory configuration for Sale Orders and Quotation with report."
-#~ msgstr ""
-#~ "Auto directory configuration for Sale Orders and Quotation with report."
-
-#~ msgid "If set, media is for reading only"
-#~ msgstr "If set, media is for reading only"
-
-#~ msgid "Directory must have a parent or a storage"
-#~ msgstr "Directory must have a parent or a storage"
-
-#~ msgid "Choose the following Resouces to auto directory configuration."
-#~ msgstr ""
-#~ "Автомат директори тохиргоо хийхийн тулд дараах Нөөцүүдээс сонгоно уу."
-
-#~ msgid "Configure Resource Directory"
-#~ msgstr "Нөөцийн Директорыг Тохируулах"
-
-#~ msgid "Knowledge Management"
-#~ msgstr "Мэдлэгийн менежмент"
-
-#~ msgid "Indexed Content - experimental"
-#~ msgstr "Индекслэгдсэн Агуулга - Туршилтын"
-
-#~ msgid "This Months Files"
-#~ msgstr "Энэ Сарын Файлууд"
-
-#, python-format
-#~ msgid "(copy)"
-#~ msgstr "(хуулах)"
-
-#~ msgid "All Months Files"
-#~ msgstr "Бүх Сарын Файлууд"

@@ -24,6 +24,7 @@ from dateutil.relativedelta import relativedelta
 from openerp.osv import fields
 from openerp.osv import osv
 from openerp.tools.translate import _
+from openerp import netsvc
 
 class procurement_order(osv.osv):
     _inherit = 'procurement.order'
@@ -32,6 +33,11 @@ class procurement_order(osv.osv):
         'property_ids': fields.many2many('mrp.property', 'procurement_property_rel', 'procurement_id','property_id', 'Properties'),
         'production_id': fields.many2one('mrp.production', 'Manufacturing Order'),
     }
+
+    def _prepare_order_line_procurement(self, cr, uid, order, line, move_id, date_planned, context=None):
+        result = super(procurement_order, self)._prepare_order_line_procurement(cr, uid, order, line, move_id, date_planned, context)
+        result['property_ids'] = [(6, 0, [x.id for x in line.property_ids])]
+        return result
 
     def check_produce_product(self, cr, uid, procurement, context=None):
         ''' Depict the capacity of the procurement workflow to produce products (not services)'''
@@ -86,6 +92,7 @@ class procurement_order(osv.osv):
         company = self.pool.get('res.users').browse(cr, uid, uid, context).company_id
         production_obj = self.pool.get('mrp.production')
         move_obj = self.pool.get('stock.move')
+        wf_service = netsvc.LocalService("workflow")
         procurement_obj = self.pool.get('procurement.order')
         for procurement in procurement_obj.browse(cr, uid, ids, context=context):
             res_id = procurement.move_id.id
@@ -110,7 +117,7 @@ class procurement_order(osv.osv):
             self.write(cr, uid, [procurement.id], {'state': 'running', 'production_id': produce_id})   
             bom_result = production_obj.action_compute(cr, uid,
                     [produce_id], properties=[x.id for x in procurement.property_ids])
-            production_obj.signal_button_confirm(cr, uid, [produce_id])
+            wf_service.trg_validate(uid, 'mrp.production', produce_id, 'button_confirm', cr)
             if res_id:
                 move_obj.write(cr, uid, [res_id],
                         {'location_id': procurement.location_id.id})

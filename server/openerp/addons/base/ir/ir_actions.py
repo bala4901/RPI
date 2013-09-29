@@ -28,7 +28,6 @@ import time
 from openerp import SUPERUSER_ID
 from openerp import netsvc, tools
 from openerp.osv import fields, osv
-import openerp.report.interface
 from openerp.report.report_sxw import report_sxw, report_rml
 from openerp.tools.config import config
 from openerp.tools.safe_eval import safe_eval as eval
@@ -94,14 +93,14 @@ class report_xml(osv.osv):
         opj = os.path.join
         cr.execute("SELECT * FROM ir_act_report_xml WHERE auto=%s ORDER BY id", (True,))
         result = cr.dictfetchall()
-        reports = openerp.report.interface.report_int._reports
+        svcs = netsvc.Service._services
         for r in result:
-            if reports.has_key('report.'+r['report_name']):
+            if svcs.has_key('report.'+r['report_name']):
                 continue
             if r['report_rml'] or r['report_rml_content_data']:
                 report_sxw('report.'+r['report_name'], r['model'],
                         opj('addons',r['report_rml'] or '/'), header=r['header'])
-            if r['report_xsl']:
+            elif r['report_xsl'] and r['report_xml']:
                 report_rml('report.'+r['report_name'], r['model'],
                         opj('addons',r['report_xml']),
                         r['report_xsl'] and opj('addons',r['report_xsl']))
@@ -207,8 +206,7 @@ class act_window(osv.osv):
     def _search_view(self, cr, uid, ids, name, arg, context=None):
         res = {}
         for act in self.browse(cr, uid, ids, context=context):
-            print act.res_model
-            field_get = self.pool.get(act.res_model).fields_view_get(cr, uid,
+            field_get = self.pool[act.res_model].fields_view_get(cr, uid,
                 act.search_view_id and act.search_view_id.id or False,
                 'search', context=context)
             res[act.id] = str(field_get)
@@ -605,12 +603,12 @@ class actions_server(osv.osv):
 
             if action.state=='client_action':
                 if not action.action_id:
-                    raise osv.except_osv(_('Error'), _("Please specify an action to launch !"))
+                    raise osv.except_osv(_('Error'), _("Please specify an action to launch!"))
                 return self.pool.get(action.action_id.type)\
                     .read(cr, uid, action.action_id.id, context=context)
 
             if action.state=='code':
-                eval(action.code, cxt, mode="exec", nocopy=True) # nocopy allows to return 'action'
+                eval(action.code.strip(), cxt, mode="exec", nocopy=True) # nocopy allows to return 'action'
                 if 'action' in cxt:
                     return cxt['action']
 
@@ -793,7 +791,7 @@ Launch Manually Once: after having been launched manually, it sets automatically
         act_type = self.pool.get('ir.actions.actions').read(cr, uid, wizard.action_id.id, ['type'], context=context)
 
         res = self.pool.get(act_type['type']).read(cr, uid, wizard.action_id.id, [], context=context)
-        if act_type<>'ir.actions.act_window':
+        if act_type['type'] != 'ir.actions.act_window':
             return res
         res.setdefault('context','{}')
         res['nodestroy'] = True

@@ -1,20 +1,21 @@
-# Translation of OpenERP Server.
-# This file contains the translation of the following modules:
-#	* hr_holidays
+# Chinese (Simplified) translation for openobject-addons
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the openobject-addons package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 6.0dev\n"
-"Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2012-12-21 17:04+0000\n"
-"PO-Revision-Date: 2012-12-12 03:07+0000\n"
-"Last-Translator: jerryzhang <jerry.zhangzhe@gmail.com>\n"
-"Language-Team: \n"
+"Project-Id-Version: openobject-addons\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-06-07 19:36+0000\n"
+"PO-Revision-Date: 2013-07-29 01:41+0000\n"
+"Last-Translator: 盈通 ccdos <ccdos@163.com>\n"
+"Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-12-22 05:47+0000\n"
-"X-Generator: Launchpad (build 16378)\n"
+"X-Launchpad-Export-Date: 2013-07-30 04:58+0000\n"
+"X-Generator: Launchpad (build 16700)\n"
 
 #. module: hr_holidays
 #: selection:hr.holidays.status,color_name:0
@@ -32,7 +33,7 @@ msgid "Waiting Second Approval"
 msgstr "等待第二次审批"
 
 #. module: hr_holidays
-#: code:addons/hr_holidays/hr_holidays.py:291
+#: code:addons/hr_holidays/hr_holidays.py:309
 #, python-format
 msgid ""
 "You cannot modify a leave request that has been approved. Contact a human "
@@ -111,17 +112,17 @@ msgstr "开始时间与结束时间之间的默认时间间隔是8小时，你�
 #. module: hr_holidays
 #: model:mail.message.subtype,description:hr_holidays.mt_holidays_refused
 msgid "Request refused"
-msgstr ""
+msgstr "请求已拒绝"
 
 #. module: hr_holidays
 #: field:hr.holidays,number_of_days_temp:0
 msgid "Allocation"
-msgstr ""
+msgstr "分配"
 
 #. module: hr_holidays
 #: xsl:holidays.summary:0
 msgid "to"
-msgstr ""
+msgstr "到"
 
 #. module: hr_holidays
 #: selection:hr.holidays.status,color_name:0
@@ -146,7 +147,7 @@ msgstr "当前请假类型"
 #. module: hr_holidays
 #: view:hr.holidays:0
 msgid "Validate"
-msgstr ""
+msgstr "生效"
 
 #. module: hr_holidays
 #: selection:hr.employee,current_leave_state:0
@@ -168,12 +169,6 @@ msgid "Refuse"
 msgstr "拒绝"
 
 #. module: hr_holidays
-#: code:addons/hr_holidays/hr_holidays.py:433
-#, python-format
-msgid "Request <b>approved</b>, waiting second validation."
-msgstr "申请<b>已通过审核</b>，等待二次确认。"
-
-#. module: hr_holidays
 #: view:hr.employee:0
 #: model:ir.actions.act_window,name:hr_holidays.act_hr_employee_holiday_request
 #: model:ir.ui.menu,name:hr_holidays.menu_open_ask_holidays
@@ -183,18 +178,18 @@ msgstr "假期"
 #. module: hr_holidays
 #: field:hr.holidays,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "消息"
 
 #. module: hr_holidays
-#: xsl:holidays.summary:0
-msgid "Analyze from"
-msgstr ""
+#: model:ir.model,name:hr_holidays.model_hr_holidays
+msgid "Leave"
+msgstr "准假"
 
 #. module: hr_holidays
 #: code:addons/hr_holidays/wizard/hr_holidays_summary_department.py:44
 #, python-format
 msgid "Error!"
-msgstr ""
+msgstr "错误！"
 
 #. module: hr_holidays
 #: model:ir.ui.menu,name:hr_holidays.menu_request_approve_holidays
@@ -238,7 +233,7 @@ msgstr "审核"
 #. module: hr_holidays
 #: help:hr.holidays,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "如果选中的话，你需要注意新的消息。"
 
 #. module: hr_holidays
 #: field:hr.holidays.status,color_name:0
@@ -266,15 +261,15 @@ msgstr "准假类型"
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
-msgstr ""
+msgstr "保留复杂的摘要(消息数量,……等)。这一摘要直接是是HTML格式，以便插入到看板视图。"
 
 #. module: hr_holidays
-#: code:addons/hr_holidays/hr_holidays.py:238
 #: code:addons/hr_holidays/hr_holidays.py:249
-#: code:addons/hr_holidays/hr_holidays.py:274
-#: code:addons/hr_holidays/hr_holidays.py:291
-#: code:addons/hr_holidays/hr_holidays.py:414
-#: code:addons/hr_holidays/hr_holidays.py:464
+#: code:addons/hr_holidays/hr_holidays.py:260
+#: code:addons/hr_holidays/hr_holidays.py:285
+#: code:addons/hr_holidays/hr_holidays.py:309
+#: code:addons/hr_holidays/hr_holidays.py:432
+#: code:addons/hr_holidays/hr_holidays.py:482
 #, python-format
 msgid "Warning!"
 msgstr "警告！"
@@ -291,8 +286,8 @@ msgstr ""
 
 #. module: hr_holidays
 #: model:hr.holidays.status,name:hr_holidays.holiday_status_cl
-msgid "Legal Leaves 2012"
-msgstr "年假（2012）"
+msgid "Legal Leaves 2013"
+msgstr ""
 
 #. module: hr_holidays
 #: selection:hr.holidays.summary.dept,holiday_type:0
@@ -312,7 +307,7 @@ msgid "Sick Leaves"
 msgstr "病假"
 
 #. module: hr_holidays
-#: code:addons/hr_holidays/hr_holidays.py:471
+#: code:addons/hr_holidays/hr_holidays.py:489
 #, python-format
 msgid "Leave Request for %s"
 msgstr "%s 的请假申请"
@@ -383,7 +378,7 @@ msgid "Wheat"
 msgstr "麦黄色"
 
 #. module: hr_holidays
-#: code:addons/hr_holidays/hr_holidays.py:469
+#: code:addons/hr_holidays/hr_holidays.py:487
 #, python-format
 msgid "Allocation for %s"
 msgstr "%s 的年假"
@@ -411,7 +406,7 @@ msgid "Number of Days"
 msgstr "天数"
 
 #. module: hr_holidays
-#: code:addons/hr_holidays/hr_holidays.py:464
+#: code:addons/hr_holidays/hr_holidays.py:482
 #, python-format
 msgid ""
 "The feature behind the field 'Remaining Legal Leaves' can only be used when "
@@ -500,7 +495,7 @@ msgstr "月"
 #. module: hr_holidays
 #: field:hr.holidays,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "未读消息"
 
 #. module: hr_holidays
 #: view:hr.holidays:0
@@ -521,7 +516,7 @@ msgid "Start Date"
 msgstr "开始日期"
 
 #. module: hr_holidays
-#: code:addons/hr_holidays/hr_holidays.py:414
+#: code:addons/hr_holidays/hr_holidays.py:432
 #, python-format
 msgid ""
 "There are not enough %s allocated for employee %s; please create an "
@@ -532,7 +527,7 @@ msgstr "没有足够的%s分配给员工%s；请为这种假期类型创建一�
 #: view:hr.holidays.summary.dept:0
 #: view:hr.holidays.summary.employee:0
 msgid "or"
-msgstr ""
+msgstr "或"
 
 #. module: hr_holidays
 #: model:ir.actions.act_window,help:hr_holidays.open_ask_holidays
@@ -546,11 +541,6 @@ msgid ""
 "                number of open days related to your leave.\n"
 "              </p>\n"
 "            "
-msgstr ""
-
-#. module: hr_holidays
-#: sql_constraint:hr.holidays:0
-msgid "The employee or employee category of this request is missing."
 msgstr ""
 
 #. module: hr_holidays
@@ -576,7 +566,7 @@ msgstr ""
 #. module: hr_holidays
 #: view:hr.holidays:0
 msgid "Reset to New"
-msgstr ""
+msgstr "重置为新的"
 
 #. module: hr_holidays
 #: sql_constraint:hr.holidays:0
@@ -591,7 +581,7 @@ msgstr "浅珊瑚色"
 #. module: hr_holidays
 #: field:hr.employee,leave_date_to:0
 msgid "To Date"
-msgstr ""
+msgstr "到 日期"
 
 #. module: hr_holidays
 #: selection:hr.holidays.status,color_name:0
@@ -624,7 +614,7 @@ msgstr ""
 #: view:hr.holidays:0
 #: field:hr.holidays,state:0
 msgid "Status"
-msgstr ""
+msgstr "状态"
 
 #. module: hr_holidays
 #: selection:hr.holidays.status,color_name:0
@@ -649,7 +639,7 @@ msgstr "准假已通过"
 #. module: hr_holidays
 #: field:hr.holidays,message_is_follower:0
 msgid "Is a Follower"
-msgstr ""
+msgstr "是一个关注者"
 
 #. module: hr_holidays
 #: field:hr.holidays,user_id:0
@@ -663,10 +653,16 @@ msgid "Active"
 msgstr "生效"
 
 #. module: hr_holidays
-#: view:hr.employee:0
-#: field:hr.employee,remaining_leaves:0
-msgid "Remaining Legal Leaves"
-msgstr "剩余的法定假期"
+#: sql_constraint:hr.holidays:0
+msgid ""
+"The employee or employee category of this request is missing. Please make "
+"sure that your user login is linked to an employee."
+msgstr ""
+
+#. module: hr_holidays
+#: view:hr.holidays:0
+msgid "Add a reason..."
+msgstr ""
 
 #. module: hr_holidays
 #: field:hr.holidays,manager_id:0
@@ -676,7 +672,7 @@ msgstr "首次审批"
 #. module: hr_holidays
 #: field:hr.holidays,message_summary:0
 msgid "Summary"
-msgstr ""
+msgstr "总览"
 
 #. module: hr_holidays
 #: model:hr.holidays.status,name:hr_holidays.holiday_status_unpaid
@@ -697,7 +693,7 @@ msgstr "准假摘要"
 #. module: hr_holidays
 #: view:hr.holidays:0
 msgid "Submit to Manager"
-msgstr ""
+msgstr "提交给经理"
 
 #. module: hr_holidays
 #: view:hr.employee:0
@@ -713,11 +709,6 @@ msgstr "浅蓝"
 #: view:hr.holidays:0
 msgid "My Department Leaves"
 msgstr "我部门的请假"
-
-#. module: hr_holidays
-#: model:mail.message.subtype,description:hr_holidays.mt_holidays_confirmed
-msgid "Request confirmed, waiting confirmation"
-msgstr ""
 
 #. module: hr_holidays
 #: field:hr.employee,current_leave_state:0
@@ -764,12 +755,17 @@ msgid "Cancel"
 msgstr "取消"
 
 #. module: hr_holidays
+#: model:mail.message.subtype,description:hr_holidays.mt_holidays_confirmed
+msgid "Request created and waiting confirmation"
+msgstr ""
+
+#. module: hr_holidays
 #: view:hr.holidays:0
 msgid "Validated"
 msgstr "已生效"
 
 #. module: hr_holidays
-#: code:addons/hr_holidays/hr_holidays.py:238
+#: code:addons/hr_holidays/hr_holidays.py:249
 #, python-format
 msgid "You cannot delete a leave which is in %s state."
 msgstr ""
@@ -802,7 +798,7 @@ msgstr "要两次生效"
 #: view:hr.employee:0
 #: view:hr.holidays:0
 msgid "days"
-msgstr ""
+msgstr "天"
 
 #. module: hr_holidays
 #: view:hr.holidays.summary.dept:0
@@ -830,10 +826,10 @@ msgstr "部门"
 #. module: hr_holidays
 #: selection:hr.holidays,state:0
 msgid "To Submit"
-msgstr ""
+msgstr "提交"
 
 #. module: hr_holidays
-#: code:addons/hr_holidays/hr_holidays.py:336
+#: code:addons/hr_holidays/hr_holidays.py:354
 #: view:hr.holidays:0
 #: selection:hr.holidays,type:0
 #: field:resource.calendar.leaves,holiday_id:0
@@ -846,6 +842,12 @@ msgstr "准假申请"
 #: field:hr.holidays,name:0
 msgid "Description"
 msgstr "说明"
+
+#. module: hr_holidays
+#: view:hr.employee:0
+#: field:hr.employee,remaining_leaves:0
+msgid "Remaining Legal Leaves"
+msgstr "剩余的法定假期"
 
 #. module: hr_holidays
 #: selection:hr.holidays,holiday_type:0
@@ -862,7 +864,7 @@ msgstr "已拒绝"
 #. module: hr_holidays
 #: field:hr.holidays.status,categ_id:0
 msgid "Meeting Type"
-msgstr ""
+msgstr "会议类型"
 
 #. module: hr_holidays
 #: field:hr.holidays.remaining.leaves.user,no_of_leaves:0
@@ -920,6 +922,12 @@ msgid "Both Approved and Confirmed"
 msgstr ""
 
 #. module: hr_holidays
+#: code:addons/hr_holidays/hr_holidays.py:451
+#, python-format
+msgid "Request approved, waiting second validation."
+msgstr ""
+
+#. module: hr_holidays
 #: view:hr.holidays:0
 msgid "Approve"
 msgstr "审批"
@@ -927,27 +935,27 @@ msgstr "审批"
 #. module: hr_holidays
 #: help:hr.holidays,message_ids:0
 msgid "Messages and communication history"
-msgstr ""
+msgstr "消息和通信记录"
 
 #. module: hr_holidays
-#: code:addons/hr_holidays/hr_holidays.py:249
-#: code:addons/hr_holidays/hr_holidays.py:274
+#: code:addons/hr_holidays/hr_holidays.py:260
+#: code:addons/hr_holidays/hr_holidays.py:285
 #: sql_constraint:hr.holidays:0
 #, python-format
 msgid "The start date must be anterior to the end date."
 msgstr ""
 
 #. module: hr_holidays
-#: model:ir.model,name:hr_holidays.model_hr_holidays
-msgid "Leave"
-msgstr "准假"
+#: xsl:holidays.summary:0
+msgid "Analyze from"
+msgstr ""
 
 #. module: hr_holidays
 #: help:hr.holidays.status,double_validation:0
 msgid ""
 "When selected, the Allocation/Leave Requests for this type require a second "
 "validation to be approved."
-msgstr ""
+msgstr "选中后，这种类型的分配和请假请求需经要求二次验证才能批准"
 
 #. module: hr_holidays
 #: view:hr.holidays:0
@@ -959,7 +967,7 @@ msgstr "分配准假"
 #. module: hr_holidays
 #: xsl:holidays.summary:0
 msgid "Color"
-msgstr ""
+msgstr "色彩"
 
 #. module: hr_holidays
 #: help:hr.employee,remaining_leaves:0
@@ -997,7 +1005,7 @@ msgstr "年"
 #. module: hr_holidays
 #: view:hr.holidays:0
 msgid "Duration"
-msgstr ""
+msgstr "时长"
 
 #. module: hr_holidays
 #: view:hr.holidays:0
@@ -1019,248 +1027,11 @@ msgstr "原因"
 #. module: hr_holidays
 #: field:hr.holidays.summary.employee,holiday_type:0
 msgid "Select Leave Type"
-msgstr ""
-
-#~ msgid "Set to Draft"
-#~ msgstr "设为草稿"
-
-#~ msgid "Confirm"
-#~ msgstr "确认"
-
-#~ msgid "General"
-#~ msgstr "通用"
-
-#~ msgid "Holidays"
-#~ msgstr "假期"
-
-#~ msgid "Select Holiday Type"
-#~ msgstr "选择假期类型"
-
-#~ msgid "Sick Leave"
-#~ msgstr "病假"
-
-#~ msgid "Allocation Type"
-#~ msgstr "分配类型"
-
-#~ msgid ""
-#~ "When the holiday request is created the state is 'Draft'.\n"
-#~ " It is confirmed by the user and request is sent to admin, the state is "
-#~ "'Waiting Approval'.            If the admin accepts it, the state is "
-#~ "'Approved'. If it is refused, the state is 'Refused'."
-#~ msgstr ""
-#~ "当假期申请建立时为“草稿”。\n"
-#~ "当用户确认它，并把申请发给admin时状态为“等待审批”，\n"
-#~ "如果admin接受，它的状态为“已审批”。\n"
-#~ "如果被拒绝它的状态为“已拒绝”。"
-
-#~ msgid "Draft"
-#~ msgstr "草稿"
-
-#~ msgid "HR Holidays Summary Report By Employee"
-#~ msgstr "员工假期摘要报表"
-
-#~ msgid "The start date must be before the end date !"
-#~ msgstr "开始日期必须在结束日期前！"
-
-#~ msgid "State"
-#~ msgstr "状态"
-
-#~ msgid "Extended Filters..."
-#~ msgstr "增加筛选条件"
-
-#~ msgid "Both Validated and Confirmed"
-#~ msgstr "生效和确认"
-
-#~ msgid "Casual Leave"
-#~ msgstr "事假"
+msgstr "选择休假类型"
 
 #, python-format
-#~ msgid "Error"
-#~ msgstr "错误"
+#~ msgid "Request <b>approved</b>, waiting second validation."
+#~ msgstr "申请<b>已通过审核</b>，等待二次确认。"
 
-#~ msgid "The number of days must be greater than 0 !"
-#~ msgstr "天数必须大于0！"
-
-#~ msgid "By Employee Category"
-#~ msgstr "按员工分类"
-
-#~ msgid "Human Resources: Holidays management"
-#~ msgstr "人力资源:节假日管理"
-
-#~ msgid "This Month"
-#~ msgstr "本月"
-
-#~ msgid ""
-#~ "Leave Manager can let this field empty if this leave request/allocation is "
-#~ "for every employee"
-#~ msgstr "如果这准假分配给所有员工，准假管理者允许这字段为空。"
-
-#~ msgid ""
-#~ "Leave requests can be recorded by employees and validated by their managers. "
-#~ "Once a leave request is validated, it appears automatically in the agenda of "
-#~ "the employee. You can define several allowance types (paid holidays, "
-#~ "sickness, etc.) and manage allowances per type."
-#~ msgstr ""
-#~ "员工的准假申请和经理的审核能被记录下来。一旦申请的准假通过，它将自动显示在该员工的日程。您可以定义多个津贴的类型（带薪假期，病假等）和管理每个津贴类型。"
-
-#~ msgid "Summary Of Leaves"
-#~ msgstr "准假摘要"
-
-#, python-format
-#~ msgid ""
-#~ "You cannot validate leaves for employee %s: too few remaining days (%s)."
-#~ msgstr "你不能生效员工 employee %s 的准假：因为其剩余的天数少于 days (%s)。"
-
-#, python-format
-#~ msgid "You have to select at least 1 Department. And try again"
-#~ msgstr "您至少得选一个部门，请再试。"
-
-#~ msgid ""
-#~ "Human Resources: Holidays tracking and workflow\n"
-#~ "\n"
-#~ "    This module allows you to manage leaves and leaves' requests.\n"
-#~ "    Implements a dashboard for human resource management that includes.\n"
-#~ "        * My Leaves\n"
-#~ "        * My Expenses\n"
-#~ "    Note that:\n"
-#~ "    - A synchronisation with an internal agenda (use of the CRM module) is "
-#~ "possible: in order to automatically create a case when an holiday request is "
-#~ "accepted, you have to link the holidays status to a case section. You can "
-#~ "set up this info and your colour preferences in\n"
-#~ "                HR / Configuration / Holidays Status\n"
-#~ "    - An employee can make an ask for more off-days by making a new "
-#~ "Allocation It will increase his total of that leave type available (if the "
-#~ "request is accepted).\n"
-#~ "    - There are two ways to print the employee's holidays:\n"
-#~ "        * The first will allow to choose employees by department and is used "
-#~ "by clicking the menu item located in\n"
-#~ "                HR / Holidays Request / Print Summary of Holidays\n"
-#~ "        * The second will allow you to choose the holidays report for "
-#~ "specific employees. Go on the list\n"
-#~ "                HR / Employees / Employees\n"
-#~ "            then select the ones you want to choose, click on the print icon "
-#~ "and select the option\n"
-#~ "                'Print Summary of Employee's Holidays'\n"
-#~ "    - The wizard allows you to choose if you want to print either the "
-#~ "Confirmed & Validated holidays or only the Validated ones. These states must "
-#~ "be set up by a user from the group 'HR'. You can define these features in "
-#~ "the security tab from the user data in\n"
-#~ "                Administration / Users / Users\n"
-#~ "            for example, you maybe will do it for the user 'admin'\n"
-#~ "            .\n"
-#~ msgstr ""
-#~ "人力资源：节假日跟踪和工作流程\n"
-#~ "    这模块允许您管理准假和准假申请。\n"
-#~ "        * 我的准假\n"
-#~ "        * 我的费用\n"
-#~ "    备注：\n"
-#~ "    - （使用CRM模块）可以同步内部的日程：当同意假期申请时在事务里您能链接这假期的状况。您能设定其信息和偏好的颜色。\n"
-#~ "           人力资源/设置/节假日状况。\n"
-#~ "      - 一个员工把多个休息日类型合并成一个新的分配准假，它将增加可获得的准假类型。（如果通过）\n"
-#~ "      - 有两个办法打印员工的假期：\n"
-#~ "          * 第一个方法按部门选择员工并点击菜单（人力资源’假期申请/打印节假日摘要）。\n"
-#~ "          * 第二个方法允许你选在具体员工的假期报表（人力资源/员工）选择员工后点击打印按钮选择”“打印员假期摘要”。\n"
-#~ "      - "
-#~ "向导可以让您选择打印确认并生效的假期或者看确认或只看生效的，但必须是人力资源组的用户，您可以在“管理/用户”的安全标签里更改用户的数据。\n"
-#~ "             例如你可能把用户定义为admin\n"
-
-#~ msgid ""
-#~ "If you set a meeting type, OpenERP will create a meeting in the calendar "
-#~ "once a leave is validated."
-#~ msgstr "如果您设置了会议类型，系统将在会议日程内使准假生效。"
-
-#~ msgid ""
-#~ "If its True then its Allocation/Request have to be validated by second "
-#~ "validator"
-#~ msgstr "如果为真，分配 / 申请要二次审核才能生效。"
-
-#~ msgid "You have to select an employee or a category"
-#~ msgstr "您必须选择一个员工或分类"
-
-#~ msgid "Error! leave start-date must be lower then leave end-date."
-#~ msgstr "错误！准假的开始日期必须小于结束日期。"
-
-#~ msgid "Employee's Holidays"
-#~ msgstr "员工假期"
-
-#~ msgid "Holidays by Department"
-#~ msgstr "部门的假期"
-
-#~ msgid "All Employee Leaves"
-#~ msgstr "所有员工的准假"
-
-#~ msgid "Holiday"
-#~ msgstr "假期"
-
-#~ msgid "Leaves To Validate"
-#~ msgstr "准假等待生效"
-
-#, python-format
-#~ msgid "You cannot delete a leave which is not in draft state !"
-#~ msgstr "您不能删除这个准假，因为它不是在草稿状态。"
-
-#~ msgid ""
-#~ "By Employee: Allocation/Request for individual Employee, By Employee "
-#~ "Category: Allocation/Request for group of employees in category"
-#~ msgstr "按员工：按个别员工分配/申请，按员工分类：员工分类分配/申请。"
-
-#~ msgid "HR Holidays Summary Report By Department"
-#~ msgstr "人力资源部门假期摘要报表"
-
-#~ msgid ""
-#~ "If you tick this checkbox, the system will allow, for this section, the "
-#~ "employees to take more leaves than the available ones."
-#~ msgstr "如果您勾选，系统将允许员工获得比可得到更多的准假。"
-
-#~ msgid "This area is automaticly filled by the user who validate the leave"
-#~ msgstr "这里自动填充谁生效这准假"
-
-#~ msgid ""
-#~ "This color will be used in the leaves summary located in Reporting\\Leaves "
-#~ "by Departement"
-#~ msgstr "这颜色将用在准假摘要位置在：报告/部门准假。"
-
-#, python-format
-#~ msgid "Warning !"
-#~ msgstr "警告！"
-
-#~ msgid ""
-#~ "Total number of legal leaves allocated to this employee, change this value "
-#~ "to create allocation/leave requests."
-#~ msgstr "分配给这个员工的总假日天数，新建请假申请会改变这个值。"
-
-#~ msgid "Requests Approve"
-#~ msgstr "需要审批"
-
-#~ msgid ""
-#~ "The state is set to 'Draft', when a holiday request is created.            \n"
-#~ "The state is 'Waiting Approval', when holiday request is confirmed by user.  "
-#~ "          \n"
-#~ "The state is 'Refused', when holiday request is refused by manager.          "
-#~ "  \n"
-#~ "The state is 'Approved', when holiday request is approved by manager."
-#~ msgstr ""
-#~ "新建后的请假申请是”草稿“状态\n"
-#~ "用户确认后的请假申请是”等待审批“状态\n"
-#~ "经理拒绝后的请假申请是”拒绝“状态\n"
-#~ "经理批准后的请假申请是”批准“状态"
-
-#~ msgid " Month-1"
-#~ msgstr " 上个月"
-
-#~ msgid "Latest Connection"
-#~ msgstr "最近连接时间"
-
-#~ msgid "Legal Leaves"
-#~ msgstr "法定假期"
-
-#~ msgid ""
-#~ "You can assign remaining Legal Leaves for each employee, OpenERP will "
-#~ "automatically create and validate allocation requests."
-#~ msgstr "你可以将剩余法定假期分配给每个员工,OpenERP会自动建立和验证配置请求."
-
-#~ msgid "Error ! You cannot create recursive Hierarchy of Employees."
-#~ msgstr "错误！您不能创建循环的员工等级。"
-
-#~ msgid "Holidays during last month"
-#~ msgstr "上个月的假期"
+#~ msgid "Legal Leaves 2012"
+#~ msgstr "年假（2012）"

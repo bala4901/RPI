@@ -23,7 +23,10 @@ from datetime import datetime, timedelta
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT, DATETIME_FORMATS_MAP, float_compare
 from dateutil.relativedelta import relativedelta
 from openerp.osv import fields, osv
+from openerp import netsvc
 from openerp.tools.translate import _
+import pytz
+from openerp import SUPERUSER_ID
 
 class sale_shop(osv.osv):
     _inherit = "sale.shop"
@@ -193,11 +196,11 @@ class sale_order(osv.osv):
         return res
 
     def action_cancel(self, cr, uid, ids, context=None):
+        wf_service = netsvc.LocalService("workflow")
         if context is None:
             context = {}
         sale_order_line_obj = self.pool.get('sale.order.line')
         proc_obj = self.pool.get('procurement.order')
-        stock_obj = self.pool.get('stock.picking')
         for sale in self.browse(cr, uid, ids, context=context):
             for pick in sale.picking_ids:
                 if pick.state not in ('draft', 'cancel'):
@@ -208,9 +211,11 @@ class sale_order(osv.osv):
                     for mov in pick.move_lines:
                         proc_ids = proc_obj.search(cr, uid, [('move_id', '=', mov.id)])
                         if proc_ids:
-                            proc_obj.signal_button_check(cr, uid, proc_ids)            
+                            for proc in proc_ids:
+                                wf_service.trg_validate(uid, 'procurement.order', proc, 'button_check', cr)
             for r in self.read(cr, uid, ids, ['picking_ids']):
-                stock_obj.signal_button_cancel(cr, uid, r['picking_ids'])
+                for pick in r['picking_ids']:
+                    wf_service.trg_validate(uid, 'stock.picking', pick, 'button_cancel', cr)
         return super(sale_order, self).action_cancel(cr, uid, ids, context=context)
 
     def action_wait(self, cr, uid, ids, context=None):
@@ -228,6 +233,29 @@ class sale_order(osv.osv):
                 if line.procurement_id:
                     res.append(line.procurement_id.id)
         return res
+
+    def date_to_datetime(self, cr, uid, userdate, context=None):
+        """ Convert date values expressed in user's timezone to
+        server-side UTC timestamp, assuming a default arbitrary
+        time of 12:00 AM - because a time is needed.
+    
+        :param str userdate: date string in in user time zone
+        :return: UTC datetime string for server-side use
+        """
+        # TODO: move to fields.datetime in server after 7.0
+        user_date = datetime.strptime(userdate, DEFAULT_SERVER_DATE_FORMAT)
+        if context and context.get('tz'):
+            tz_name = context['tz']
+        else:
+            tz_name = self.pool.get('res.users').read(cr, SUPERUSER_ID, uid, ['tz'])['tz']
+        if tz_name:
+            utc = pytz.timezone('UTC')
+            context_tz = pytz.timezone(tz_name)
+            user_datetime = user_date + relativedelta(hours=12.0)
+            local_timestamp = context_tz.localize(user_datetime, is_dst=False)
+            user_datetime = local_timestamp.astimezone(utc)
+            return user_datetime.strftime(DEFAULT_SERVER_DATETIME_FORMAT)
+        return user_date.strftime(DEFAULT_SERVER_DATETIME_FORMAT)
 
     # if mode == 'finished':
     #   returns True if all lines are done, False otherwise
@@ -278,6 +306,7 @@ class sale_order(osv.osv):
             'move_id': move_id,
             'company_id': order.company_id.id,
             'note': line.name,
+            'property_ids': [(6, 0, [x.id for x in line.property_ids])],
         }
 
     def _prepare_order_line_move(self, cr, uid, order, line, picking_id, date_planned, context=None):
@@ -311,7 +340,7 @@ class sale_order(osv.osv):
         return {
             'name': pick_name,
             'origin': order.name,
-            'date': order.date_order,
+            'date': self.date_to_datetime(cr, uid, order.date_order, context),
             'type': 'out',
             'state': 'auto',
             'move_type': order.picking_policy,
@@ -345,7 +374,8 @@ class sale_order(osv.osv):
         return True
 
     def _get_date_planned(self, cr, uid, order, line, start_date, context=None):
-        date_planned = datetime.strptime(start_date, DEFAULT_SERVER_DATE_FORMAT) + relativedelta(days=line.delay or 0.0)
+        start_date = self.date_to_datetime(cr, uid, start_date, context)
+        date_planned = datetime.strptime(start_date, DEFAULT_SERVER_DATETIME_FORMAT) + relativedelta(days=line.delay or 0.0)
         date_planned = (date_planned - timedelta(days=order.company_id.security_lead)).strftime(DEFAULT_SERVER_DATETIME_FORMAT)
         return date_planned
 
@@ -393,9 +423,11 @@ class sale_order(osv.osv):
                 line.write({'procurement_id': proc_id})
                 self.ship_recreate(cr, uid, order, line, move_id, proc_id)
 
+        wf_service = netsvc.LocalService("workflow")
         if picking_id:
-            picking_obj.signal_button_confirm(cr, uid, [picking_id])
-        procurement_obj.signal_button_confirm(cr, uid, proc_ids)
+            wf_service.trg_validate(uid, 'stock.picking', picking_id, 'button_confirm', cr)
+        for proc_id in proc_ids:
+            wf_service.trg_validate(uid, 'procurement.order', proc_id, 'button_confirm', cr)
 
         val = {}
         if order.state == 'shipping_except':
@@ -562,9 +594,6 @@ class sale_order_line(osv.osv):
             return res
 
         #update of result obtained in super function
-        res_packing = self.product_packaging_change(cr, uid, ids, pricelist, product, qty, uom, partner_id, packaging, context=context)
-        res['value'].update(res_packing.get('value', {}))
-        warning_msgs = res_packing.get('warning') and res_packing['warning']['message'] or ''
         product_obj = product_obj.browse(cr, uid, product, context=context)
         res['value']['delay'] = (product_obj.sale_delay or 0.0)
         res['value']['type'] = product_obj.procure_method
@@ -577,6 +606,11 @@ class sale_order_line(osv.osv):
                 uom = False
         if not uom2:
             uom2 = product_obj.uom_id
+
+        # Calling product_packaging_change function after updating UoM
+        res_packing = self.product_packaging_change(cr, uid, ids, pricelist, product, qty, uom, partner_id, packaging, context=context)
+        res['value'].update(res_packing.get('value', {}))
+        warning_msgs = res_packing.get('warning') and res_packing['warning']['message'] or ''
         compare_qty = float_compare(product_obj.virtual_available * uom2.factor, qty * product_obj.uom_id.factor, precision_rounding=product_obj.uom_id.rounding)
         if (product_obj.type=='product') and int(compare_qty) == -1 \
           and (product_obj.procure_method=='make_to_stock'):
@@ -605,11 +639,6 @@ class sale_advance_payment_inv(osv.osv_memory):
         sale_line_obj = self.pool.get('sale.order.line')
         wizard = self.browse(cr, uid, [result], context)
         sale = sale_obj.browse(cr, uid, sale_id, context=context)
-        if sale.order_policy == 'postpaid':
-            raise osv.except_osv(
-                _('Error!'),
-                _("You cannot make an advance on a sales order \
-                     that is defined as 'Automatic Invoice after delivery'."))
 
         # If invoice on picking: add the cost on the SO
         # If not, the advance will be deduced when generating the final invoice

@@ -23,17 +23,6 @@
             attachment_use="True"
             usage="default"
             />
-        <report
-            auto="False"
-            id="account_invoices_small"
-            model="account.invoice"
-            name="account.invoice.small"
-            rml="account/report/account_print_invoice_small.rml"
-            string="Inv Small"
-            attachment="(object.state in ('open','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')"
-            attachment_use="True"
-            usage="default"
-            />
         <report id="account_transfers" model="account.transfer" name="account.transfer" string="Transfers" xml="account/report/transfer.xml" xsl="account/report/transfer.xsl"/>
         <report auto="False" id="account_intracom" menu="False" model="account.move.line" name="account.intracom" string="IntraCom"/>
 

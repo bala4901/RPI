@@ -26,6 +26,7 @@ from datetime import datetime
 from datetime import timedelta
 from dateutil import relativedelta
 
+from openerp import netsvc
 from openerp.osv import fields, osv
 from openerp import tools
 from openerp.tools.translate import _
@@ -50,6 +51,7 @@ class hr_payroll_structure(osv.osv):
         'note': fields.text('Description'),
         'parent_id':fields.many2one('hr.payroll.structure', 'Parent'),
         'children_ids':fields.one2many('hr.payroll.structure', 'parent_id', 'Children'),
+        'rule_ids':fields.many2many('hr.salary.rule', 'hr_structure_salary_rule_rel', 'struct_id', 'rule_id', 'Salary Rules'),
     }
 
     def _get_parent(self, cr, uid, context=None):
@@ -67,6 +69,10 @@ class hr_payroll_structure(osv.osv):
         'parent_id': _get_parent,
     }
 
+    _constraints = [
+        (osv.osv._check_recursion, 'Error ! You cannot create a recursive Salary Structure.', ['parent_id']) 
+    ]
+        
     def copy(self, cr, uid, id, default=None, context=None):
         """
         Create a new record in hr_payroll_structure model from existing one
@@ -330,12 +336,13 @@ class hr_payslip(osv.osv):
 
     def refund_sheet(self, cr, uid, ids, context=None):
         mod_obj = self.pool.get('ir.model.data')
+        wf_service = netsvc.LocalService("workflow")
         for payslip in self.browse(cr, uid, ids, context=context):
             id_copy = self.copy(cr, uid, payslip.id, {'credit_note': True, 'name': _('Refund: ')+payslip.name}, context=context)
             self.compute_sheet(cr, uid, [id_copy], context=context)
-            self.signal_hr_verify_sheet(cr, uid, [id_copy])
-            self.signal_process_sheet(cr, uid, [id_copy])
-            
+            wf_service.trg_validate(uid, 'hr.payslip', id_copy, 'hr_verify_sheet', cr)
+            wf_service.trg_validate(uid, 'hr.payslip', id_copy, 'process_sheet', cr)
+
         form_id = mod_obj.get_object_reference(cr, uid, 'hr_payroll', 'view_hr_payslip_form')
         form_res = form_id and form_id[1] or False
         tree_id = mod_obj.get_object_reference(cr, uid, 'hr_payroll', 'view_hr_payslip_tree')
@@ -949,14 +956,6 @@ class hr_payslip_line(osv.osv):
 
 hr_payslip_line()
 
-class hr_payroll_structure(osv.osv):
-
-    _inherit = 'hr.payroll.structure'
-    _columns = {
-        'rule_ids':fields.many2many('hr.salary.rule', 'hr_structure_salary_rule_rel', 'struct_id', 'rule_id', 'Salary Rules'),
-    }
-
-hr_payroll_structure()
 
 class hr_employee(osv.osv):
     '''

@@ -1,21 +1,21 @@
 # Dutch translation for openobject-addons
-# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the openobject-addons package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: openobject-addons\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-12-21 17:04+0000\n"
-"PO-Revision-Date: 2012-11-24 21:32+0000\n"
+"POT-Creation-Date: 2013-06-07 19:36+0000\n"
+"PO-Revision-Date: 2013-06-20 12:13+0000\n"
 "Last-Translator: Erwin van der Ploeg (Endian Solutions) <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-12-22 05:58+0000\n"
-"X-Generator: Launchpad (build 16378)\n"
+"X-Launchpad-Export-Date: 2013-07-11 06:02+0000\n"
+"X-Generator: Launchpad (build 16696)\n"
 
 #. module: hr_recruitment
 #: help:hr.applicant,active:0
@@ -35,12 +35,12 @@ msgstr "Vereisten"
 #. module: hr_recruitment
 #: view:hr.applicant:0
 msgid "Application Summary"
-msgstr ""
+msgstr "Programma samenvatting"
 
 #. module: hr_recruitment
 #: view:hr.applicant:0
 msgid "Start Interview"
-msgstr ""
+msgstr "Start Interview"
 
 #. module: hr_recruitment
 #: view:hr.applicant:0
@@ -53,6 +53,8 @@ msgid ""
 "This stage is not visible, for example in status bar or kanban view, when "
 "there are no records in that stage to display."
 msgstr ""
+"Deze fase is niet zichtbaar, in bijvoorbeeld de statusbalk of kanban "
+"weergave, wanneer er geen records in deze fase zijn om weer te geven."
 
 #. module: hr_recruitment
 #: model:hr.recruitment.degree,name:hr_recruitment.degree_graduate
@@ -94,6 +96,11 @@ msgstr "Vacatures"
 
 #. module: hr_recruitment
 #: view:hr.applicant:0
+msgid "Extra advantages..."
+msgstr "Secundaire arbeidsvoorwaarden..."
+
+#. module: hr_recruitment
+#: view:hr.applicant:0
 msgid "Pending Jobs"
 msgstr "Vacatures in afwachting"
 
@@ -118,7 +125,7 @@ msgid "Sources of Applicants"
 msgstr "Bron van aanvragers"
 
 #. module: hr_recruitment
-#: code:addons/hr_recruitment/hr_recruitment.py:435
+#: code:addons/hr_recruitment/hr_recruitment.py:445
 #, python-format
 msgid "You must define Applied Job for this applicant."
 msgstr "U moet 'Gesolliciteerd op vacature' definiëren voor deze sollicitant"
@@ -154,12 +161,29 @@ msgid ""
 "              </p>\n"
 "            "
 msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                Klik om een ??nieuwe sollicitant toe te voegen.\n"
+"              </p><p>\n"
+"                OpenERP helpt u kandidaten te volgen in het wervingsproces\n"
+"                en alle bijbehorende acties op te volgen, zoals: afspraken, "
+"sollicitatiegesprekken, etc.\n"
+"              </ p>\n"
+"                Als u de e-mail gateway instelt, worden sollicitanten en de "
+"bijgevoegde\n"
+"                CV's automatisch aangemaakt wanneer een e-mail wordt "
+"verstuurd naar\n"
+"                vacature@uwbedrijf.nl. Als u de document management\n"
+"                modules installeert, worden alle cv's automatisch "
+"geïndexeerd, zodat u\n"
+"                eenvoudig kunt zoeken in de inhoud ervan.\n"
+"              </ p>\n"
+"            "
 
 #. module: hr_recruitment
 #: model:ir.actions.act_window,name:hr_recruitment.crm_case_categ0_act_job
 #: model:ir.ui.menu,name:hr_recruitment.menu_crm_case_categ0_act_job
 msgid "Applications"
-msgstr "Programma's"
+msgstr "Sollicitaties"
 
 #. module: hr_recruitment
 #: field:hr.applicant,day_open:0
@@ -174,7 +198,7 @@ msgstr "medewerker"
 #. module: hr_recruitment
 #: field:hr.config.settings,fetchmail_applicants:0
 msgid "Create applicants from an incoming email account"
-msgstr ""
+msgstr "Maak sollicitaties aan van inkomende e-mails"
 
 #. module: hr_recruitment
 #: view:hr.recruitment.report:0
@@ -237,6 +261,8 @@ msgid ""
 "Stages of the recruitment process may be different per department. If this "
 "stage is common to all departments, keep this field empty."
 msgstr ""
+"Fases van het wervingsproces kunnen verschillend zijn per afdeling, Indien "
+"deze fase gelijk is voor alle afdelingen, houd dit veld dan leeg."
 
 #. module: hr_recruitment
 #: help:hr.applicant,message_unread:0
@@ -267,7 +293,7 @@ msgstr "Mijn werving"
 #. module: hr_recruitment
 #: field:hr.job,survey_id:0
 msgid "Interview Form"
-msgstr "Interview Formulier"
+msgstr "Interview formulier"
 
 #. module: hr_recruitment
 #: help:hr.job,survey_id:0
@@ -295,7 +321,7 @@ msgstr ""
 "ingevoegd."
 
 #. module: hr_recruitment
-#: code:addons/hr_recruitment/hr_recruitment.py:435
+#: code:addons/hr_recruitment/hr_recruitment.py:445
 #, python-format
 msgid "Warning!"
 msgstr "Waarschuwing!"
@@ -347,7 +373,7 @@ msgstr "Werving statistieken"
 #. module: hr_recruitment
 #: view:hr.applicant:0
 msgid "Print interview report"
-msgstr ""
+msgstr "Interview rapport afdrukken"
 
 #. module: hr_recruitment
 #: view:hr.recruitment.report:0
@@ -366,6 +392,12 @@ msgid "Source"
 msgstr "Bron"
 
 #. module: hr_recruitment
+#: view:hr.recruitment.report:0
+#: field:hr.recruitment.report,year:0
+msgid "Year"
+msgstr "Jaar"
+
+#. module: hr_recruitment
 #: field:hr.applicant,message_follower_ids:0
 msgid "Followers"
 msgstr "Volgers"
@@ -378,7 +410,7 @@ msgstr "Monster"
 #. module: hr_recruitment
 #: model:mail.message.subtype,name:hr_recruitment.mt_applicant_hired
 msgid "Applicant Hired"
-msgstr ""
+msgstr "Solicitant aangenomen"
 
 #. module: hr_recruitment
 #: field:hr.applicant,email_from:0
@@ -398,6 +430,16 @@ msgid ""
 "          </p>\n"
 "        "
 msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"            Klik voor het aanmaken van een nieuwe fase in het "
+"verwervingsproces.\n"
+"          </p><p>\n"
+"            \tDefinieer hier de fases in het wervingsproces, bijvoorbeeld: \n"
+"                kwalificatie, eerste interview, tweede interview, "
+"afgewezen,\n"
+"                aangenomen.\n"
+"          </p>\n"
+"        "
 
 #. module: hr_recruitment
 #: view:hr.recruitment.report:0
@@ -415,6 +457,8 @@ msgid ""
 "Email alias for this job position. New emails will automatically create new "
 "applicants for this job position."
 msgstr ""
+"E-mail alias voor deze vacature. Nieuwe e-mails maken automatisch "
+"sollicitanten aan voor deze vacature."
 
 #. module: hr_recruitment
 #: selection:hr.applicant,priority:0
@@ -432,7 +476,7 @@ msgstr "Augustus"
 #: field:hr.applicant,create_date:0
 #: view:hr.recruitment.report:0
 msgid "Creation Date"
-msgstr "Datum gemaakt"
+msgstr "Aanmaakdatum"
 
 #. module: hr_recruitment
 #: model:ir.actions.act_window,name:hr_recruitment.action_hr_recruitment_hired_employee
@@ -498,7 +542,7 @@ msgid "Applicants"
 msgstr "Kandidaten"
 
 #. module: hr_recruitment
-#: code:addons/hr_recruitment/hr_recruitment.py:351
+#: code:addons/hr_recruitment/hr_recruitment.py:360
 #, python-format
 msgid "No Subject"
 msgstr "Geen onderwerp"
@@ -519,7 +563,9 @@ msgid "Gives the sequence order when displaying a list of stages."
 msgstr "Bepaalt de volgorde bij afbeelden faselijst."
 
 #. module: hr_recruitment
+#: code:addons/hr_recruitment/hr_recruitment.py:347
 #: field:hr.applicant,partner_id:0
+#, python-format
 msgid "Contact"
 msgstr "Contact"
 
@@ -537,6 +583,10 @@ msgid ""
 "the case needs to be reviewed then the status is                       set "
 "to 'Pending'."
 msgstr ""
+"De status is ingesteld op 'Concept' wanneer de klacht wordt aangemaakt. Als "
+"de klacht in behandeling is, is de status ingesteld op 'Open'. wanneer de "
+"klacht is afgewerkt, wordt de status ingesteld op 'Gereed'. Indien de klacht "
+"moet worden gecontroleerd, wordt de status op ingesteld op 'In afwachting'."
 
 #. module: hr_recruitment
 #: selection:hr.recruitment.report,month:0
@@ -568,12 +618,12 @@ msgstr "In behandeling"
 #. module: hr_recruitment
 #: view:hr.applicant:0
 msgid "Hire & Create Employee"
-msgstr ""
+msgstr "Werknemer aannemen en aanmaken"
 
 #. module: hr_recruitment
 #: model:mail.message.subtype,description:hr_recruitment.mt_applicant_hired
 msgid "Applicant hired"
-msgstr ""
+msgstr "Sollicitant aangenomen"
 
 #. module: hr_recruitment
 #: view:hr.applicant:0
@@ -604,7 +654,7 @@ msgstr "December"
 #: code:addons/hr_recruitment/wizard/hr_recruitment_create_partner_job.py:39
 #, python-format
 msgid "A contact is already defined on this job request."
-msgstr ""
+msgstr "Er is reeds een contract gedefinieerd voor deze vacature"
 
 #. module: hr_recruitment
 #: field:hr.applicant,categ_ids:0
@@ -614,7 +664,12 @@ msgstr "Labels"
 #. module: hr_recruitment
 #: model:ir.model,name:hr_recruitment.model_hr_applicant_category
 msgid "Category of applicant"
-msgstr ""
+msgstr "Sollicitant categorie"
+
+#. module: hr_recruitment
+#: view:hr.applicant:0
+msgid "e.g. Call for interview"
+msgstr "Bijv. bellen voor een sollicitatiegesprek"
 
 #. module: hr_recruitment
 #: view:hr.recruitment.report:0
@@ -625,12 +680,12 @@ msgstr "Maand"
 #. module: hr_recruitment
 #: view:hr.applicant:0
 msgid "Answer related job question"
-msgstr ""
+msgstr "Antwoord op functie vraag"
 
 #. module: hr_recruitment
-#: model:hr.recruitment.stage,name:hr_recruitment.stage_job2
-msgid "First Interview"
-msgstr "Eerste gesprek"
+#: model:ir.model,name:hr_recruitment.model_hr_recruitment_degree
+msgid "Degree of Recruitment"
+msgstr "Mate van werving"
 
 #. module: hr_recruitment
 #: field:hr.applicant,write_date:0
@@ -657,7 +712,7 @@ msgstr "of"
 #. module: hr_recruitment
 #: model:mail.message.subtype,name:hr_recruitment.mt_applicant_refused
 msgid "Applicant Refused"
-msgstr ""
+msgstr "Sollicitant afgewezen"
 
 #. module: hr_recruitment
 #: view:hr.applicant:0
@@ -761,13 +816,13 @@ msgstr "Status"
 #. module: hr_recruitment
 #: view:hr.applicant:0
 msgid "Schedule interview with this applicant"
-msgstr ""
+msgstr "Plan een afspraak met deze sollicitant"
 
 #. module: hr_recruitment
-#: code:addons/hr_recruitment/hr_recruitment.py:397
+#: code:addons/hr_recruitment/hr_recruitment.py:407
 #, python-format
 msgid "Applicant <b>created</b>"
-msgstr ""
+msgstr "Sollicitant <b>aangemaakt</b>"
 
 #. module: hr_recruitment
 #: view:hr.applicant:0
@@ -819,7 +874,7 @@ msgstr "Actief"
 #: view:hr.recruitment.report:0
 #: field:hr.recruitment.report,nbr:0
 msgid "# of Applications"
-msgstr ""
+msgstr "# sollicitanten"
 
 #. module: hr_recruitment
 #: model:ir.actions.act_window,help:hr_recruitment.hr_recruitment_stage_act
@@ -833,6 +888,15 @@ msgid ""
 "          </p>\n"
 "        "
 msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"            Klik voor het aanmaken van een nieuwe fase in het "
+"verwervingsproces.\n"
+"          </p><p>\n"
+"            Vergeet niet de afdeling te specificeren, indien het "
+"wervingsproces\n"
+"            afwijkt voor de functie\n"
+"          </p>\n"
+"        "
 
 #. module: hr_recruitment
 #: field:hr.applicant,response:0
@@ -847,7 +911,7 @@ msgstr "Oktober"
 #. module: hr_recruitment
 #: field:hr.config.settings,module_document_ftp:0
 msgid "Allow the automatic indexation of resumes"
-msgstr ""
+msgstr "Sta het automatisch indexeren van CV's toe."
 
 #. module: hr_recruitment
 #: field:hr.applicant,salary_proposed_extra:0
@@ -863,7 +927,7 @@ msgstr "Januari"
 #: code:addons/hr_recruitment/wizard/hr_recruitment_create_partner_job.py:56
 #, python-format
 msgid "A contact is already existing with the same name."
-msgstr ""
+msgstr "Er bestaat reeds een contract met deze naam."
 
 #. module: hr_recruitment
 #: model:ir.actions.act_window,name:hr_recruitment.hr_recruitment_stage_form_installer
@@ -899,7 +963,7 @@ msgstr "Wilt u een werknemer aanmaken?"
 #. module: hr_recruitment
 #: view:hr.applicant:0
 msgid "Degree:"
-msgstr ""
+msgstr "Diploma:"
 
 #. module: hr_recruitment
 #: view:hr.recruitment.report:0
@@ -937,10 +1001,10 @@ msgid "The name of the Degree of Recruitment must be unique!"
 msgstr "De naam van de mate van werving moet uniek zijn!"
 
 #. module: hr_recruitment
-#: view:hr.recruitment.report:0
-#: field:hr.recruitment.report,year:0
-msgid "Year"
-msgstr "Jaar"
+#: code:addons/hr_recruitment/hr_recruitment.py:349
+#, python-format
+msgid "Contact Email"
+msgstr "E-mail adres contactpersoon"
 
 #. module: hr_recruitment
 #: view:hired.employee:0
@@ -952,6 +1016,7 @@ msgstr "Annuleren"
 #: view:hr.recruitment.partner.create:0
 msgid "Are you sure you want to create a contact based on this job request ?"
 msgstr ""
+"Weet u zeker dat u een contract wilt maken op basis van deze vacature?"
 
 #. module: hr_recruitment
 #: help:hr.config.settings,fetchmail_applicants:0
@@ -960,6 +1025,10 @@ msgid ""
 "(jobs@mycompany.com),\n"
 "                and create automatically application documents in the system."
 msgstr ""
+"Sta sollicitanten toe om hun sollicitatie te sturen naar een e-mail adres "
+"(vacature@mijnbedrijf.nl),\n"
+"                en maak automatisch de sollicitatie documenten aan in het "
+"systeem."
 
 #. module: hr_recruitment
 #: view:hr.applicant:0
@@ -981,7 +1050,7 @@ msgstr "Bepaalt de volgorde bij het afbeelden van de lijst van diploma's"
 #. module: hr_recruitment
 #: model:mail.message.subtype,description:hr_recruitment.mt_stage_changed
 msgid "Stage changed"
-msgstr ""
+msgstr "Fase veranderd"
 
 #. module: hr_recruitment
 #: view:hr.applicant:0
@@ -1010,7 +1079,7 @@ msgstr "LinkedIn"
 #. module: hr_recruitment
 #: model:mail.message.subtype,name:hr_recruitment.mt_job_new_applicant
 msgid "New Applicant"
-msgstr ""
+msgstr "Nieuwe sollicitant"
 
 #. module: hr_recruitment
 #: model:ir.model,name:hr_recruitment.model_hr_recruitment_stage
@@ -1055,7 +1124,7 @@ msgstr "Omschrijving"
 #. module: hr_recruitment
 #: model:mail.message.subtype,name:hr_recruitment.mt_stage_changed
 msgid "Stage Changed"
-msgstr ""
+msgstr "Fase veranderd"
 
 #. module: hr_recruitment
 #: selection:hr.recruitment.report,month:0
@@ -1075,7 +1144,7 @@ msgstr "Mond tot mond"
 #. module: hr_recruitment
 #: field:hr.recruitment.stage,fold:0
 msgid "Hide in views if empty"
-msgstr ""
+msgstr "Verberg in weergave indien leeg"
 
 #. module: hr_recruitment
 #: help:hr.config.settings,module_document_ftp:0
@@ -1085,6 +1154,10 @@ msgid ""
 "knowledge management  module in order to allow you to search using specific "
 "keywords through  the content of all documents (PDF, .DOCx...)"
 msgstr ""
+"Beheer uw CV's en sollicitatiebrieven van alle sollicitanten.\n"
+"                Dit installeert de module module document_ftp. Dit zal de "
+"kennismanagement module installeren waarmee u kunt zoeken op specifieke "
+"woorden in de inhoud van alle documenten (PDF, .DOCx...)."
 
 #. module: hr_recruitment
 #: selection:hr.applicant,state:0
@@ -1110,7 +1183,7 @@ msgstr "Doorverwezen door"
 #. module: hr_recruitment
 #: view:hr.applicant:0
 msgid "Departement:"
-msgstr ""
+msgstr "Afdeling:"
 
 #. module: hr_recruitment
 #: selection:hr.applicant,priority:0
@@ -1119,14 +1192,14 @@ msgid "On Average"
 msgstr "Gemiddeld"
 
 #. module: hr_recruitment
-#: model:ir.model,name:hr_recruitment.model_hr_recruitment_degree
-msgid "Degree of Recruitment"
-msgstr "Mate van werving"
+#: model:hr.recruitment.stage,name:hr_recruitment.stage_job2
+msgid "First Interview"
+msgstr "Eerste gesprek"
 
 #. module: hr_recruitment
 #: field:hr.recruitment.report,salary_prop_avg:0
 msgid "Avg. Proposed Salary"
-msgstr ""
+msgstr "Gem. voorgesteld salaris"
 
 #. module: hr_recruitment
 #: view:hr.applicant:0
@@ -1159,12 +1232,12 @@ msgstr "November"
 #. module: hr_recruitment
 #: field:hr.recruitment.report,salary_exp_avg:0
 msgid "Avg. Expected Salary"
-msgstr ""
+msgstr "Gem. Verwacht salaris"
 
 #. module: hr_recruitment
 #: view:hr.recruitment.report:0
 msgid "Avg Expected Salary"
-msgstr ""
+msgstr "Gem. Verwacht salaris"
 
 #. module: hr_recruitment
 #: model:ir.model,name:hr_recruitment.model_hr_recruitment_partner_create
@@ -1180,6 +1253,11 @@ msgstr "Deze personen zullen email ontvangen."
 #: field:hr.job,alias_id:0
 msgid "Alias"
 msgstr "Alias"
+
+#. module: hr_recruitment
+#: view:hr.applicant:0
+msgid "Feedback of interviews..."
+msgstr "Feedback op sollicitatiegesprek..."
 
 #. module: hr_recruitment
 #: view:hr.recruitment.report:0
@@ -1204,7 +1282,7 @@ msgstr "Berichten en communicatie historie"
 #. module: hr_recruitment
 #: model:mail.message.subtype,description:hr_recruitment.mt_applicant_refused
 msgid "Applicant refused"
-msgstr ""
+msgstr "Sollicitant afgewezen"
 
 #. module: hr_recruitment
 #: field:hr.recruitment.stage,department_id:0
@@ -1245,6 +1323,10 @@ msgid ""
 "related to the status 'Close', when your document reach this stage, it will "
 "be automatically closed."
 msgstr ""
+"De gerelateerde status voor de fase. De status van uw document zal "
+"automatisch wijzigen op basis van de geselecteerde fase. Bijvoorbeeld: De "
+"fase is gerelateerd aan de status 'Gesloten'. Wanneer uw document deze fase "
+"bereikt, wordt de status automatisch op gesloten gezet."
 
 #. module: hr_recruitment
 #: help:hr.applicant,salary_proposed_extra:0
@@ -1264,273 +1346,9 @@ msgstr "Geopend"
 #. module: hr_recruitment
 #: view:board.board:0
 msgid "Applications to be Processed"
-msgstr ""
+msgstr "Sollicitaties welke worden verwerkt"
 
 #. module: hr_recruitment
 #: view:hr.applicant:0
 msgid "Schedule Interview"
-msgstr ""
-
-#~ msgid "# of Cases"
-#~ msgstr "# kandidaten"
-
-#~ msgid "Avg. Delay to Open"
-#~ msgstr "Gem. vertraging tot openen"
-
-#~ msgid "Add Internal Note"
-#~ msgstr "Interne notitie toevoegen"
-
-#~ msgid "Create Partner"
-#~ msgstr "Relatie aanmaken"
-
-#~ msgid "Goals"
-#~ msgstr "Doelen"
-
-#~ msgid "Partner Contact Name"
-#~ msgstr "Relatie contactnaam"
-
-#~ msgid "Junior Developer"
-#~ msgstr "Junior ontwikkelaar"
-
-#~ msgid "Partner Contact"
-#~ msgstr "Relatie contact"
-
-#~ msgid "Reference"
-#~ msgstr "Referentie"
-
-#~ msgid "Notes"
-#~ msgstr "Notities"
-
-#, python-format
-#~ msgid "Phone Call"
-#~ msgstr "Telefoongesprek"
-
-#~ msgid "Previous"
-#~ msgstr "Vorige"
-
-#~ msgid "Availability (Days)"
-#~ msgstr "Beschikbaarheid (Dagen)"
-
-#, python-format
-#~ msgid "A partner is already defined on this job request."
-#~ msgstr "Er is al een relatie gedefinieerd bij deze sollicitatie."
-
-#~ msgid "Send New Email"
-#~ msgstr "Nieuw email versturen"
-
-#~ msgid "Next"
-#~ msgstr "Volgende"
-
-#~ msgid "Initial Jobs Demand"
-#~ msgstr "Initiele sollicitatie"
-
-#~ msgid "Planned Date"
-#~ msgstr "Datum gepland"
-
-#, python-format
-#~ msgid "Error !"
-#~ msgstr "Fout !"
-
-#~ msgid " > Bac +5"
-#~ msgstr " > Bac +5"
-
-#~ msgid "    Month-1    "
-#~ msgstr "    Maand-1    "
-
-#~ msgid "Dates"
-#~ msgstr "Data"
-
-#~ msgid "History Information"
-#~ msgstr "Historie informatie"
-
-#~ msgid "Qualification"
-#~ msgstr "Qualificatie"
-
-#~ msgid "Job Info"
-#~ msgstr "Kandidaat informatie"
-
-#~ msgid "HR - Recruitement"
-#~ msgstr "HR - Werving"
-
-#~ msgid "Salesman"
-#~ msgstr "Verkoper"
-
-#~ msgid "Category"
-#~ msgstr "Categorie"
-
-#~ msgid "# Cases"
-#~ msgstr "# Kandidaten"
-
-#~ msgid "Reset to New"
-#~ msgstr "Terugzetten op Nieuw"
-
-#~ msgid "Answer"
-#~ msgstr "Antwoorden"
-
-#~ msgid "Global CC"
-#~ msgstr "Globale CC"
-
-#~ msgid "Meeting"
-#~ msgstr "Afspraak"
-
-#~ msgid "Refused by Company"
-#~ msgstr "Geweigerd door bedrijf"
-
-#~ msgid "Licenced"
-#~ msgstr "Diploma"
-
-#~ msgid "History"
-#~ msgstr "Historie"
-
-#~ msgid "Are you sure you want to create a partner based on this job request ?"
-#~ msgstr ""
-#~ "Weet u zeker dat u een relatie op basis van deze sollicitatie wilt maken?"
-
-#~ msgid "Phone Call Description"
-#~ msgstr "Omschrijving telefoongesprek"
-
-#~ msgid "Attachments"
-#~ msgstr "Bijlagen"
-
-#~ msgid "Avg Salary Proposed"
-#~ msgstr "Gem. voorgesteld salaris"
-
-#~ msgid "Schedule Phone Call"
-#~ msgstr "Telefoongesprek plannen"
-
-#, python-format
-#~ msgid "A partner is already existing with the same name."
-#~ msgstr "Er bestaat al een relatie met dezelfde naam."
-
-#~ msgid "Applicant Categories"
-#~ msgstr "Kandidaat categorieën"
-
-#~ msgid "State"
-#~ msgstr "Status"
-
-#~ msgid "Current"
-#~ msgstr "Actueel"
-
-#~ msgid "Details"
-#~ msgstr "Details"
-
-#~ msgid "Reply"
-#~ msgstr "Beantwoorden"
-
-#, python-format
-#~ msgid "Applicant '%s' is being hired."
-#~ msgstr "Kandidaat '%s' is aangenomen."
-
-#~ msgid "Refused by Employee"
-#~ msgstr "Afgewezen door medewerker"
-
-#~ msgid "Assign To"
-#~ msgstr "Toewijzen aan"
-
-#~ msgid "HR Department"
-#~ msgstr "HR afdeling"
-
-#~ msgid ""
-#~ "From this menu you can track applicants in the recruitment process and "
-#~ "manage all operations: meetings, interviews, phone calls, etc. If you setup "
-#~ "the email gateway, applicants and their attached CV are created "
-#~ "automatically when an email is sent to jobs@yourcompany.com. If you install "
-#~ "the document management modules, all documents (CV and motivation letters) "
-#~ "are indexed automatically, so that you can easily search through their "
-#~ "content."
-#~ msgstr ""
-#~ "Vanuit dit menu kunt u kandidaten volgen in het wervingsproces en alle "
-#~ "handelingen beheren: afspraken, interviews, telefoongesprekken, etc. Als u "
-#~ "de email gateway instelt, worden kandidaten en bijgevoegde CV's automatisch "
-#~ "gemaakt als een email wordt gestuurd naar jobs@uwbedrijf.com, Als u de "
-#~ "document management systeem modules installeert, worden alle documenten (CV "
-#~ "en sollicitatiebrieven) automatisch geïndexeerd, zodat u gemakkelijk door de "
-#~ "inhoud kunt zoeken."
-
-#~ msgid ""
-#~ "\n"
-#~ "Manages job positions and the recruitement process. It's integrated with "
-#~ "the\n"
-#~ "survey module to allow you to define interview for different jobs.\n"
-#~ "\n"
-#~ "This module is integrated with the mail gateway to automatically tracks "
-#~ "email\n"
-#~ "sent to jobs@YOURCOMPANY.com. It's also integrated with the document "
-#~ "management\n"
-#~ "system to store and search in your CV base.\n"
-#~ "    "
-#~ msgstr ""
-#~ "\n"
-#~ "Beheert banen en het wervingsproces. Het is geïntegreerd met de\n"
-#~ "enquete module waardoor u interviews kunt definiëren voor verschillende "
-#~ "banen.\n"
-#~ "\n"
-#~ "Deze module is geïntegreerd met de email gateway om automatisch emails te "
-#~ "volgen\n"
-#~ "die naar jobs@UWBEDRIJF.com worden gestuurd. Het is ook geïntegreerd met het "
-#~ "document\n"
-#~ "management systeem om uw CV bestand vast te leggen en te doorzoeken.\n"
-#~ "    "
-
-#~ msgid "Communication & History"
-#~ msgstr "Communicatie & Geschiedenis"
-
-#~ msgid "Refered By"
-#~ msgstr "Gerefereerd door"
-
-#~ msgid "Hire"
-#~ msgstr "Aannemen"
-
-#, python-format
-#~ msgid "Changed Stage to: %s"
-#~ msgstr "Stadium veranderd in: %s"
-
-#~ msgid "Change Color"
-#~ msgstr "Wijzig kleur"
-
-#~ msgid "Recruitment performed in current year"
-#~ msgstr "Wervingen uitgevoerd in huidige jaar"
-
-#~ msgid "Recruitment performed in current month"
-#~ msgstr "Werving uitgevoerd in huidige maand"
-
-#~ msgid "Recruitment during last month"
-#~ msgstr "Wervingen gedurende laatste maand"
-
-#~ msgid "Edit"
-#~ msgstr "Bewerken"
-
-#~ msgid "Job Positions"
-#~ msgstr "Vacatures"
-
-#~ msgid "Contract Data"
-#~ msgstr "Contractgegevens"
-
-#~ msgid "The name of the job position must be unique per company!"
-#~ msgstr "De naam van de functie  moet uniek zijn per bedrijf!"
-
-#~ msgid ""
-#~ "Stages of the recruitment process may be different per department. If this "
-#~ "stage is common to all departments, keep tempy this field."
-#~ msgstr ""
-#~ "Fases van het wervingsproces kunnen verschillend zijn per afdeling, Indien "
-#~ "deze fase gelijk is voor alle afdelingen, houd dit veld dan leeg."
-
-#~ msgid ""
-#~ " Check if the following stages are matching your recruitment process. Don't "
-#~ "forget to specify the department if your recruitment process is different "
-#~ "according to the job position."
-#~ msgstr ""
-#~ " Vink de fases van uw wervinsproces aan. Vergeet niet de afdeling te "
-#~ "specificeren, indien het wervingsproces afwijkt voor de functie."
-
-#~ msgid ""
-#~ "Define here your stages of the recruitment process, for example: "
-#~ "qualification call, first interview, second interview, refused, hired."
-#~ msgstr ""
-#~ "Definieer hier de fases in het wervingsproces, bijvoorbeeld: kwalificatie, "
-#~ "eerste interview, tweede interview, afgewezen, aangenomen."
-
-#, python-format
-#~ msgid "The job request '%s' has been set 'in progress'."
-#~ msgstr "De sollicitatie '%s' is op 'in behandeling' gezet."
+msgstr "Sollicitatiegesprek plannen"

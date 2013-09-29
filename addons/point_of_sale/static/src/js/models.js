@@ -176,7 +176,7 @@ function openerp_pos_models(instance, module){ //module is instance.point_of_sal
 
                     return self.fetch(
                         'product.product', 
-                        ['name', 'code', 'list_price','price','pos_categ_id', 'taxes_id', 'ean13', 
+                        ['name', 'default_code', 'list_price','price','pos_categ_id', 'taxes_id', 'ean13', 
                          'to_weight', 'uom_id', 'uos_id', 'uos_coeff', 'mes_type', 'description_sale', 'description'],
                         [['sale_ok','=',true],['available_in_pos','=',true]],
                         {pricelist: self.get('shop').pricelist_id[0]} // context for price
@@ -439,6 +439,7 @@ function openerp_pos_models(instance, module){ //module is instance.point_of_sal
         },
         // return the product of this orderline
         get_product: function(){
+		console.log(this.product);
             return this.product;
         },
         // return the base price of this product (for this orderline)

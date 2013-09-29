@@ -1,20 +1,21 @@
-# Translation of OpenERP Server.
-# This file contains the translation of the following modules:
-#	* hr_holidays
+# Polish translation for openobject-addons
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the openobject-addons package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 6.0dev\n"
-"Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2012-12-21 17:04+0000\n"
-"PO-Revision-Date: 2012-12-14 12:51+0000\n"
-"Last-Translator: Grzegorz Grzelak (OpenGLOBE.pl) <grzegorz@openglobe.pl>\n"
-"Language-Team: \n"
+"Project-Id-Version: openobject-addons\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-06-07 19:36+0000\n"
+"PO-Revision-Date: 2013-06-22 17:39+0000\n"
+"Last-Translator: Dariusz Kubiak <d.kubiak@macopedia.pl>\n"
+"Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-12-22 05:46+0000\n"
-"X-Generator: Launchpad (build 16378)\n"
+"X-Launchpad-Export-Date: 2013-07-11 06:01+0000\n"
+"X-Generator: Launchpad (build 16696)\n"
 
 #. module: hr_holidays
 #: selection:hr.holidays.status,color_name:0
@@ -32,7 +33,7 @@ msgid "Waiting Second Approval"
 msgstr "Oczekuje na drugą aprobatę"
 
 #. module: hr_holidays
-#: code:addons/hr_holidays/hr_holidays.py:291
+#: code:addons/hr_holidays/hr_holidays.py:309
 #, python-format
 msgid ""
 "You cannot modify a leave request that has been approved. Contact a human "
@@ -109,11 +110,13 @@ msgid ""
 "The default duration interval between the start date and the end date is 8 "
 "hours.  Feel free to adapt it to your needs."
 msgstr ""
+"Domyślny odstęp między datą rozpoczęcia i data zakończenia jest 8 godzin. "
+"Zapraszam do dostosowania go do swoich potrzeb."
 
 #. module: hr_holidays
 #: model:mail.message.subtype,description:hr_holidays.mt_holidays_refused
 msgid "Request refused"
-msgstr ""
+msgstr "Wniosek odrzucony"
 
 #. module: hr_holidays
 #: field:hr.holidays,number_of_days_temp:0
@@ -170,12 +173,6 @@ msgid "Refuse"
 msgstr "Odmów"
 
 #. module: hr_holidays
-#: code:addons/hr_holidays/hr_holidays.py:433
-#, python-format
-msgid "Request <b>approved</b>, waiting second validation."
-msgstr "Wniosek <b>zaaprobowany</b>, oczekuje na drugie zatwierdzenie."
-
-#. module: hr_holidays
 #: view:hr.employee:0
 #: model:ir.actions.act_window,name:hr_holidays.act_hr_employee_holiday_request
 #: model:ir.ui.menu,name:hr_holidays.menu_open_ask_holidays
@@ -188,9 +185,9 @@ msgid "Messages"
 msgstr "Wiadomości"
 
 #. module: hr_holidays
-#: xsl:holidays.summary:0
-msgid "Analyze from"
-msgstr "Analizuj od"
+#: model:ir.model,name:hr_holidays.model_hr_holidays
+msgid "Leave"
+msgstr "Nieobecność"
 
 #. module: hr_holidays
 #: code:addons/hr_holidays/wizard/hr_holidays_summary_department.py:44
@@ -274,12 +271,12 @@ msgid ""
 msgstr ""
 
 #. module: hr_holidays
-#: code:addons/hr_holidays/hr_holidays.py:238
 #: code:addons/hr_holidays/hr_holidays.py:249
-#: code:addons/hr_holidays/hr_holidays.py:274
-#: code:addons/hr_holidays/hr_holidays.py:291
-#: code:addons/hr_holidays/hr_holidays.py:414
-#: code:addons/hr_holidays/hr_holidays.py:464
+#: code:addons/hr_holidays/hr_holidays.py:260
+#: code:addons/hr_holidays/hr_holidays.py:285
+#: code:addons/hr_holidays/hr_holidays.py:309
+#: code:addons/hr_holidays/hr_holidays.py:432
+#: code:addons/hr_holidays/hr_holidays.py:482
 #, python-format
 msgid "Warning!"
 msgstr "Ostrzeżenie !"
@@ -296,8 +293,8 @@ msgstr "Spotkania o urlopach"
 
 #. module: hr_holidays
 #: model:hr.holidays.status,name:hr_holidays.holiday_status_cl
-msgid "Legal Leaves 2012"
-msgstr "Oficjalne nieobecności 2012"
+msgid "Legal Leaves 2013"
+msgstr "Oficjalne nieobecności 2013"
 
 #. module: hr_holidays
 #: selection:hr.holidays.summary.dept,holiday_type:0
@@ -317,7 +314,7 @@ msgid "Sick Leaves"
 msgstr "Zwolnienie lekarskie"
 
 #. module: hr_holidays
-#: code:addons/hr_holidays/hr_holidays.py:471
+#: code:addons/hr_holidays/hr_holidays.py:489
 #, python-format
 msgid "Leave Request for %s"
 msgstr "Wniosek urlopowy dla %s"
@@ -341,7 +338,7 @@ msgstr "Pozostało dni urlopu"
 #. module: hr_holidays
 #: field:hr.holidays,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Obserwatorzy"
 
 #. module: hr_holidays
 #: model:ir.model,name:hr_holidays.model_hr_holidays_remaining_leaves_user
@@ -388,7 +385,7 @@ msgid "Wheat"
 msgstr "Pszenny"
 
 #. module: hr_holidays
-#: code:addons/hr_holidays/hr_holidays.py:469
+#: code:addons/hr_holidays/hr_holidays.py:487
 #, python-format
 msgid "Allocation for %s"
 msgstr "Przydział dla %s"
@@ -412,7 +409,7 @@ msgid "Number of Days"
 msgstr "Liczba dni"
 
 #. module: hr_holidays
-#: code:addons/hr_holidays/hr_holidays.py:464
+#: code:addons/hr_holidays/hr_holidays.py:482
 #, python-format
 msgid ""
 "The feature behind the field 'Remaining Legal Leaves' can only be used when "
@@ -516,7 +513,7 @@ msgid "Start Date"
 msgstr "Data początkowa"
 
 #. module: hr_holidays
-#: code:addons/hr_holidays/hr_holidays.py:414
+#: code:addons/hr_holidays/hr_holidays.py:432
 #, python-format
 msgid ""
 "There are not enough %s allocated for employee %s; please create an "
@@ -543,11 +540,6 @@ msgid ""
 "                number of open days related to your leave.\n"
 "              </p>\n"
 "            "
-msgstr ""
-
-#. module: hr_holidays
-#: sql_constraint:hr.holidays:0
-msgid "The employee or employee category of this request is missing."
 msgstr ""
 
 #. module: hr_holidays
@@ -660,10 +652,16 @@ msgid "Active"
 msgstr "Aktywny"
 
 #. module: hr_holidays
-#: view:hr.employee:0
-#: field:hr.employee,remaining_leaves:0
-msgid "Remaining Legal Leaves"
-msgstr "Pozostałe prawne nieobecności"
+#: sql_constraint:hr.holidays:0
+msgid ""
+"The employee or employee category of this request is missing. Please make "
+"sure that your user login is linked to an employee."
+msgstr ""
+
+#. module: hr_holidays
+#: view:hr.holidays:0
+msgid "Add a reason..."
+msgstr ""
 
 #. module: hr_holidays
 #: field:hr.holidays,manager_id:0
@@ -678,7 +676,7 @@ msgstr "Podsumowanie"
 #. module: hr_holidays
 #: model:hr.holidays.status,name:hr_holidays.holiday_status_unpaid
 msgid "Unpaid"
-msgstr "Niezapłacone"
+msgstr "Bezpłatny"
 
 #. module: hr_holidays
 #: xsl:holidays.summary:0
@@ -712,11 +710,6 @@ msgid "My Department Leaves"
 msgstr "Nieobecności mojego działu"
 
 #. module: hr_holidays
-#: model:mail.message.subtype,description:hr_holidays.mt_holidays_confirmed
-msgid "Request confirmed, waiting confirmation"
-msgstr ""
-
-#. module: hr_holidays
 #: field:hr.employee,current_leave_state:0
 msgid "Current Leave Status"
 msgstr "Stan nieobecności"
@@ -741,7 +734,7 @@ msgstr "Różne"
 #. module: hr_holidays
 #: model:hr.holidays.status,name:hr_holidays.holiday_status_comp
 msgid "Compensatory Days"
-msgstr ""
+msgstr "Urlop wyrównawczy"
 
 #. module: hr_holidays
 #: selection:hr.holidays.status,color_name:0
@@ -761,12 +754,17 @@ msgid "Cancel"
 msgstr "Anuluj"
 
 #. module: hr_holidays
+#: model:mail.message.subtype,description:hr_holidays.mt_holidays_confirmed
+msgid "Request created and waiting confirmation"
+msgstr ""
+
+#. module: hr_holidays
 #: view:hr.holidays:0
 msgid "Validated"
 msgstr "Zatwierdzony"
 
 #. module: hr_holidays
-#: code:addons/hr_holidays/hr_holidays.py:238
+#: code:addons/hr_holidays/hr_holidays.py:249
 #, python-format
 msgid "You cannot delete a leave which is in %s state."
 msgstr "Nie możesz usunąć nieobecności, która jest w stanie %s."
@@ -830,7 +828,7 @@ msgid "To Submit"
 msgstr "Do wysłania"
 
 #. module: hr_holidays
-#: code:addons/hr_holidays/hr_holidays.py:336
+#: code:addons/hr_holidays/hr_holidays.py:354
 #: view:hr.holidays:0
 #: selection:hr.holidays,type:0
 #: field:resource.calendar.leaves,holiday_id:0
@@ -843,6 +841,12 @@ msgstr "Wniosek urlopowy"
 #: field:hr.holidays,name:0
 msgid "Description"
 msgstr "Opis"
+
+#. module: hr_holidays
+#: view:hr.employee:0
+#: field:hr.employee,remaining_leaves:0
+msgid "Remaining Legal Leaves"
+msgstr "Pozostałe prawne nieobecności"
 
 #. module: hr_holidays
 #: selection:hr.holidays,holiday_type:0
@@ -920,6 +924,12 @@ msgid "Both Approved and Confirmed"
 msgstr "Zaaprobowane i potwierdzone"
 
 #. module: hr_holidays
+#: code:addons/hr_holidays/hr_holidays.py:451
+#, python-format
+msgid "Request approved, waiting second validation."
+msgstr ""
+
+#. module: hr_holidays
 #: view:hr.holidays:0
 msgid "Approve"
 msgstr "Aprobuj"
@@ -930,17 +940,17 @@ msgid "Messages and communication history"
 msgstr "Wiadomości i historia komunikacji"
 
 #. module: hr_holidays
-#: code:addons/hr_holidays/hr_holidays.py:249
-#: code:addons/hr_holidays/hr_holidays.py:274
+#: code:addons/hr_holidays/hr_holidays.py:260
+#: code:addons/hr_holidays/hr_holidays.py:285
 #: sql_constraint:hr.holidays:0
 #, python-format
 msgid "The start date must be anterior to the end date."
 msgstr "Data początkowa musi być przed datą końcową."
 
 #. module: hr_holidays
-#: model:ir.model,name:hr_holidays.model_hr_holidays
-msgid "Leave"
-msgstr "Nieobecność"
+#: xsl:holidays.summary:0
+msgid "Analyze from"
+msgstr "Analizuj od"
 
 #. module: hr_holidays
 #: help:hr.holidays.status,double_validation:0
@@ -1021,71 +1031,9 @@ msgstr "Powody"
 msgid "Select Leave Type"
 msgstr "Wybierz typ nieobecności"
 
-#~ msgid "Set to Draft"
-#~ msgstr "Ustaw na projekt"
-
-#~ msgid "General"
-#~ msgstr "Ogólne"
-
-#~ msgid "Select Holiday Type"
-#~ msgstr "Wybierz typ urlopu"
-
-#~ msgid "Confirm"
-#~ msgstr "Potwierdź"
-
-#~ msgid "Both Validated and Confirmed"
-#~ msgstr "Zarówno potwierdzone jak i zatwierdzone"
-
-#~ msgid "Holidays"
-#~ msgstr "Urlopy"
-
-#~ msgid "Human Resources: Holidays management"
-#~ msgstr "Kadry: Urlopy"
-
-#~ msgid "Sick Leave"
-#~ msgstr "Zwolnienie lekarskie"
-
-#~ msgid ""
-#~ "Leave Manager can let this field empty if this leave request/allocation is "
-#~ "for every employee"
-#~ msgstr ""
-#~ "Przełożony może pozwolić, aby to pole było puste, jeśli wniosek dotyczy "
-#~ "wszystkich pracowników."
-
-#~ msgid "Summary Of Leaves"
-#~ msgstr "Podsumowanie urlopów"
-
-#~ msgid "Draft"
-#~ msgstr "Projekt"
-
-#~ msgid "HR Holidays Summary Report By Employee"
-#~ msgstr "Raport podsumowania urlopów wg pracowników"
-
-#~ msgid ""
-#~ "When the holiday request is created the state is 'Draft'.\n"
-#~ " It is confirmed by the user and request is sent to admin, the state is "
-#~ "'Waiting Approval'.            If the admin accepts it, the state is "
-#~ "'Approved'. If it is refused, the state is 'Refused'."
-#~ msgstr ""
-#~ "Wniosek urlopowy po utworzeniu jest w stanie 'Projekt'.\n"
-#~ " Po potwierdzeniu przez użytkownika jest przesyłany do admina w stanie "
-#~ "'Oczekuje na aprobatę'.            Jeśli admin aprobuje, to stan zmienia się "
-#~ "na 'Zaaprobowano'. Jeśli zostanie odrzucony, to stan zmienia się na "
-#~ "'Odrzucony'."
-
 #, python-format
-#~ msgid "You have to select at least 1 Department. And try again"
-#~ msgstr "Musisz wybrać co najmniej 1 wydział. Spróbuj ponownie."
+#~ msgid "Request <b>approved</b>, waiting second validation."
+#~ msgstr "Wniosek <b>zaaprobowany</b>, oczekuje na drugie zatwierdzenie."
 
-#~ msgid "State"
-#~ msgstr "Stan"
-
-#~ msgid ""
-#~ "If its True then its Allocation/Request have to be validated by second "
-#~ "validator"
-#~ msgstr ""
-#~ "Jeśli to jest prawda, to Wniosek musi być zatwierdzony przez jeszcze jednego "
-#~ "zatiwerdzającego"
-
-#~ msgid "Employee's Holidays"
-#~ msgstr "Urlopy pracowników"
+#~ msgid "Legal Leaves 2012"
+#~ msgstr "Oficjalne nieobecności 2012"

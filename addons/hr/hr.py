@@ -22,7 +22,9 @@
 from openerp import addons
 import logging
 from openerp.osv import fields, osv
+from openerp.tools.translate import _
 from openerp import tools
+
 _logger = logging.getLogger(__name__)
 
 class hr_employee_category(osv.osv):
@@ -93,10 +95,6 @@ class hr_job(osv.osv):
     _inherit = ['mail.thread']
     _columns = {
         'name': fields.char('Job Name', size=128, required=True, select=True),
-        # TO CLEAN: when doing a cleaning, we should change like this:
-        #   no_of_recruitment: a function field
-        #   expected_employees: float
-        # This would allow a clean update when creating new employees.
         'expected_employees': fields.function(_no_of_employee, string='Total Forecasted Employees',
             help='Expected number of employees for this job position after new recruitment.',
             store = {
@@ -150,7 +148,6 @@ class hr_employee(osv.osv):
     _name = "hr.employee"
     _description = "Employee"
     _inherits = {'resource.resource': "resource_id"}
-    _inherit = ['mail.thread']
 
     def _get_image(self, cr, uid, ids, name, args, context=None):
         result = dict.fromkeys(ids, False)
@@ -221,7 +218,7 @@ class hr_employee(osv.osv):
             (model, mail_group_id) = self.pool.get('ir.model.data').get_object_reference(cr, uid, 'mail', 'group_all_employees')
             employee = self.browse(cr, uid, employee_id, context=context)
             self.pool.get('mail.group').message_post(cr, uid, [mail_group_id],
-                body='Welcome to %s! Please help them take the first steps with OpenERP!' % (employee.name),
+                body=_('Welcome to %s! Please help him/her take the first steps with OpenERP!') % (employee.name),
                 subtype='mail.mt_comment', context=context)
         except:
             pass # group deleted: do not push a message

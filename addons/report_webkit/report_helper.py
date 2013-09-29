@@ -25,7 +25,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
-# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 #
 ##############################################################################
 
@@ -39,7 +39,6 @@ class WebKitHelper(object):
         self.uid = uid
         self.pool = pooler.get_pool(self.cursor.dbname)
         self.report_id = report_id
-        self.context = context
         
     def embed_image(self, type, img, width=0, height=0) :
         "Transform a DB image into an embedded HTML image"
@@ -80,13 +79,6 @@ class WebKitHelper(object):
         """Return HTML embedded logo by name"""
         img, type = self.get_logo_by_name(name)
         return self.embed_image(type, img, width, height)
-
-    def embed_company_logo(self, width=0, height=0):
-        cr, uid, context = self.cursor, self.uid, self.context
-        my_user = self.pool.get('res.users').browse(cr, uid, uid, context=context)
-        logo = my_user.company_id.logo_web
-        return self.embed_image("png", logo, width, height)
-
         
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

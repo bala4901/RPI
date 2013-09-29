@@ -49,7 +49,7 @@ class mail_mail(osv.Model):
                 try:
                     self.pool.get(mail.model).check_access_rule(cr, related_user.id, [mail.res_id], 'read', context=context)
                     url = partner_obj._get_signup_url_for_action(cr, related_user.id, [partner.id], action='', res_id=mail.res_id, model=mail.model, context=context)[partner.id]
-                    text = _("""<p>Access this document <a href="%s">directly in Portal</a></p>""") % url
+                    text = _("""<p>Access this document <a href="%s">directly in OpenERP</a></p>""") % url
                 except except_orm, e:
                     pass
             body = append_content_to_html(body, ("<div><p>%s</p></div>" % text), plaintext=False)

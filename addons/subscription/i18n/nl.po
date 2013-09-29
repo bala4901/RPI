@@ -1,20 +1,21 @@
-# Translation of OpenERP Server.
-# This file contains the translation of the following modules:
-#	* subscription
+# Dutch translation for openobject-addons
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the openobject-addons package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 6.0dev\n"
-"Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2012-12-21 17:06+0000\n"
-"PO-Revision-Date: 2012-11-24 21:34+0000\n"
+"Project-Id-Version: openobject-addons\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-06-07 19:37+0000\n"
+"PO-Revision-Date: 2013-06-26 12:58+0000\n"
 "Last-Translator: Erwin van der Ploeg (Endian Solutions) <Unknown>\n"
-"Language-Team: \n"
+"Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-12-22 05:16+0000\n"
-"X-Generator: Launchpad (build 16378)\n"
+"X-Launchpad-Export-Date: 2013-07-11 06:25+0000\n"
+"X-Generator: Launchpad (build 16696)\n"
 
 #. module: subscription
 #: field:subscription.subscription,doc_source:0
@@ -94,7 +95,7 @@ msgstr "Stop"
 #. module: subscription
 #: view:subscription.subscription:0
 msgid "Set to Draft"
-msgstr "Naar Concept"
+msgstr "Zet op concept"
 
 #. module: subscription
 #: view:subscription.subscription:0
@@ -144,7 +145,7 @@ msgid "Name"
 msgstr "Naam"
 
 #. module: subscription
-#: code:addons/subscription/subscription.py:136
+#: code:addons/subscription/subscription.py:147
 #, python-format
 msgid "You cannot delete an active subscription !"
 msgstr "Het is niet mogelijk een actief abonnement te verwijderen!"
@@ -172,7 +173,7 @@ msgid "Days"
 msgstr "Dagen"
 
 #. module: subscription
-#: code:addons/subscription/subscription.py:136
+#: code:addons/subscription/subscription.py:147
 #, python-format
 msgid "Error!"
 msgstr "Fout!"
@@ -262,7 +263,7 @@ msgid "Document Types"
 msgstr "Documentsoorten"
 
 #. module: subscription
-#: code:addons/subscription/subscription.py:109
+#: code:addons/subscription/subscription.py:120
 #, python-format
 msgid "Wrong Source Document !"
 msgstr "Fout brondocument !"
@@ -276,10 +277,10 @@ msgstr "Abonnement document velden"
 #. module: subscription
 #: selection:subscription.subscription,state:0
 msgid "Done"
-msgstr "Gereed"
+msgstr "Verwerkt"
 
 #. module: subscription
-#: code:addons/subscription/subscription.py:109
+#: code:addons/subscription/subscription.py:120
 #, python-format
 msgid ""
 "Please provide another source document.\n"
@@ -304,65 +305,3 @@ msgstr "Documenten gemaakt"
 #: field:subscription.subscription,active:0
 msgid "Active"
 msgstr "Actief"
-
-#~ msgid ""
-#~ "The Object name must start with x_ and not contain any special character !"
-#~ msgstr ""
-#~ "De objectnaam moet beginnen met x_ en mag geen speciale karakters bevatten !"
-
-#~ msgid "Subscription document fields"
-#~ msgstr "Subscription document fields"
-
-#~ msgid "Configuration"
-#~ msgstr "Instellingen"
-
-#~ msgid "Invalid XML for View Architecture!"
-#~ msgstr "Ongeldige XML voor overzicht"
-
-#~ msgid "Sale Order"
-#~ msgstr "Verkooporder"
-
-#~ msgid "Subscription document"
-#~ msgstr "Subscription document"
-
-#~ msgid "All Subscriptions"
-#~ msgstr "Alle abonnementen"
-
-#~ msgid "Invoice"
-#~ msgstr "Factuur"
-
-#~ msgid "Tools"
-#~ msgstr "Gereedschappen"
-
-#~ msgid ""
-#~ "Module allows to create new documents and add subscription on that document."
-#~ msgstr ""
-#~ "Deze module maakt het mogelijk om nieuwe documenten aan te maken en "
-#~ "abonnementen aan dat document te koppelen"
-
-#~ msgid "Invalid model name in the action definition."
-#~ msgstr "Ongeldige modelnaam in de definitie van de actie."
-
-#~ msgid "State"
-#~ msgstr "Status"
-
-#~ msgid "This Week"
-#~ msgstr "Deze week"
-
-#~ msgid "Today"
-#~ msgstr "Vandaag"
-
-#, python-format
-#~ msgid "Error !"
-#~ msgstr "Fout !"
-
-#, python-format
-#~ msgid ""
-#~ "You cannot modify the Object linked to the Document Type!\n"
-#~ "Create another Document instead !"
-#~ msgstr ""
-#~ "U kunt het object dat aan dit document is gekoppeld niet wijzigen !\n"
-#~ "Maak in plaats daarvan een ander document aan !"
-
-#~ msgid "Subscription and recurring operations"
-#~ msgstr "Abonnementen en terugkerende bewerkingen"

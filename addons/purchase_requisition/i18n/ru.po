@@ -1,21 +1,21 @@
 # Russian translation for openobject-addons
-# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the openobject-addons package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: openobject-addons\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-12-21 17:06+0000\n"
-"PO-Revision-Date: 2012-11-28 13:43+0000\n"
+"POT-Creation-Date: 2013-06-07 19:37+0000\n"
+"PO-Revision-Date: 2013-07-26 10:21+0000\n"
 "Last-Translator: Chertykov Denis <chertykov@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-12-22 06:04+0000\n"
-"X-Generator: Launchpad (build 16378)\n"
+"X-Launchpad-Export-Date: 2013-07-27 05:28+0000\n"
+"X-Generator: Launchpad (build 16700)\n"
 
 #. module: purchase_requisition
 #: view:purchase.requisition:0
@@ -65,6 +65,11 @@ msgstr ""
 #: field:purchase.requisition,user_id:0
 msgid "Responsible"
 msgstr "Ответственный"
+
+#. module: purchase_requisition
+#: view:purchase.requisition:0
+msgid "Cancel Requisition"
+msgstr ""
 
 #. module: purchase_requisition
 #: view:purchase.requisition:0
@@ -136,12 +141,12 @@ msgstr "Тип"
 #: field:purchase.requisition.line,requisition_id:0
 #: view:purchase.requisition.partner:0
 msgid "Purchase Requisition"
-msgstr "Запрос на закупку"
+msgstr "Запрос закупки"
 
 #. module: purchase_requisition
 #: model:ir.model,name:purchase_requisition.model_purchase_requisition_line
 msgid "Purchase Requisition Line"
-msgstr "Позиция запроса на закупку"
+msgstr "Позиция запроса закупки"
 
 #. module: purchase_requisition
 #: view:purchase.order:0
@@ -162,7 +167,7 @@ msgstr "Предложения"
 #. module: purchase_requisition
 #: view:purchase.requisition:0
 msgid "Terms and Conditions"
-msgstr "Условия"
+msgstr "Правила и условия"
 
 #. module: purchase_requisition
 #: report:purchase.requisition:0
@@ -185,6 +190,11 @@ msgstr "Компания"
 #: view:purchase.requisition.partner:0
 msgid "Create Quotation"
 msgstr "Создать предложение цен"
+
+#. module: purchase_requisition
+#: view:purchase.requisition:0
+msgid "e.g. PO0025"
+msgstr ""
 
 #. module: purchase_requisition
 #: help:purchase.requisition,message_ids:0
@@ -317,7 +327,7 @@ msgstr ""
 #. module: purchase_requisition
 #: view:purchase.requisition:0
 msgid "Cancel Purchase Order"
-msgstr "Отменить заказ на закупку"
+msgstr "Отмена заказа закупки"
 
 #. module: purchase_requisition
 #: model:ir.model,name:purchase_requisition.model_purchase_order
@@ -349,7 +359,7 @@ msgstr "Новый запрос на закупку"
 #. module: purchase_requisition
 #: view:purchase.requisition:0
 msgid "Products"
-msgstr "ТМЦ"
+msgstr "Продукция"
 
 #. module: purchase_requisition
 #: view:purchase.requisition:0
@@ -453,7 +463,6 @@ msgid "Confirm Purchase Order"
 msgstr "Подтвердить заказ закупки"
 
 #. module: purchase_requisition
-#: view:purchase.requisition:0
 #: view:purchase.requisition.partner:0
 msgid "Cancel"
 msgstr "Отмена"
@@ -491,95 +500,3 @@ msgstr ""
 #: field:purchase.requisition,purchase_ids:0
 msgid "Purchase Orders"
 msgstr "Заказы закупки"
-
-#~ msgid "State"
-#~ msgstr "Состояние"
-
-#~ msgid "Draft"
-#~ msgstr "Черновик"
-
-#~ msgid "Confirm"
-#~ msgstr "Подтвердить"
-
-#~ msgid "Address"
-#~ msgstr "Адрес"
-
-#~ msgid "Notes"
-#~ msgstr "Примечания"
-
-#~ msgid "["
-#~ msgstr "["
-
-#~ msgid "]"
-#~ msgstr "]"
-
-#~ msgid "Origin"
-#~ msgstr "Происхождение"
-
-#~ msgid "_Cancel"
-#~ msgstr "_Отмена"
-
-#~ msgid "Done"
-#~ msgstr "Сделано"
-
-#~ msgid "Partner"
-#~ msgstr "Партнер"
-
-#~ msgid "Purchase - Purchase Requisition"
-#~ msgstr "Закупка - Запросы на закупку"
-
-#~ msgid ""
-#~ "Check this box so that requisitions generates purchase requisitions instead "
-#~ "of directly requests for quotations."
-#~ msgstr ""
-#~ "Отметьте, чтобы запросы создавали запросы на закупку, а не запросы цен."
-
-#, python-format
-#~ msgid "No Product in Tender"
-#~ msgstr "Нет ТМЦ в тендере"
-
-#~ msgid ""
-#~ "A purchase requisition is the step before a request for quotation. In a "
-#~ "purchase requisition (or purchase tender), you can record the products you "
-#~ "need to buy and trigger the creation of RfQs to suppliers. After the "
-#~ "negotiation, once you have reviewed all the supplier's offers, you can "
-#~ "validate some and cancel others."
-#~ msgstr ""
-#~ "Запрос на закупку это шаг перед запросом цен. В запросе на закупку (или "
-#~ "тендере на закупку) вы записываете ТМЦ для закупки и подтверждаете запросы "
-#~ "цен у поставщиков. После переговоров, просмотрев все предложения "
-#~ "поставщиков, вы можете утвердить одни предложения и отменить другие."
-
-#~ msgid "In Progress"
-#~ msgstr "Выполняется"
-
-#~ msgid "Order Reference must be unique !"
-#~ msgstr "Номер заказа должен быть уникальным!"
-
-#~ msgid ""
-#~ "\n"
-#~ "    This module allows you to manage your Purchase Requisition.\n"
-#~ "    When a purchase order is created, you now have the opportunity to save "
-#~ "the related requisition.\n"
-#~ "    This new object will regroup and will allow you to easily keep track and "
-#~ "order all your purchase orders.\n"
-#~ msgstr ""
-#~ "\n"
-#~ "    Этот модуль позволяет вам управлять запросами на закупку (тендерами).\n"
-#~ "    При создании заказа на закупку, вы сможете указать связанный с ним "
-#~ "запрос.\n"
-#~ "    Этот новый объект сгруппирует и позволит отследить и упорядочить все "
-#~ "ваши заказы на закупку.\n"
-
-#~ msgid "Order Reference must be unique per Company!"
-#~ msgstr "Ссылка на заказ должны быть уникальной для каждой компании!"
-
-#, python-format
-#~ msgid "Warning"
-#~ msgstr "Предупреждение"
-
-#~ msgid "Start"
-#~ msgstr "Старт"
-
-#~ msgid "Error: Invalid ean code"
-#~ msgstr "Ошибка: Неверный штрих-код"

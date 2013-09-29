@@ -3,7 +3,7 @@
 #
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
-#    Copyright (C) 2010-2012 OpenERP SA (<http://www.openerp.com>)
+#    Copyright (C) 2010-2013 OpenERP SA (<http://www.openerp.com>)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -29,19 +29,17 @@ import threading
 import time
 
 import cron
+import netrpc_server
+import web_services
+import web_services
 import wsgi_server
 
-import openerp
 import openerp.modules
 import openerp.netsvc
 import openerp.osv
 from openerp.release import nt_service_name
 import openerp.tools
-
-import common
-import db
-import model
-import report
+from openerp.tools.misc import stripped_sys_argv
 
 #.apidoc title: RPC Services
 
@@ -76,24 +74,31 @@ def start_internal():
     if start_internal_done:
         return
     openerp.netsvc.init_logger()
+    openerp.modules.loading.open_openerp_namespace()
+
+    # Instantiate local services (this is a legacy design).
+    openerp.osv.osv.start_object_proxy()
+    # Export (for RPC) services.
+    web_services.start_service()
 
     load_server_wide_modules()
     start_internal_done = True
 
 def start_services():
-    """ Start all services including http, and cron """
+    """ Start all services including http, netrpc and cron """
     start_internal()
+    # Initialize the NETRPC server.
+    netrpc_server.start_service()
     # Start the WSGI server.
     wsgi_server.start_service()
     # Start the main cron thread.
-    if not openerp.evented:
-        cron.start_service()
+    cron.start_service()
 
 def stop_services():
     """ Stop all services. """
     # stop services
-    if not openerp.evented:
-        cron.stop_service()
+    cron.stop_service()
+    netrpc_server.stop_service()
     wsgi_server.stop_service()
 
     _logger.info("Initiating shutdown")
@@ -128,9 +133,7 @@ def _reexec():
     if openerp.tools.osutil.is_running_as_nt_service():
         subprocess.call('net stop {0} && net start {0}'.format(nt_service_name), shell=True)
     exe = os.path.basename(sys.executable)
-    strip_args = ['-d', '-u']
-    a = sys.argv[:]
-    args = [x for i, x in enumerate(a) if x not in strip_args and a[max(i - 1, 0)] not in strip_args]
+    args = stripped_sys_argv()
     if not args or args[0] != exe:
         args.insert(0, exe)
     os.execv(sys.executable, args)

@@ -131,6 +131,7 @@
   I fill amounts 180 for the invoice of 200$ and 70 for the invoice of 100$
 -
   !python {model: account.voucher}: |
+    import netsvc, time
     vals = {}
     voucher_id = self.browse(cr, uid, ref('account_voucher_1_case2_suppl'))
     data = []
@@ -160,8 +161,10 @@
   I confirm the voucher
 -
   !python {model: account.voucher}: |
+    import netsvc
     voucher = self.search(cr, uid, [('name', '=', 'First payment: Case 2 SUPPL USD/EUR'), ('partner_id', '=', ref('base.res_partner_19'))])
-    self.signal_proforma_voucher(cr, uid, voucher)
+    wf_service = netsvc.LocalService("workflow")
+    wf_service.trg_validate(uid, 'account.voucher', voucher[0], 'proforma_voucher', cr)
 -
   I check that the move of my voucher is valid
 -
@@ -233,6 +236,7 @@
   I fill amounts 20 for the invoice of 200$ and 30 for the invoice of 100$>
 -
   !python {model: account.voucher}: |
+    import netsvc, time
     vals = {}
     voucher_id = self.browse(cr, uid, ref('account_voucher_2_case2_suppl'))
     data = []
@@ -262,8 +266,10 @@
   I confirm the voucher
 -
   !python {model: account.voucher}: |
+    import netsvc
     voucher = self.search(cr, uid, [('name', '=', 'Second payment: Case 2 SUPPL USD/EUR'), ('partner_id', '=', ref('base.res_partner_19'))])
-    self.signal_proforma_voucher(cr, uid, voucher)
+    wf_service = netsvc.LocalService("workflow")
+    wf_service.trg_validate(uid, 'account.voucher', voucher[0], 'proforma_voucher', cr)
 -
   I check that my voucher state is posted
 -

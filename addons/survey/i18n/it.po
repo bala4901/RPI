@@ -1,21 +1,21 @@
 # Italian translation for openobject-addons
-# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the openobject-addons package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: openobject-addons\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-12-21 17:06+0000\n"
-"PO-Revision-Date: 2012-05-10 17:16+0000\n"
-"Last-Translator: Raphael Collet (OpenERP) <Unknown>\n"
+"POT-Creation-Date: 2013-06-07 19:37+0000\n"
+"PO-Revision-Date: 2013-01-04 22:21+0000\n"
+"Last-Translator: Sergio Corato <Unknown>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-12-22 05:54+0000\n"
-"X-Generator: Launchpad (build 16378)\n"
+"X-Launchpad-Export-Date: 2013-07-11 06:25+0000\n"
+"X-Generator: Launchpad (build 16696)\n"
 
 #. module: survey
 #: view:survey.response.line:0
@@ -71,8 +71,8 @@ msgid "Surveys"
 msgstr "Sondaggi"
 
 #. module: survey
-#: field:survey.question,in_visible_answer_type:0
-msgid "Is Answer Type Invisible?"
+#: view:survey.request:0
+msgid "Cancel Request"
 msgstr ""
 
 #. module: survey
@@ -96,12 +96,12 @@ msgstr "Richiesta sondaggio"
 #. module: survey
 #: selection:survey.question,required_type:0
 msgid "A Range"
-msgstr ""
+msgstr "Un intervallo"
 
 #. module: survey
 #: view:survey.response.line:0
 msgid "Table Answer"
-msgstr ""
+msgstr "Risposta tabellare"
 
 #. module: survey
 #: field:survey.history,date:0
@@ -186,7 +186,7 @@ msgstr ""
 #. module: survey
 #: field:survey.question,tot_resp:0
 msgid "Total Answer"
-msgstr ""
+msgstr "Totale risposta"
 
 #. module: survey
 #: field:survey.tbl.column.heading,name:0
@@ -225,6 +225,8 @@ msgid ""
 "Maximum Required Answer you entered for your maximum is greater than the "
 "number of answer. Please use a number that is smaller than %d."
 msgstr ""
+"Il Massimo di Risposte Richieste inserite come massimo è maggiore del numero "
+"di risposte. Prego usare un numero che sia minore di %d."
 
 #. module: survey
 #: model:ir.model,name:survey.model_survey_question
@@ -293,7 +295,7 @@ msgstr ""
 #. module: survey
 #: field:survey,tot_comp_survey:0
 msgid "Total Completed Survey"
-msgstr ""
+msgstr "Totale sondaggio completato"
 
 #. module: survey
 #: view:survey.response.answer:0
@@ -476,10 +478,15 @@ msgid "From"
 msgstr "Da"
 
 #. module: survey
+#: view:survey:0
+msgid "Cancel Survey"
+msgstr ""
+
+#. module: survey
 #: selection:survey.question,comment_valid_type:0
 #: selection:survey.question,validation_type:0
 msgid "Don't Validate Comment Text."
-msgstr ""
+msgstr "Non convalidare un testo di commento."
 
 #. module: survey
 #: code:addons/survey/survey.py:532
@@ -562,6 +569,13 @@ msgid "Email"
 msgstr "Email"
 
 #. module: survey
+#: view:survey:0
+#: view:survey.page:0
+#: view:survey.question:0
+msgid "Required Answer"
+msgstr ""
+
+#. module: survey
 #: code:addons/survey/survey.py:96
 #: code:addons/survey/survey.py:259
 #, python-format
@@ -629,7 +643,7 @@ msgstr "E' invisibile il menù di scelta?"
 #. module: survey
 #: field:survey.question,minimum_req_ans:0
 msgid "Minimum Required Answer"
-msgstr ""
+msgstr "Minimo di Risposte Richieste"
 
 #. module: survey
 #: field:survey.question,req_error_msg:0
@@ -700,6 +714,11 @@ msgid ""
 "Maximum Required Answer you                                     entered for "
 "your maximum is greater than the number of answer.                           "
 "          Please use a number that is smaller than %d."
+msgstr ""
+
+#. module: survey
+#: view:survey:0
+msgid "Survey description..."
 msgstr ""
 
 #. module: survey
@@ -851,7 +870,7 @@ msgstr ""
 #. module: survey
 #: field:survey.question,maximum_req_ans:0
 msgid "Maximum Required Answer"
-msgstr ""
+msgstr "Massimo di Risposte Richieste"
 
 #. module: survey
 #: field:survey.name.wiz,page_no:0
@@ -875,7 +894,7 @@ msgstr "e"
 #: model:ir.actions.act_window,name:survey.action_view_survey_print_statistics
 #: view:survey.print.statistics:0
 msgid "Survey Print Statistics"
-msgstr ""
+msgstr "Stampa statistiche sondaggio"
 
 #. module: survey
 #: field:survey.send.invitation.log,note:0
@@ -918,7 +937,7 @@ msgstr ""
 #. module: survey
 #: field:survey.question,is_validation_require:0
 msgid "Validate Text"
-msgstr ""
+msgstr "Convalida Testo"
 
 #. module: survey
 #: view:survey.browse.answer:0
@@ -1067,10 +1086,8 @@ msgid "Multiple Textboxes With Different Type"
 msgstr ""
 
 #. module: survey
-#: view:survey:0
-#: view:survey.page:0
-#: view:survey.question:0
-msgid "Required Answer"
+#: view:survey.name.wiz:0
+msgid "Add Description"
 msgstr ""
 
 #. module: survey
@@ -1109,9 +1126,15 @@ msgid "Date"
 msgstr "Data"
 
 #. module: survey
-#: selection:survey.answer,type:0
-msgid "Integer"
-msgstr "Intero"
+#: view:survey:0
+msgid "All New Survey"
+msgstr ""
+
+#. module: survey
+#: view:survey:0
+#: view:survey.page:0
+msgid "Description on the survey page..."
+msgstr ""
 
 #. module: survey
 #: model:ir.model,name:survey.model_survey_send_invitation
@@ -1164,7 +1187,7 @@ msgstr "Sfoglia risposte"
 #. module: survey
 #: model:ir.model,name:survey.model_survey_response_line
 msgid "Survey Response Line"
-msgstr ""
+msgstr "Riga risposta sondaggio"
 
 #. module: survey
 #: code:addons/survey/survey.py:169
@@ -1199,9 +1222,9 @@ msgid "Is Rating Scale Invisible?"
 msgstr ""
 
 #. module: survey
-#: view:survey:0
-msgid "All New Survey"
-msgstr ""
+#: selection:survey.answer,type:0
+msgid "Integer"
+msgstr "Intero"
 
 #. module: survey
 #: selection:survey.question,type:0
@@ -1291,13 +1314,11 @@ msgid "Allow Only One Answer per Column (Forced Ranking)"
 msgstr ""
 
 #. module: survey
-#: view:survey:0
 #: view:survey.browse.answer:0
 #: view:survey.name.wiz:0
 #: view:survey.print:0
 #: view:survey.print.answer:0
 #: view:survey.print.statistics:0
-#: view:survey.request:0
 #: view:survey.send.invitation:0
 msgid "Cancel"
 msgstr "Annulla"
@@ -1662,7 +1683,7 @@ msgstr "Deve essere un indirizzo email"
 #. module: survey
 #: selection:survey.question,type:0
 msgid "Multiple Choice (Only One Answer)"
-msgstr ""
+msgstr "Scelta multipla (solo una risposta)"
 
 #. module: survey
 #: field:survey.answer,in_visible_answer_type:0
@@ -1734,6 +1755,11 @@ msgid "Question Type"
 msgstr "Tipo domanda"
 
 #. module: survey
+#: field:survey.question,in_visible_answer_type:0
+msgid "Is Answer Type Invisible?"
+msgstr "Il tipo di risposta è invisibile?"
+
+#. module: survey
 #: selection:survey.question,type:0
 #: view:survey.response.line:0
 msgid "Table"
@@ -1760,105 +1786,3 @@ msgstr ""
 #: field:survey.name.wiz,page:0
 msgid "Page Position"
 msgstr ""
-
-#~ msgid "Set to draft"
-#~ msgstr "Imposta a Bozza"
-
-#~ msgid "Define Surveys"
-#~ msgstr "Definisci sondaggi"
-
-#, python-format
-#~ msgid "Error!"
-#~ msgstr "Errore!"
-
-#, python-format
-#~ msgid "Warning !"
-#~ msgstr "Attenzione!"
-
-#~ msgid "Send reminder for existing user"
-#~ msgstr "Invia promemoria per gli utenti esistenti"
-
-#~ msgid "The chosen company is not in the allowed companies for this user"
-#~ msgstr "L'azienda scelta non è fra le aziende abilitate per questo utente"
-
-#~ msgid "You can not have two users with the same login !"
-#~ msgstr "Non è possibile avere due utenti con lo stesso login!"
-
-#~ msgid "Send"
-#~ msgstr "Invia"
-
-#~ msgid "State"
-#~ msgstr "Stato"
-
-#, python-format
-#~ msgid "You can not answer this survey more than %s times"
-#~ msgstr "Non è possibile rispondere all'attuale sondaggio più di %s volte"
-
-#, python-format
-#~ msgid "You can not answer because the survey is not open"
-#~ msgstr "Non è possibile rispondere perchè il sondaggio non è aperto"
-
-#, python-format
-#~ msgid "Please enter an integer value"
-#~ msgstr "Inserire un numero intero"
-
-#, python-format
-#~ msgid "You must enter one or more column heading."
-#~ msgstr "E' necessario inserire una o più colonne intestazione."
-
-#~ msgid "E-mail Notification on Answer"
-#~ msgstr "Email di notifica su risposta"
-
-#~ msgid "E-mail"
-#~ msgstr "Email"
-
-#~ msgid "Other"
-#~ msgstr "Altro"
-
-#~ msgid "res.users"
-#~ msgstr "res.users"
-
-#~ msgid "Current"
-#~ msgstr "Attuale"
-
-#, python-format
-#~ msgid "You must enter one or more answer."
-#~ msgstr "E' necessario inserire una o più risposte."
-
-#, python-format
-#~ msgid "You must enter one or more Answer."
-#~ msgstr "E' necessario inserire una o più risposte."
-
-#~ msgid "Send mail for new user"
-#~ msgstr "Invia una mail ogni nuovo utente"
-
-#~ msgid "Users Details"
-#~ msgstr "Dettagli Utente"
-
-#~ msgid "All Questions"
-#~ msgstr "Tutte Le Domande"
-
-#~ msgid "Skip"
-#~ msgstr "Salta"
-
-#~ msgid "_Ok"
-#~ msgstr "_Ok"
-
-#, python-format
-#~ msgid "Error !"
-#~ msgstr "Errore !"
-
-#~ msgid "Modify Date"
-#~ msgstr "Modifica Data"
-
-#~ msgid "Configuration"
-#~ msgstr "Configurazione"
-
-#~ msgid "Page :-"
-#~ msgstr "Pagina :-"
-
-#~ msgid "Invalid XML for View Architecture!"
-#~ msgstr "XML non valido per la struttura della Vista!"
-
-#~ msgid "_Cancel"
-#~ msgstr "_Annulla"

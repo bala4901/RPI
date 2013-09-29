@@ -21,8 +21,7 @@
 
 import time
 
-from openerp.osv import osv, fields
-from openerp.osv.orm import browse_record
+from openerp.osv import osv,fields
 from openerp.tools.misc import attrgetter
 
 # -------------------------------------------------------------------------
@@ -112,7 +111,7 @@ class ir_property(osv.osv):
             raise osv.except_osv('Error', 'Invalid type')
 
         if field == 'value_reference':
-            if isinstance(value, browse_record):
+            if isinstance(value, osv.orm.browse_record):
                 value = '%s,%d' % (value._name, value.id)
             elif isinstance(value, (int, long)):
                 field_id = values.get('fields_id')

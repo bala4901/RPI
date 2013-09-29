@@ -465,6 +465,20 @@ class purchase_order(osv.osv):
             self.write(cr, uid, [id], {'state' : 'confirmed', 'validator' : uid})
         return True
 
+    def _choose_account_from_po_line(self, cr, uid, po_line, context=None):
+        fiscal_obj = self.pool.get('account.fiscal.position')
+        property_obj = self.pool.get('ir.property')
+        if po_line.product_id:
+            acc_id = po_line.product_id.property_account_expense.id
+            if not acc_id:
+                acc_id = po_line.product_id.categ_id.property_account_expense_categ.id
+            if not acc_id:
+                raise osv.except_osv(_('Error!'), _('Define expense account for this company: "%s" (id:%d).') % (po_line.product_id.name, po_line.product_id.id,))
+        else:
+            acc_id = property_obj.get(cr, uid, 'property_account_expense_categ', 'product.category').id
+        fpos = po_line.order_id.fiscal_position or False
+        return fiscal_obj.map_account(cr, uid, fpos, acc_id)
+
     def _prepare_inv_line(self, cr, uid, account_id, order_line, context=None):
         """Collects require data from purchase order line that is used to create invoice line
         for that purchase order line
@@ -506,8 +520,6 @@ class purchase_order(osv.osv):
         journal_obj = self.pool.get('account.journal')
         inv_obj = self.pool.get('account.invoice')
         inv_line_obj = self.pool.get('account.invoice.line')
-        fiscal_obj = self.pool.get('account.fiscal.position')
-        property_obj = self.pool.get('ir.property')
 
         for order in self.browse(cr, uid, ids, context=context):
             pay_acc_id = order.partner_id.property_account_payable.id
@@ -519,17 +531,7 @@ class purchase_order(osv.osv):
             # generate invoice line correspond to PO line and link that to created invoice (inv_id) and PO line
             inv_lines = []
             for po_line in order.order_line:
-                if po_line.product_id:
-                    acc_id = po_line.product_id.property_account_expense.id
-                    if not acc_id:
-                        acc_id = po_line.product_id.categ_id.property_account_expense_categ.id
-                    if not acc_id:
-                        raise osv.except_osv(_('Error!'), _('Define expense account for this company: "%s" (id:%d).') % (po_line.product_id.name, po_line.product_id.id,))
-                else:
-                    acc_id = property_obj.get(cr, uid, 'property_account_expense_categ', 'product.category').id
-                fpos = order.fiscal_position or False
-                acc_id = fiscal_obj.map_account(cr, uid, fpos, acc_id)
-
+                acc_id = self._choose_account_from_po_line(cr, uid, po_line, context=context)
                 inv_line_data = self._prepare_inv_line(cr, uid, acc_id, po_line, context=context)
                 inv_line_id = inv_line_obj.create(cr, uid, inv_line_data, context=context)
                 inv_lines.append(inv_line_id)
@@ -641,7 +643,7 @@ class purchase_order(osv.osv):
             'product_uom': order_line.product_uom.id,
             'product_uos': order_line.product_uom.id,
             'date': self.date_to_datetime(cr, uid, order.date_order, context),
-            'date_expected': self.date_to_datetime(cr, uid, order.date_order, context),
+            'date_expected': self.date_to_datetime(cr, uid, order_line.date_planned, context),
             'location_id': order.partner_id.property_stock_supplier.id,
             'location_dest_id': order.location_id.id,
             'picking_id': picking_id,
@@ -948,7 +950,8 @@ class purchase_order_line(osv.osv):
             lang = res_partner.browse(cr, uid, partner_id).lang
             context_partner.update( {'lang': lang, 'partner_id': partner_id} )
         product = product_product.browse(cr, uid, product_id, context=context_partner)
-        name = product.name
+        #call name_get() with partner in the context to eventually match name and description in the seller_ids field
+        dummy, name = product_product.name_get(cr, uid, product_id, context=context_partner)[0]
         if product.description_purchase:
             name += '\n' + product.description_purchase
         res['value'].update({'name': name})

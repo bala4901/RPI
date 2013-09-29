@@ -31,11 +31,11 @@ from StringIO import StringIO
 import psycopg2
 
 import openerp
+from openerp import netsvc
 from openerp import pooler
 from openerp import tools
 from openerp.osv import fields, osv
 from openerp.osv.orm import except_orm
-import openerp.report.interface
 from openerp.tools.misc import ustr
 from openerp.tools.translate import _
 from openerp.tools.safe_eval import safe_eval
@@ -69,11 +69,14 @@ class document_file(osv.osv):
     ]
 
     def check(self, cr, uid, ids, mode, context=None, values=None):
-        """Check access wrt. res_model, relax the rule of ir.attachment parent
-        With 'document' installed, everybody will have access to attachments of
-        any resources they can *read*.
-        """
-        return super(document_file, self).check(cr, uid, ids, mode='read', context=context, values=values)
+        """Overwrite check to verify access on directory to validate specifications of doc/access_permissions.rst"""
+        super(document_file, self).check(cr, uid, ids, mode, context=context, values=values)
+        if ids:
+            self.pool.get('ir.model.access').check(cr, uid, 'document.directory', mode)
+
+            # use SQL to avoid recursive loop on read
+            cr.execute('SELECT DISTINCT parent_id from ir_attachment WHERE id in %s AND parent_id is not NULL', (tuple(ids),))
+            self.pool.get('document.directory').check_access_rule(cr, uid, [parent_id for (parent_id,) in cr.fetchall()], mode, context=context)
 
     def search(self, cr, uid, args, offset=0, limit=None, order=None, context=None, count=False):
         # Grab ids, bypassing 'count'
@@ -456,7 +459,7 @@ class document_directory_content(osv.osv):
         if node.extension != '.pdf':
             raise Exception("Invalid content: %s" % node.extension)
         report = self.pool.get('ir.actions.report.xml').browse(cr, uid, node.report_id, context=context)
-        srv = openerp.report.interface.report_int._reports['report.'+report.report_name]
+        srv = netsvc.Service._services['report.'+report.report_name]
         ctx = node.context.context.copy()
         ctx.update(node.dctx)
         pdf,pdftype = srv.create(cr, uid, [node.act_id,], {}, context=ctx)

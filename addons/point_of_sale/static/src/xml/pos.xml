@@ -386,7 +386,7 @@
                 <div class="product-img">
                     <img src='' /> <!-- the product thumbnail -->
                     <span class="code-tag">
-                        <t t-esc="widget.model.get('code')"/>
+                        <t t-esc="widget.model.get('default_code')"/>
                     </span>
                     <t t-if="!widget.model.get('to_weight')">
                         <span class="price-tag">
@@ -574,13 +574,8 @@
             <div class="pos-right-align"><t t-esc="new Date().toString(Date.CultureInfo.formatPatterns.shortDate + ' ' +
                 Date.CultureInfo.formatPatterns.longTime)"/> <t t-esc="widget.currentOrder.attributes.name"/></div>
             <br />
-            <t t-esc="widget.company.name"/><br />
-            <t t-if="widget.company.vat">
-                TIN: <t t-esc="widget.company.vat"/><br />
-            </t>
-            Phone: <t t-esc="widget.company.phone || ''"/><br />
-            User: <t t-esc="widget.user.name"/><br />
-            Shop: <t t-esc="widget.shop_obj.name"/><br />
+            NOMOR: <t t-esc="widget.currentOrder.attributes.name"/><br />
+            TANGGAL: <t t-esc="new Date().toString(Date.CultureInfo.formatPatterns.shortDate + ' ' + Date.CultureInfo.formatPatterns.longTime)"/><br />
             <t t-if="widget.client">
                 Customer: <t t-esc="widget.client.name"/><br />
                 <t t-if="widget.client.vat">
@@ -588,8 +583,32 @@
                 </t>
             </t>
             <br />
-            <table>
+			<div class="CSSTableGenerator" >
+                <table >
+                    <tr>
+                        <td>
+                            NO ITEM
+                        </td>
+                        <td >
+                            NAMA BARANG
+                        </td>
+                        <td>
+                            SATUAN
+                        </td>
+                        <td>
+                            QTY
+                        </td>
+                        <td>
+                            HARGA/UNIT
+                        </td>
+                        <td>
+                            TOTAL
+                        </td>
+                    </tr>
                 <tr t-foreach="widget.currentOrderLines.toArray()" t-as="order">
+					<td>
+					<t t-esc="order.get_product().get('default_code')"/>
+					</td>
                     <td>
                         <t t-esc="order.get_product().get('name')"/>
                          <t t-if="order.get_discount() > 0">
@@ -598,14 +617,21 @@
                             </div>
                         </t>
                     </td>
-                    <td class="pos-right-align">
-                        <t t-esc="order.get_quantity().toFixed(0)"/>
+					<td>
+					<t t-esc="order.get_product().get('uom_id')[1]"/>
+					</td>
+                    <td>
+                        <t t-esc="order.get_quantity().toFixed(2)"/>
                     </td>
-                    <td class="pos-right-align">
+                    <td>
+                        <t t-esc="widget.format_currency(order.get_price())"/>
+                    </td>
+                    <td>
                         <t t-esc="widget.format_currency(order.get_price() * (1 - order.get_discount()/100) * order.get_quantity().toFixed(2))"/>
                     </td>
                 </tr>
-            </table>
+                </table>
+            </div>
             <br />
             <table>
                 <tr><td>Tax:</td><td class="pos-right-align">

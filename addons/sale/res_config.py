@@ -55,9 +55,6 @@ Example: 10% for retailers, promotion of 5 EUR on this product, etc."""),
         'group_discount_per_so_line': fields.boolean("Allow setting a discount on the sales order lines",
             implied_group='sale.group_discount_per_so_line',
             help="Allows you to apply some discount per sales order line."),
-        'group_product_variant': fields.boolean("Support multiple variants per products  ",
-            implied_group='product.group_product_variant',
-            help="""Allow to manage several variants per product. As an example, if you  sell T-Shirts, for the same "Linux T-Shirt", you may have variants on  sizes or colors; S, M, L, XL, XXL."""),
         'module_warning': fields.boolean("Allow configuring alerts by customer or products",
             help="""Allow to configure notification on products and trigger them when a user wants to sale a given product or a given customer.
 Example: Product: this product is deprecated, do not purchase more than 5.
@@ -144,6 +141,8 @@ class account_config_settings(osv.osv_memory):
 
     def onchange_sale_analytic_plans(self, cr, uid, ids, module_sale_analytic_plans, context=None):
         """ change group_analytic_account_for_sales following module_sale_analytic_plans """
+        if not module_sale_analytic_plans:
+            return {}
         return {'value': {'group_analytic_account_for_sales': module_sale_analytic_plans}}
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

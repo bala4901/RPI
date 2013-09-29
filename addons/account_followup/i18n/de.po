@@ -1,21 +1,22 @@
-# Translation of OpenERP Server.
-# This file contains the translation of the following modules:
-#	* account_followup
+# German translation for openobject-addons
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the openobject-addons package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 6.0dev\n"
-"Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2012-12-21 17:05+0000\n"
-"PO-Revision-Date: 2012-12-17 21:46+0000\n"
+"Project-Id-Version: openobject-addons\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-06-07 19:36+0000\n"
+"PO-Revision-Date: 2013-03-20 23:30+0000\n"
 "Last-Translator: Thorsten Vocks (OpenBig.org) <thorsten.vocks@big-"
 "consulting.net>\n"
-"Language-Team: \n"
+"Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-12-22 05:27+0000\n"
-"X-Generator: Launchpad (build 16378)\n"
+"X-Launchpad-Export-Date: 2013-07-11 05:48+0000\n"
+"X-Generator: Launchpad (build 16696)\n"
 
 #. module: account_followup
 #: model:email.template,subject:account_followup.email_template_account_followup_default
@@ -23,7 +24,7 @@ msgstr ""
 #: model:email.template,subject:account_followup.email_template_account_followup_level1
 #: model:email.template,subject:account_followup.email_template_account_followup_level2
 msgid "${user.company_id.name} Payment Reminder"
-msgstr ""
+msgstr "${user.company_id.name} Zahlungserinnerung"
 
 #. module: account_followup
 #: help:res.partner,latest_followup_level_id:0
@@ -63,11 +64,6 @@ msgid "Needs Printing"
 msgstr "Ausdruck ist erforderlich"
 
 #. module: account_followup
-#: view:res.partner:0
-msgid "⇾ Mark as Done"
-msgstr "-> Als erledigt markieren"
-
-#. module: account_followup
 #: field:account_followup.followup.line,manual_action_note:0
 msgid "Action To Do"
 msgstr "Folgeaktion"
@@ -82,6 +78,8 @@ msgstr "Unternehmen"
 
 #. module: account_followup
 #: report:account_followup.followup.print:0
+#: code:addons/account_followup/account_followup.py:258
+#, python-format
 msgid "Invoice Date"
 msgstr "Rechnungsdatum"
 
@@ -106,9 +104,10 @@ msgid "Follow-up Steps"
 msgstr "Mahnstufen"
 
 #. module: account_followup
-#: field:account_followup.print,email_body:0
-msgid "Email Body"
-msgstr "Text der E-Mail"
+#: code:addons/account_followup/account_followup.py:261
+#, python-format
+msgid "Due Date"
+msgstr "Fälligkeit"
 
 #. module: account_followup
 #: model:ir.actions.act_window,name:account_followup.action_account_followup_print
@@ -116,7 +115,17 @@ msgid "Send Follow-Ups"
 msgstr "Sende Mahnungen"
 
 #. module: account_followup
+#: code:addons/account_followup/account_followup.py:312
+#: code:addons/account_followup/account_followup.py:318
+#: code:addons/account_followup/report/account_followup_print.py:86
+#, python-format
+msgid "Error!"
+msgstr "Fehler!"
+
+#. module: account_followup
 #: report:account_followup.followup.print:0
+#: code:addons/account_followup/account_followup.py:262
+#, python-format
 msgid "Amount"
 msgstr "Betrag"
 
@@ -126,6 +135,8 @@ msgid ""
 "This is the next action to be taken.  It will automatically be set when the "
 "partner gets a follow-up level that requires a manual action. "
 msgstr ""
+"Dies ist die nächste Schritt. Sie wird automatisch ausgeführt, wenn der "
+"Partner eine Mahnstufe erreicht, die einen manuellen Schritt erfordert. "
 
 #. module: account_followup
 #: view:res.partner:0
@@ -155,6 +166,23 @@ msgid ""
 "\n"
 "Best Regards,\n"
 msgstr ""
+"\n"
+"Sehr geehrte Firma %(partner_name)s,\n"
+"\n"
+"Leider mussten wir feststellen, das Sie trotz unserer Zahlungserinnerung bis "
+"heute die Zahlung des ausstehenden Betrages nicht veranlasst haben.\n"
+"\n"
+"Wenn Sie die Einstellung der Lieferung von Waren, bzw. unserer "
+"Dienstleistungen vermeiden wollen, ist es unumgänglich, das die Zahlung "
+"innerhalb der nächsten 7 Tage\n"
+"unserem Konto gutgeschrieben wird.\n"
+"\n"
+"Wenn Sie Liquiditätsprobleme haben, kontaktieren Sie bitte unsere "
+"Buchhaltung, um eine für beide Seiten verbindliche Lösung zu finden.\n"
+"\n"
+"Eine Aufstellung der offenen Positionen finden Sie weiter unten.\n"
+"\n"
+"Mit freundlichen Grüßen,\n"
 
 #. module: account_followup
 #: model:email.template,body_html:account_followup.email_template_account_followup_level0
@@ -192,6 +220,44 @@ msgid ""
 "</div>\n"
 "            "
 msgstr ""
+"\n"
+"<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-"
+"serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, "
+"255, 255); \">\n"
+"\n"
+"\t<p>Hallo ${object.name},</p>\n"
+"\t<p>\n"
+"\tvielleicht ist es Ihrer Aufmerksamkeit entgangen, aber die folgenden "
+"Beträge sind überfällig. Bitte überweisen\n"
+"Sie die ausstehenden Beträge innerhalb von 7 Tagen auf unser Konto.\n"
+"\n"
+"Falls Sie den Betrag bereits überwiesen haben sollten, können Sie diese "
+"Nachricht ignorieren. Bei Fragen hierzu\n"
+"können Sie gerne unsere Buchhaltung kontaktieren.\n"
+"\n"
+"\t</p>\n"
+"<br/>\n"
+"Mit freundlichen Grüßen,\n"
+"<br/>\n"
+"\t<br/>\n"
+"${user.name}\n"
+"\n"
+"<br/>\n"
+"<br/>\n"
+"\n"
+"\n"
+"${object.get_followup_table_html() | safe}\n"
+"\n"
+"\t<br/>\n"
+"\n"
+"</div>\n"
+"            "
+
+#. module: account_followup
+#: code:addons/account_followup/account_followup.py:260
+#, python-format
+msgid "Reference"
+msgstr "Referenz"
 
 #. module: account_followup
 #: view:account_followup.stat.by.partner:0
@@ -239,6 +305,11 @@ msgid "Partner"
 msgstr "Partner"
 
 #. module: account_followup
+#: field:account_followup.print,email_body:0
+msgid "Email Body"
+msgstr "Text der E-Mail"
+
+#. module: account_followup
 #: view:account_followup.followup:0
 msgid ""
 "To remind customers of paying their invoices, you can\n"
@@ -252,6 +323,20 @@ msgid ""
 "                        same customer, the actions of the most \n"
 "                        overdue invoice will be executed."
 msgstr ""
+"Um Ihre Kunden an Ihre Zahlungsverpflichtungen zu erinnern,\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tbzw. anzumahnen, können Sie verschiedene "
+"Aktionen einrichten,\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tdie in Abhängigkeit zur Fälligkeitsdauer Ihres "
+"Kunden stehen. \n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tDiese Aktionen werden in Mahnstufen "
+"zusammengefasst, die durch \n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tdie Überschreitung von Fälligkeitsdaten "
+"ausgelöst werden.\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tWenn mehrere überfällige Rechnungen für einen "
+"Kunden vorliegen,\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\twerden zuerst die Aktionen für die Rechnung "
+"mit der höchsten\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tMahnstufe ausgelöst."
 
 #. module: account_followup
 #: report:account_followup.followup.print:0
@@ -282,12 +367,12 @@ msgstr "Bei Verarbeitung wird ein Anschreiben gedruckt"
 #. module: account_followup
 #: field:res.partner,payment_earliest_due_date:0
 msgid "Worst Due Date"
-msgstr ""
+msgstr "Spätestes Fälligkeitsdatum"
 
 #. module: account_followup
 #: view:account_followup.stat:0
 msgid "Not Litigation"
-msgstr "Kein Verzug"
+msgstr "Ohne Rechtsstreit"
 
 #. module: account_followup
 #: view:account_followup.print:0
@@ -344,6 +429,43 @@ msgid ""
 "</div>\n"
 "            "
 msgstr ""
+"\n"
+"<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-"
+"serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, "
+"255, 255); \">\n"
+"    \n"
+"    <p>Sehr geehrte(r) ${object.name},</p>\n"
+"   <p>\n"
+"    Wir sind enttäuscht, dass trotz Zahlungserinnerung, Ihr Konto nach wie "
+"vor überfällig ist.\n"
+"Es ist wichtig, dass eine sofortige Zahlung erfolgt, ansonsten müssen wir in "
+"Betracht ziehen, Ihr Konto\n"
+"zu sperren, weshalb wir dann nicht mehr in der Lage sein werden, Ihnen "
+"unsere Waren / Dienstleistungen zu liefern.\n"
+"Bitte ergreifen Sie die erforderlichen Maßnahmen, um die Zahlung in den "
+"nächsten 8 Tagen vorzunehmen.\n"
+"Wenn es ein Problem mit der Bezahlung der Rechnung gibt, die wir bislang "
+"nicht kennen, zögern Sie nicht, \n"
+"unsere Buchhaltung zu kontaktieren, damit wir die Angelegenheit schnell "
+"klären können.\n"
+"Sie finden die Details zu den offenen Rechnungspositionen unten.\n"
+" </p>\n"
+"<br/>\n"
+"Freundliche Grüsse,\n"
+"    \n"
+"<br/>\n"
+"<br/>\n"
+"${user.name}\n"
+"    \n"
+"<br/>\n"
+"<br/>\n"
+"\n"
+"${object.get_followup_table_html() | safe}\n"
+"\n"
+"    <br/>\n"
+"\n"
+"</div>\n"
+"            "
 
 #. module: account_followup
 #: field:account_followup.stat,debit:0
@@ -395,6 +517,16 @@ msgid "Payment Follow-ups"
 msgstr "Mahnwesen"
 
 #. module: account_followup
+#: code:addons/account_followup/report/account_followup_print.py:86
+#, python-format
+msgid ""
+"The followup plan defined for the current company does not have any followup "
+"action."
+msgstr ""
+"Die zugewiesenen Mahnstufen dieses Unternehmens ergeben keine anstehende "
+"Zahlungserinnerung."
+
+#. module: account_followup
 #: field:account_followup.followup.line,delay:0
 msgid "Due Days"
 msgstr "Zahlungsverzug"
@@ -411,7 +543,6 @@ msgid "Latest followup"
 msgstr "Letzte Erinnerung"
 
 #. module: account_followup
-#: model:ir.actions.act_window,name:account_followup.action_account_manual_reconcile_receivable
 #: model:ir.ui.menu,name:account_followup.menu_manual_reconcile_followup
 msgid "Reconcile Invoices & Payments"
 msgstr "Ausgleich Rechnungen & Zahlungen"
@@ -463,10 +594,15 @@ msgid "Printed Message"
 msgstr "gedruckte Mitteilung"
 
 #. module: account_followup
+#: view:res.partner:0
+msgid "Responsible of credit collection"
+msgstr "Verantwortlich für den Kredit"
+
+#. module: account_followup
 #: code:addons/account_followup/wizard/account_followup_print.py:155
 #, python-format
 msgid "Anybody"
-msgstr ""
+msgstr "Jeder"
 
 #. module: account_followup
 #: help:account_followup.followup.line,send_email:0
@@ -490,7 +626,7 @@ msgid "Follow Ups"
 msgstr "Mahnungen"
 
 #. module: account_followup
-#: code:addons/account_followup/account_followup.py:219
+#: code:addons/account_followup/account_followup.py:218
 #, python-format
 msgid "Email not sent because of email address of partner not filled in"
 msgstr "Email wurde aufgrund fehlender Mailadresse nicht gesendet"
@@ -506,6 +642,13 @@ msgid ""
 "Optionally you can assign a user to this field, which will make him "
 "responsible for the action."
 msgstr ""
+"Optional können Sie einen Benutzer zuweisen, der für diese Aktion "
+"verantwortlich ist."
+
+#. module: account_followup
+#: view:res.partner:0
+msgid "Partners with Overdue Credits"
+msgstr "Kunden mit überfälligen Gutschriften"
 
 #. module: account_followup
 #: model:ir.model,name:account_followup.model_account_followup_sending_results
@@ -544,6 +687,15 @@ msgstr "Suche Mahnungen"
 
 #. module: account_followup
 #: view:res.partner:0
+msgid ""
+"He said the problem was temporary and promised to pay 50% before 15th of "
+"May, balance before 1st of July."
+msgstr ""
+"Es wurde bestätigt, dass das Zahlungsproblem nur vorübergehend besteht und "
+"somit 50% vor dem 15. Mai bezahlt werden, der Rest vor dem 1. Juli 2013."
+
+#. module: account_followup
+#: view:res.partner:0
 msgid "Account Move line"
 msgstr "Buchungszeile"
 
@@ -559,11 +711,9 @@ msgid "or"
 msgstr "oder"
 
 #. module: account_followup
-#: view:res.partner:0
-msgid ""
-"If not specified by the latest follow-up level, it will send from the "
-"default email template"
-msgstr ""
+#: field:account_followup.stat,blocked:0
+msgid "Blocked"
+msgstr "Abgewiesen"
 
 #. module: account_followup
 #: sql_constraint:account_followup.followup.line:0
@@ -581,6 +731,13 @@ msgid "Follow-Ups Analysis"
 msgstr "Statistik Mahnungen"
 
 #. module: account_followup
+#: view:res.partner:0
+msgid "Action to be taken e.g. Give a phonecall, Check if it's paid, ..."
+msgstr ""
+"Es ist eine Rückmeldung erforderlich, z.B. ein Rückruf, Prüfung auf nicht "
+"zugewiesene Zahlungen etc."
+
+#. module: account_followup
 #: help:res.partner,payment_next_action_date:0
 msgid ""
 "This is when the manual follow-up is needed. The date will be set to the "
@@ -588,6 +745,11 @@ msgid ""
 "action. Can be practical to set manually e.g. to see if he keeps his "
 "promises."
 msgstr ""
+"Wenn es erforderlich ist, müssen manuell Mahnungen versendet werden. Das "
+"Datum wird auf das aktuelle Datum eingestellt, wenn der Partner eine "
+"Mahnstufe erreicht hat, die einen manuellen Eingriff erfordert. Es kann "
+"außerdem durchaus zweckmäßig sein, manuell die Mahnungen vorzunehmen, um "
+"beispielsweise zu sehen, ob der Kunde seine Zusagen einhält."
 
 #. module: account_followup
 #: view:res.partner:0
@@ -608,6 +770,7 @@ msgid "Follow-up Sending Date"
 msgstr "Datum für Versand der Mahnung(en)"
 
 #. module: account_followup
+#: view:res.partner:0
 #: field:res.partner,payment_responsible_id:0
 msgid "Follow-up Responsible"
 msgstr "Verantwortlich für Mahnung"
@@ -647,6 +810,37 @@ msgid ""
 "</div>\n"
 "            "
 msgstr ""
+"\n"
+"<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-"
+"serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, "
+"255, 255); \">\n"
+"    \n"
+"    <p>Sehr geehrte(r) ${object.name},</p>\n"
+"    <p>\n"
+"    Trotz mehrerer Mahnungen, ist Ihr Konto immer noch nicht ausgeglichen.\n"
+"Sofern keine vollständigen Bezahlung in den nächsten 8 Tage erfolgt, werden "
+"weitere rechtliche Schritte \n"
+"ohne weitere Ankündigung eingeleitet. Wir vertrauen darauf, dass diese "
+"Aktion unnötig sein wird. Details der \n"
+"fälligen Zahlungen finden Sie unten. Sollten Sie Fragen zu diesem Thema "
+"haben, zögern Sie nicht, unsere \n"
+"Buchhaltung anzusprechen.\n"
+"</p>\n"
+"<br/>\n"
+"Freundliche Grüsse\n"
+"<br/>\n"
+"<br/>\n"
+"${user.name}\n"
+"<br/>\n"
+"<br/>\n"
+"\n"
+"\n"
+"${object.get_followup_table_html() | safe}\n"
+"\n"
+"    <br/>\n"
+"\n"
+"</div>\n"
+"            "
 
 #. module: account_followup
 #: report:account_followup.followup.print:0
@@ -679,11 +873,27 @@ msgid ""
 "Best Regards,\n"
 "            "
 msgstr ""
+"\n"
+"<p>Sehr geehrte(r) %(partner_name),</p>\n"
+"<p>\n"
+"Trotz mehrerer Mahnungen, ist Ihr Konto immer noch nicht beglichen.\n"
+"\n"
+"Sofern keine vollständige Bezahlung in den nächsten 8 Tagen erfolgt, werden "
+"wir weitere rechtliche Schritte einleiten.\n"
+"\n"
+"Wir vertrauen darauf, dass diese Aktion unnötig sein wird. Details zu den "
+"fälligen Zahlungen finden Sie unten.\n"
+"\n"
+"Im Falle von Fragen zu diesem Thema, zögern Sie nicht, unsere Buchhaltung "
+"anzusprechen.\n"
+"\n"
+"Mit freundlichen Grüßen\n"
+"            "
 
 #. module: account_followup
 #: field:res.partner,payment_amount_due:0
 msgid "Amount Due"
-msgstr ""
+msgstr "Fälliger Betrag"
 
 #. module: account_followup
 #: field:account.move.line,followup_date:0
@@ -702,10 +912,18 @@ msgid "unknown"
 msgstr "unbekannt"
 
 #. module: account_followup
-#: code:addons/account_followup/account_followup.py:283
+#: code:addons/account_followup/account_followup.py:313
 #, python-format
 msgid "Printed overdue payments report"
 msgstr "Druck überfällige Zahlungen"
+
+#. module: account_followup
+#: code:addons/account_followup/account_followup.py:290
+#, python-format
+msgid ""
+"You became responsible to do the next action for the payment follow-up of"
+msgstr ""
+"Sie sind jetzt verantwortlich für die weiteren Erinnerungen an die Zahlung."
 
 #. module: account_followup
 #: help:account_followup.followup.line,manual_action:0
@@ -723,6 +941,11 @@ msgid ""
 "                            order to exclude it from the next follow-up "
 "actions."
 msgstr ""
+"Hier finden Sie die Historie der Zahlungseingänge\n"
+"                           des Kunden. Sie können \"Aus Mahnläufen "
+"ausschliessen\" aktivieren,\n"
+"                           wenn Sie ihn aus den Mahnläufen ausschliessen "
+"wollen."
 
 #. module: account_followup
 #: code:addons/account_followup/wizard/account_followup_print.py:171
@@ -731,16 +954,15 @@ msgid " email(s) should have been sent, but "
 msgstr " EMail(s) sollten ausgetauscht werden, aber "
 
 #. module: account_followup
-#: help:account_followup.print,test_print:0
-msgid ""
-"Check if you want to print follow-ups without changing follow-ups level."
-msgstr ""
-"Möchten Sie Ausdrucke von Mahnungen ohne Wechsel der Stufe generieren."
-
-#. module: account_followup
 #: model:ir.model,name:account_followup.model_account_move_line
 msgid "Journal Items"
 msgstr "Buchungen"
+
+#. module: account_followup
+#: code:addons/account_followup/account_followup.py:280
+#, python-format
+msgid "Amount due"
+msgstr "Fälliger Betrag"
 
 #. module: account_followup
 #: report:account_followup.followup.print:0
@@ -771,7 +993,13 @@ msgstr "Punkte"
 #. module: account_followup
 #: field:res.partner,payment_amount_overdue:0
 msgid "Amount Overdue"
-msgstr ""
+msgstr "Überfälliger Betrag"
+
+#. module: account_followup
+#: code:addons/account_followup/account_followup.py:263
+#, python-format
+msgid "Lit."
+msgstr "Strittig"
 
 #. module: account_followup
 #: help:res.partner,latest_followup_level_id_without_lit:0
@@ -819,6 +1047,34 @@ msgid ""
 "</div>\n"
 "            "
 msgstr ""
+"\n"
+"<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-"
+"serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, "
+"255, 255); \">\n"
+"    \n"
+"    <p>Sehr geehrte(r) ${object.name},</p>\n"
+"    <p>\n"
+"   Insofern es keinen Fehler unsererseits gibt , gibt es noch nicht bezahlte "
+"Rechnungen. Bitte ergreifen Sie\n"
+"geeignete Maßnahmen, um eine Zahlung in den nächsten 8 Tagen vorzunehmen.\n"
+"Wenn sich Ihre Zahlung mit dieser Mail überschneidet, ignorieren Sie bitte "
+"diese Nachricht. Zögern Sie \n"
+"bitte nicht, wenn es Rückfragen gibt und kontaktieren Sie unsere "
+"Buchhaltung.\n"
+"    </p>\n"
+"<br/>\n"
+"Freundliche Grüsse\n"
+"<br/>\n"
+"<br/>\n"
+"${user.name}\n"
+"<br/>\n"
+"<br/>\n"
+"\n"
+"${object.get_followup_table_html() | safe}\n"
+"\n"
+"<br/>\n"
+"</div>\n"
+"            "
 
 #. module: account_followup
 #: field:account.move.line,result:0
@@ -859,6 +1115,18 @@ msgid ""
 "\n"
 "Best Regards,\n"
 msgstr ""
+"\n"
+"Sehr geehrte(r) %(partner_name),\n"
+"\n"
+"Insofern es keinen Fehler unsererseits gibt , gibt es noch nicht bezahlte "
+"Rechnungen. Bitte ergreifen Sie\n"
+"geeignete Maßnahmen, um eine Zahlung in den nächsten 8 Tagen vorzunehmen.\n"
+"Wenn sich Ihre Zahlung mit dieser Mail überschneidet, ignorieren Sie bitte "
+"diese Nachricht. Zögern Sie \n"
+"bitte nicht, wenn es Rückfragen gibt und kontaktieren Sie unsere "
+"Buchhaltung.\n"
+"\n"
+"Freundliche Grüsse\n"
 
 #. module: account_followup
 #: field:account_followup.stat,date_move_last:0
@@ -918,9 +1186,12 @@ msgid " had unknown email address(es)"
 msgstr " es ergab()en sich unbekannte Emailanschrift(en)"
 
 #. module: account_followup
-#: view:res.partner:0
-msgid "Responsible"
-msgstr "Verantwortlicher"
+#: help:account_followup.print,test_print:0
+msgid ""
+"Check if you want to print follow-ups without changing follow-up level."
+msgstr ""
+"Prüfen  Sie den problemlosen Versand von Zahlungserinnerungen, ohne dabei "
+"die Mahnstufen abzuändern."
 
 #. module: account_followup
 #: model:ir.ui.menu,name:account_followup.menu_finance_followup
@@ -940,6 +1211,10 @@ msgid ""
 "                        set the manual actions per customer, according to "
 "the follow-up levels defined."
 msgstr ""
+"Diese Aktion sendet Zahlungserinnerungen per E-Mail, druckt\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tMahnschreiben und setzt die manuellen Aktionen "
+"auf Kunden-\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tebene, abhängig von den definierten Mahnstufen."
 
 #. module: account_followup
 #: field:account_followup.followup.line,name:0
@@ -954,6 +1229,8 @@ msgstr "Beinhaltet Buchungen aus lfd. Rechtsstreitigkeiten"
 #. module: account_followup
 #: report:account_followup.followup.print:0
 #: field:account_followup.sending.results,description:0
+#: code:addons/account_followup/account_followup.py:259
+#, python-format
 msgid "Description"
 msgstr "Beschreibung"
 
@@ -983,23 +1260,19 @@ msgid "Latest Follow-up Level without litigation"
 msgstr "Letzte Mahnstufe vor Mahnverfahren"
 
 #. module: account_followup
-#: model:ir.actions.act_window,help:account_followup.action_account_manual_reconcile_receivable
-msgid ""
-"<p>\n"
-"                    No journal items found.\n"
-"                </p>\n"
-"            "
-msgstr ""
-"<p>\n"
-"                    Es wurden keine Buchungsbelege in diesem Journal "
-"gefunden.\n"
-"                </p>\n"
-"            "
+#: view:res.partner:0
+msgid "⇾ Mark as Done"
+msgstr "-> Als erledigt markieren"
 
 #. module: account_followup
 #: view:account.move.line:0
 msgid "Partner entries"
 msgstr "Partnereinträge"
+
+#. module: account_followup
+#: view:account_followup.followup.line:0
+msgid "e.g. Call the customer, check if it's paid, ..."
+msgstr "z.B. Kundenanruf, prüfen Sie ob bereits gezahlt wurde,..."
 
 #. module: account_followup
 #: view:account_followup.stat:0
@@ -1025,6 +1298,21 @@ msgid ""
 "\n"
 "Best Regards,\n"
 msgstr ""
+"\n"
+"Sehr geehrte(r) %(partner_name),\n"
+"\n"
+"trotz einiger Mahnungen, ist Ihr Konto nach wie vor nicht ausgeglichen.\n"
+"\n"
+"Sofern keine vollständige Bezahlung in den nächsten 8 Tagen erfolgt, werden "
+"wir weitere rechtliche Schritte einleiten.\n"
+"\n"
+"Wir vertrauen darauf, dass diese Aktion unnötig sein wird. Details zu den "
+"fälligen Zahlungen finden Sie unten.\n"
+"\n"
+"Im Falle von Fragen zu diesem Thema, zögern Sie nicht, unsere Buchhaltung "
+"anzusprechen.\n"
+"\n"
+"Mit freundlichen Grüßen\n"
 
 #. module: account_followup
 #: help:account_followup.print,partner_lang:0
@@ -1076,7 +1364,7 @@ msgstr "Letzte Mahnstufe"
 #: field:account_followup.stat,date_move:0
 #: field:account_followup.stat.by.partner,date_move:0
 msgid "First move"
-msgstr "Erste Zahlung:"
+msgstr "Erste Buchung"
 
 #. module: account_followup
 #: model:ir.model,name:account_followup.model_account_followup_stat_by_partner
@@ -1090,9 +1378,10 @@ msgid " letter(s) in report"
 msgstr " Geschäftsformulare Ansicht"
 
 #. module: account_followup
-#: view:res.partner:0
-msgid "Partners with Overdue Credits"
-msgstr ""
+#: model:ir.actions.act_window,name:account_followup.action_customer_my_followup
+#: model:ir.ui.menu,name:account_followup.menu_sale_followup
+msgid "My Follow-Ups"
+msgstr "Meine Erinnerungen"
 
 #. module: account_followup
 #: view:res.partner:0
@@ -1147,6 +1436,15 @@ msgid "Total credit"
 msgstr "Forderungssumme"
 
 #. module: account_followup
+#: code:addons/account_followup/account_followup.py:312
+#, python-format
+msgid ""
+"The partner does not have any accounting entries to print in the overdue "
+"report for the current company."
+msgstr ""
+"Dieser Partner weist keine zu druckenden Buchungen für die Erinnerung aus."
+
+#. module: account_followup
 #: field:account_followup.followup.line,sequence:0
 msgid "Sequence"
 msgstr "Folge"
@@ -1198,762 +1496,42 @@ msgid "Accounting"
 msgstr "Finanzbuchhaltung"
 
 #. module: account_followup
-#: field:account_followup.stat,blocked:0
-msgid "Blocked"
-msgstr "Abgewiesen"
+#: view:res.partner:0
+msgid ""
+"If not specified by the latest follow-up level, it will send from the "
+"default email template"
+msgstr ""
+"Solange es keine besondere Spezifikation durch die höchste Mahnstufe gibt, "
+"wird für den E-Mail Versand der\r\n"
+"Zahlungserinnerungen die Standard Vorlage verwendet."
+
+#. module: account_followup
+#: code:addons/account_followup/account_followup.py:318
+#, python-format
+msgid "There is no followup plan defined for the current company."
+msgstr "Es gibt aktuell keine eindeutig definierte Mahnstufe"
 
 #. module: account_followup
 #: field:res.partner,payment_note:0
 msgid "Customer Payment Promise"
 msgstr "Kundenzahlung Versprechen"
 
-#~ msgid "All payable entries"
-#~ msgstr "Alle offenen Posten"
-
-#~ msgid "Due"
-#~ msgstr "Nächste Fälligkeit am:"
-
-#~ msgid "Select partners"
-#~ msgstr "Wähle Partner"
-
-#~ msgid "Account Type"
-#~ msgstr "Kontoart"
-
-#~ msgid "%(date)s: Current Date"
-#~ msgstr "%(date)s: aktuelles Datum"
-
-#~ msgid "Balance:"
-#~ msgstr "Saldo:"
-
-#~ msgid "Paid"
-#~ msgstr "Bezahlt"
-
-#~ msgid "%(line)s: Account Move lines"
-#~ msgstr "%(line)s: Buchungspositionen"
-
-#~ msgid "Follow-Ups Criteria"
-#~ msgstr "Zahlungserinnerungen Kriterien"
-
-#~ msgid "Invalid XML for View Architecture!"
-#~ msgstr "Fehlerhafter xml Code für diese Ansicht!"
+#~ msgid "Responsible"
+#~ msgstr "Verantwortlicher"
 
 #~ msgid ""
-#~ "The Object name must start with x_ and not contain any special character !"
+#~ "<p>\n"
+#~ "                    No journal items found.\n"
+#~ "                </p>\n"
+#~ "            "
 #~ msgstr ""
-#~ "Der Objekt Name muss mit einem x_ starten und darf keine Sonderzeichen "
-#~ "beinhalten"
-
-#~ msgid "All receivable entries"
-#~ msgstr "Alle Forderungspositionen"
-
-#~ msgid "Lines"
-#~ msgstr "Positionen"
-
-#~ msgid "Followup statistics"
-#~ msgstr "Erinnerungen Statistik"
-
-#~ msgid "Continue"
-#~ msgstr "Fortsetzen"
-
-#~ msgid "Sub-Total:"
-#~ msgstr "Zwischensumme"
-
-#~ msgid "Net Days"
-#~ msgstr "Nettotage"
-
-#~ msgid "Maturity"
-#~ msgstr "Fälligkeit"
-
-#~ msgid "Legend"
-#~ msgstr "Legende"
-
-#~ msgid "Follow-up and Date Selection"
-#~ msgstr "Erinnerungdsdatum und Datumsauswahl"
-
-#, python-format
-#~ msgid ""
-#~ "\n"
-#~ "\n"
-#~ "Mail sent to following Partners successfully, !\n"
-#~ "\n"
-#~ msgstr ""
-#~ "\n"
-#~ "\n"
-#~ "E-Mail wurde erfolgreich an folgende Partner versandt !\n"
-#~ "\n"
-
-#~ msgid "Amount In Currency"
-#~ msgstr "Betrag in Währung"
-
-#, python-format
-#~ msgid ""
-#~ "Mail not sent to following Partners, Email not available !\n"
-#~ "\n"
-#~ msgstr ""
-#~ "E-Mail wurde nicht an folgende Partner versandt, kein E-Mail Konto "
-#~ "definiert\n"
-#~ "\n"
-
-#~ msgid "Ok"
-#~ msgstr "OK"
+#~ "<p>\n"
+#~ "                    Es wurden keine Buchungsbelege in diesem Journal "
+#~ "gefunden.\n"
+#~ "                </p>\n"
+#~ "            "
 
 #~ msgid ""
-#~ "\n"
-#~ "Dear %(partner_name)s,\n"
-#~ "\n"
-#~ "Exception made if there was a mistake of ours, it seems that the following "
-#~ "amount staid unpaid. Please, take appropriate measures in order to carry out "
-#~ "this payment in the next 8 days.\n"
-#~ "\n"
-#~ "Would your payment have been carried out after this mail was sent, please "
-#~ "consider the present one as void. Do not hesitate to contact our accounting "
-#~ "department at (+32).10.68.94.39.\n"
-#~ "\n"
-#~ "Best Regards,\n"
-#~ "\t\t\t"
+#~ "Check if you want to print follow-ups without changing follow-ups level."
 #~ msgstr ""
-#~ "\n"
-#~ "Geehrte(r) %(partner_name)s,\n"
-#~ "\n"
-#~ "Vorbehaltlich eines Fehlers unsererseits sieht es so aus, dass der folgende "
-#~ "Betrag nicht beglichen wurde. Bitte zahlen sie innerhalb der nächsten 8 "
-#~ "Tage.\n"
-#~ "\n"
-#~ "Wenn Sie dieses Mail nach Bezahlung erreicht hat, betrachten sie es bitte "
-#~ "als hinfällig.\n"
-#~ "In Zweifelsfragen kontaktieren sie bite unse Rechnungswesen \n"
-#~ "\n"
-#~ "Hochachtungsvoll\n"
-#~ "\t\t\t"
-
-#~ msgid "Print Follow Ups & Send Mails"
-#~ msgstr "Drucke Mahnungen & E-Mail Versand"
-
-#, python-format
-#~ msgid ""
-#~ "All emails have been successfully sent to Partners:.\n"
-#~ "\n"
-#~ msgstr ""
-#~ "Alle E-Mails wurden erfolgreich an die Partner versandt:\n"
-#~ "\n"
-
-#~ msgid ""
-#~ "\n"
-#~ "Dear %(partner_name)s,\n"
-#~ "\n"
-#~ "We are disappointed to see that despite sending a reminder, that your "
-#~ "account is now seriously overdue.\n"
-#~ "\n"
-#~ "It is essential that immediate payment is made, otherwise we will have to "
-#~ "consider placing a stop on your account which means that we will no longer "
-#~ "be able to supply your company with (goods/services).\n"
-#~ "Please, take appropriate measures in order to carry out this payment in the "
-#~ "next 8 days\n"
-#~ "\n"
-#~ "If there is a problem with paying invoice that we are not aware of, do not "
-#~ "hesitate to contact our accounting department at (+32).10.68.94.39. so that "
-#~ "we can resolve the matter quickly.\n"
-#~ "\n"
-#~ "Details of due payments is printed below.\n"
-#~ "\n"
-#~ "Best Regards,\n"
-#~ "\t\t\t"
-#~ msgstr ""
-#~ "\n"
-#~ "Geehrte(r) %(partner_name)s,\n"
-#~ "\n"
-#~ "Wir sehen trotz Zusendung einer Mahnung, dass Ihr Konto längst überfällig "
-#~ "ist.\n"
-#~ "\n"
-#~ "Es ist wichtig, dass Sie unmittelbar bezahlen, ansonst müssten wir Ihr Konto "
-#~ "sperren, sodass wir Ihre Firma nicht mehr belieferen können.\n"
-#~ "\n"
-#~ "BItte überweisen Sie in den nächsten 8 Tagen.\n"
-#~ "\n"
-#~ "Sollte es ein uns unbekanntes Problem mit der Bezahlung geben, kontaktieren "
-#~ "Sie bitte unsere Buchhaltung, damit wir so rasch wie möglich handeln "
-#~ "können.\n"
-#~ "\n"
-#~ "Details der überfälligen Rechungen sind unten angedruckt.\n"
-#~ "\n"
-#~ "Hochachtungsvoll,\n"
-#~ "\t\t\t"
-
-#~ msgid ""
-#~ "\n"
-#~ "Dear %(partner_name)s,\n"
-#~ "\n"
-#~ "Despite several reminders, your account is still not settled.\n"
-#~ "\n"
-#~ "Unless full payment is made in next 8 days , then legal action for the "
-#~ "recovery of the debt, will be taken without further notice.\n"
-#~ "\n"
-#~ "I trust that this action will prove unnecessary and details of due payments "
-#~ "is printed below.\n"
-#~ "\n"
-#~ "In case of any queries concerning this matter, do not hesitate to contact "
-#~ "our accounting department at (+32).10.68.94.39.\n"
-#~ "\n"
-#~ "Best Regards,\n"
-#~ "\t\t\t"
-#~ msgstr ""
-#~ "\n"
-#~ "Geehrte(r) %(partner_name)s,\n"
-#~ "\n"
-#~ "Trotz mehrfacher Mahnungen sind die überfälligen Rechnungen nicht "
-#~ "beglichen.\n"
-#~ "\n"
-#~ "Fall die Zahlungen nicht innerhalb der nächsten 8 Tage einlangen, werden "
-#~ "rechtliche Schritte ohne weitere Verständigung eingeleitet.\n"
-#~ "\n"
-#~ "Wir hoffen, dass dies nicht notwendig sein wird. Details der überfälligen "
-#~ "Rechnungen sind unten gedruckt.\n"
-#~ "\n"
-#~ "Sollte es ein uns unbekanntes Problem mit der Bezahlung geben, kontaktieren "
-#~ "Sie bitte unsere Buchhaltung, damit wir so rasch wie möglich handeln "
-#~ "können.\n"
-#~ "\n"
-#~ "Hochachtungsvoll,\n"
-#~ "\t\t\t"
-
-#~ msgid "Account Follow Up"
-#~ msgstr "Zahlungserinnerung"
-
-#~ msgid "Select partners to remind"
-#~ msgstr "Auswahl des Dateinamens für den Export"
-
-#~ msgid ""
-#~ "\n"
-#~ "Dear %(partner_name)s,\n"
-#~ "\n"
-#~ "Exception made if there was a mistake of ours, it seems that the following "
-#~ "amount staid unpaid. Please, take appropriate measures in order to carry out "
-#~ "this payment in the next 8 days.\n"
-#~ "\n"
-#~ "Would your payment have been carried out after this mail was sent, please "
-#~ "consider the present one as void. Do not hesitate to contact our accounting "
-#~ "department at (+32).10.68.94.39.\n"
-#~ "\n"
-#~ "Best Regards,\n"
-#~ msgstr ""
-#~ "\n"
-#~ "Sehr geehrter %(partner_name)s,\n"
-#~ "\n"
-#~ "Vorausgesetzt wir haben aktuelle Daten, sind scheinbar folgende Rechnungen "
-#~ "immer noch nicht ausgeglichen. Bitte  bezahlen Sie diese bitte unmittelbar "
-#~ "in den nächsten 8 Tagen.\n"
-#~ "\n"
-#~ "\n"
-#~ "Sollte eine Zeitüberschneidung aufgetreten sein, und Sie demnach bereits den "
-#~ "offenen Betrag bezahlt  haben, sehen Sie diese Erinnerung und damit die "
-#~ "Angelegenheit bitte als abgeschlossen an. Ansonsten  kontaktieren Sie bei "
-#~ "Rückfragen  Telefon (+32).10.68.94.39.\n"
-#~ "\n"
-#~ "Viele Grüsse\n"
-
-#, python-format
-#~ msgid ""
-#~ "All E-mails have been successfully sent to Partners:.\n"
-#~ "\n"
-#~ msgstr ""
-#~ "Alle EMails wurden erfolgreich versendet an folgende Partner:\n"
-#~ "\n"
-
-#~ msgid ""
-#~ "\n"
-#~ "Dear %(partner_name)s,\n"
-#~ "\n"
-#~ "Despite several reminders, your account is still not settled.\n"
-#~ "\n"
-#~ "Unless full payment is made in next 8 days , then legal action for the "
-#~ "recovery of the debt, will be taken without further notice.\n"
-#~ "\n"
-#~ "I trust that this action will prove unnecessary and details of due payments "
-#~ "is printed below.\n"
-#~ "\n"
-#~ "In case of any queries concerning this matter, do not hesitate to contact "
-#~ "our accounting department at (+32).10.68.94.39.\n"
-#~ "\n"
-#~ "Best Regards,\n"
-#~ msgstr ""
-#~ "\n"
-#~ "Sehr geehrte(r) %(partner_name)s,\n"
-#~ "\n"
-#~ "Vorbehaltlich eines Fehlers unsererseits, sieht es so aus, dass der folgende "
-#~ "Betrag nicht beglichen wurde. Bitte zahlen sie innerhalb der nächsten 8 "
-#~ "Tage:\n"
-#~ "\n"
-#~ "Wenn Sie dieses EMail nach der Bezahlung erreicht hat, betrachten sie diese "
-#~ "Mail als hinfällig.\n"
-#~ " In Zweifelsfragen kontaktieren sie bite unser Rechnungswesen. \n"
-#~ "\n"
-#~ "Hochachtungsvoll\n"
-
-#~ msgid "Send Mails"
-#~ msgstr "Versende EMails"
-
-#~ msgid "Currency"
-#~ msgstr "Währung"
-
-#, python-format
-#~ msgid "Select Partners"
-#~ msgstr "Wähle Partner"
-
-#~ msgid "Invalid model name in the action definition."
-#~ msgstr "Ungültiger Modulname in der Aktionsdefinition."
-
-#~ msgid "Companies"
-#~ msgstr "Unternehmen"
-
-#~ msgid "Followup Lines"
-#~ msgstr "Zahlungserinnerungen Positionen"
-
-#~ msgid "Follow-Up Lines"
-#~ msgstr "Zahlungserinnerung Zeilen"
-
-#, python-format
-#~ msgid ""
-#~ "\n"
-#~ "\n"
-#~ "E-Mail sent to following Partners successfully. !\n"
-#~ "\n"
-#~ msgstr ""
-#~ "\n"
-#~ "\n"
-#~ "Email, wurde erfolgreich an Partnern versendet.\n"
-#~ "\n"
-
-#~ msgid "Receivable Items"
-#~ msgstr "Forderungen"
-
-#~ msgid "%(line)s: Ledger Posting lines"
-#~ msgstr "%(Zeile): Sachkontenbuchungen"
-
-#~ msgid "%(company_name)s: User's Company Name"
-#~ msgstr "% Unternehmensname"
-
-#~ msgid "Accounting follow-ups management"
-#~ msgstr "Zahlungserinnerungen"
-
-#~ msgid "Select Partners to Remind"
-#~ msgstr "Wähle Partner für Zahlungserinnerung"
-
-#~ msgid ""
-#~ "\n"
-#~ "    Modules to automate letters for unpaid invoices, with multi-level "
-#~ "recalls.\n"
-#~ "\n"
-#~ "    You can define your multiple levels of recall through the menu:\n"
-#~ "        Accounting/Configuration/Miscellaneous/Follow-Ups\n"
-#~ "\n"
-#~ "    Once it is defined, you can automatically print recalls every day\n"
-#~ "    through simply clicking on the menu:\n"
-#~ "        Accounting/Periodical Processing/Billing/Send followups\n"
-#~ "\n"
-#~ "    It will generate a PDF with all the letters according to the the\n"
-#~ "    different levels of recall defined. You can define different policies\n"
-#~ "    for different companies. You can also send mail to the customer.\n"
-#~ "\n"
-#~ "    Note that if you want to change the followup level for a given "
-#~ "partner/account entry, you can do from in the menu:\n"
-#~ "        Accounting/Reporting/Generic Reporting/Partner Accounts/Follow-ups "
-#~ "Sent\n"
-#~ "\n"
-#~ msgstr ""
-#~ "\n"
-#~ "    Dieses Modul ermöglicht den Versand von Zahlungserinnerungen über "
-#~ "mehrere Mahnstufen.\n"
-#~ "\n"
-#~ "    Sie können mehrere Mahnstufen über das folgende Menü anlegen:\n"
-#~ "        Finanzen/Konfiguration/Sonstige Konfiguration/Zahlungserinnerungen\n"
-#~ "\n"
-#~ "    Sobald Sie die Stufen definiert haben, können Sie folgendermassen "
-#~ "täglich \n"
-#~ "    wiederkehrend den aktuellen Zahlungsstatus erhalten:\n"
-#~ "        Finanzen/Periodische Buchungen/Abrechnung/Sende Zahlungserinnerung\n"
-#~ "\n"
-#~ "    Hierdurch wird ein PDF Druck generiert, der die von Ihnen definierten "
-#~ "Stufen\n"
-#~ "    beim Druck berücksichtigt. Sie können für jedes Unternehmen ein "
-#~ "individuelles\n"
-#~ "    Vorgehen hinterlegen. Desweiteren lassen sich alle Berichte auch per "
-#~ "EMail versenden,\n"
-#~ "\n"
-#~ "    Vermerken Sie bitte, dass Sie Änderungen der Mahnstufen für einen "
-#~ "bestimmten Partner folgendermassen durchführen:\n"
-#~ "        Finanzen/Berichtswesen/Standard Auswertungen/ Partner "
-#~ "Konten/Gesendete Zahlungserinnerungen\n"
-#~ "\n"
-
-#~ msgid ""
-#~ "This feature allows you to send reminders to partners with pending invoices. "
-#~ "You can send them the default message for unpaid invoices or manually enter "
-#~ "a message should you need to remind them of a specific information."
-#~ msgstr ""
-#~ "Diese Anwendung ermöglicht den Versand von Zahlungserinnerungen zu "
-#~ "unbezahlten Rechnungen. Sie können hierzu den Standard Text für unbezahlte "
-#~ "Rechnungen verwenden oder individuelle Benachrichtungen konfigurieren."
-
-#, python-format
-#~ msgid ""
-#~ "E-Mail not sent to following Partners, Email not available !\n"
-#~ "\n"
-#~ msgstr ""
-#~ "E-Mail konnte nicht an folgende Partner gesendet werden. Die EMail Adresse "
-#~ "ist nicht vorhanden !\n"
-#~ "\n"
-
-#~ msgid "You can not create move line on closed account."
-#~ msgstr ""
-#~ "Sie können keine Buchung auf einem bereits abgeschlossenen Konto vornehmen."
-
-#~ msgid "Company must be same for its related account and period."
-#~ msgstr ""
-#~ "Das Unternehmen muss für zugehörige Konten und Perioden identisch sein."
-
-#~ msgid "You can not create move line on view account."
-#~ msgstr "Sie können keine Buchungen auf Konten des Typs Ansicht erstellen."
-
-#, python-format
-#~ msgid "Follwoup Summary"
-#~ msgstr "Mahnverfolgung Zusammenfassung"
-
-#~ msgid ""
-#~ "\n"
-#~ "Dear %(partner_name)s,\n"
-#~ "\n"
-#~ "We are disappointed to see that despite sending a reminder, that your "
-#~ "account is now seriously overdue.\n"
-#~ "\n"
-#~ "It is essential that immediate payment is made, otherwise we will have to "
-#~ "consider placing a stop on your account which means that we will no longer "
-#~ "be able to supply your company with (goods/services).\n"
-#~ "Please, take appropriate measures in order to carry out this payment in the "
-#~ "next 8 days\n"
-#~ "\n"
-#~ "If there is a problem with paying invoice that we are not aware of, do not "
-#~ "hesitate to contact our accounting department at (+32).10.68.94.39. so that "
-#~ "we can resolve the matter quickly.\n"
-#~ "\n"
-#~ "Details of due payments is printed below.\n"
-#~ "\n"
-#~ "Best Regards,\n"
-#~ msgstr ""
-#~ "\n"
-#~ "Sehr geehrte(r) %(partner_name)s,\n"
-#~ "\n"
-#~ "Wir sehen trotz Zusendung einer Mahnung, dass Ihr Konto längst überfällig "
-#~ "ist.\n"
-#~ "\n"
-#~ "Es ist wichtig, dass Sie unmittelbar bezahlen, ansonst müssten wir Ihr Konto "
-#~ "sperren, sodass wir Ihre Firma nicht mehr belieferen können.\n"
-#~ "\n"
-#~ "BItte überweisen Sie in den nächsten 8 Tagen.\n"
-#~ "\n"
-#~ "Sollte es ein uns unbekanntes Problem mit der Bezahlung geben, kontaktieren "
-#~ "Sie bitte unsere Buchhaltung, damit wir so rasch wie möglich handeln "
-#~ "können.\n"
-#~ "\n"
-#~ "Details der überfälligen Rechnungen sind unten angedruckt.\n"
-#~ "\n"
-#~ "Hochachtungsvoll,\n"
-
-#~ msgid ""
-#~ "Check if you want to print followups without changing followups level."
-#~ msgstr ""
-#~ "Anhaken, wenn sie Mahnungen drucken wollen, ohne die Mahnstufe zu erhöhen"
-
-#~ msgid "Only One Followup by Company."
-#~ msgstr "Nur eine Mahnung je Unternehmen"
-
-#~ msgid "Follow-Up Steps"
-#~ msgstr "Mahnstufen"
-
-#~ msgid ""
-#~ "\n"
-#~ "Dear %(partner_name)s,\n"
-#~ "\n"
-#~ "We are disappointed to see that despite sending a reminder, that your "
-#~ "account is now seriously overdue.\n"
-#~ "\n"
-#~ "It is essential that immediate payment is made, otherwise we will have to "
-#~ "consider placing a stop on your account which means that we will no longer "
-#~ "be able to supply your company with (goods/services).\n"
-#~ "Please, take appropriate measures in order to carry out this payment in the "
-#~ "next 8 days.\n"
-#~ "\n"
-#~ "If there is a problem with paying invoice that we are not aware of, do not "
-#~ "hesitate to contact our accounting department at (+32).10.68.94.39. so that "
-#~ "we can resolve the matter quickly.\n"
-#~ "\n"
-#~ "Details of due payments is printed below.\n"
-#~ "\n"
-#~ "Best Regards,\n"
-#~ msgstr ""
-#~ "\n"
-#~ "Geehrte(r) %(partner_name)s,\n"
-#~ "\n"
-#~ "Wir bedauern, dass Ihr Konto trotz Übersendung einer Erinnerung weiterhin "
-#~ "unbeglichen ist.\n"
-#~ "\n"
-#~ "Wenn Sie die Bezahlung weiterhin versäumen, sehen wir uns gezwungen Ihr "
-#~ "Konto still zu legen. D.h. dass wir Sie zukünftig nicht mehr beliefern "
-#~ "werden. Darüber hinaus entsteht auf unserer Seite Aufwand, den wir ggf. an "
-#~ "Sie weitergeben müssen.\n"
-#~ "Bitte führen Sie die Zahlung innerhalb der nächsten 8 Tage durch.\n"
-#~ "\n"
-#~ "Wenn es mit der Rechnung ein uns nicht nachvollziehbares Problem gibt, "
-#~ "wenden Sie sich bitte vertrauensvoll an unsere Buchhaltung.\n"
-#~ "\n"
-#~ "Details der überfälligen Zahlungen finden Sie weiter unten.\n"
-#~ "\n"
-#~ "Beste Grüße,\n"
-
-#~ msgid "Follow-up Message"
-#~ msgstr "Mitteilung zur Zahlungserinnerung"
-
-#~ msgid "Follow up Entries with period in current year"
-#~ msgstr "Mahnungen aus Perioden des laufenden Jahres"
-
-#~ msgid "Wrong credit or debit value in accounting entry !"
-#~ msgstr "Falscher Soll- oder Habenbetrag in der Buchung!"
-
-#~ msgid ""
-#~ "The date of your Journal Entry is not in the defined period! You should "
-#~ "change the date or remove this constraint from the journal."
-#~ msgstr ""
-#~ "Das Datum Ihrer Buchung fällt nicht in die festgelegte Periode. Sie müssen "
-#~ "das Datum anpassen, oder diese Einschränkung vom Bericht entfernen."
-
-#~ msgid "%(heading)s: Move line header"
-#~ msgstr "%(heading)s: Titelzeile der Buchungen"
-
-#~ msgid "End of Month"
-#~ msgstr "Monatsende"
-
-#~ msgid "%(user_signature)s: User name"
-#~ msgstr "%(user_signature)s: Benutzername"
-
-#~ msgid "Email body"
-#~ msgstr "EMail Haupttext"
-
-#~ msgid ""
-#~ "\n"
-#~ "Dear %(partner_name)s,\n"
-#~ "\n"
-#~ "Exception made if there was a mistake of ours, it seems that the following "
-#~ "amount stays unpaid. Please, take appropriate measures in order to carry out "
-#~ "this payment in the next 8 days.\n"
-#~ "\n"
-#~ "Would your payment have been carried out after this mail was sent, please "
-#~ "ignore this message. Do not hesitate to contact our accounting department at "
-#~ "(+32).10.68.94.39.\n"
-#~ "\n"
-#~ "Best Regards,\n"
-#~ msgstr ""
-#~ "\n"
-#~ "Guten Tag  %( partner_name)s,\n"
-#~ "\n"
-#~ "in unseren Unterlagen stehen die folgenden Rechnungen zur Zahlung aus. Bitte "
-#~ "überprüfen Sie dies auf Ihrer Seite und ergreifen Sie die erforderlichen "
-#~ "Massnahmen innerhalb der nächsten 8 Tage. Sollte die Zahlung zeitlich nach "
-#~ "dieser Mitteilung erfolgen, können Sie bitte diese Benachrichtigung "
-#~ "ignorieren. \n"
-#~ "Sollte uns unerwartet ein Fehler unterlaufen sein, so bitten wir dies zu "
-#~ "entschuldigen, und hoffen, dass Sie uns helfen diese Angelegenheit zu "
-#~ "bereinigen.\n"
-#~ "\n"
-#~ "Freundliche Grüsse\n"
-
-#~ msgid "Partner Selection"
-#~ msgstr "Partnerauswahl"
-
-#, python-format
-#~ msgid ""
-#~ "All E-mails have been successfully sent to Partners:.\n"
-#~ "\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Alle E-mails wurden erfolgreich an folgende Partner versendet:\n"
-#~ "\n"
-#~ "%s"
-
-#~ msgid "Send followups"
-#~ msgstr "Versende Mahnungen"
-
-#~ msgid ""
-#~ "The selected account of your Journal Entry forces to provide a secondary "
-#~ "currency. You should remove the secondary currency on the account or select "
-#~ "a multi-currency view on the journal."
-#~ msgstr ""
-#~ "Das ausgewählte Konto Ihrer Buchung erfordert die Angabe einer "
-#~ "Alternativwährung. Sie müssen die Verwendung einer Alternativwährung in den "
-#~ "Einstellungen des Kontos ausschalten oder aber eine mehrwährungsfähige "
-#~ "Ansicht im Beicht verwenden."
-
-#~ msgid "Followup Statistics by Partner"
-#~ msgstr "Statistik über Zahlungserinnerungen"
-
-#, python-format
-#~ msgid ""
-#~ "\n"
-#~ "\n"
-#~ "E-Mail sent to following Partners successfully. !\n"
-#~ "\n"
-#~ "%s"
-#~ msgstr ""
-#~ "\n"
-#~ "\n"
-#~ "E-Mail ist erfolgreich an folgende Partners versendet worden:\n"
-#~ "\n"
-#~ "%s"
-
-#~ msgid "Message"
-#~ msgstr "Mitteilung"
-
-#~ msgid "Print Follow Ups"
-#~ msgstr "Drucke Mahnungen"
-
-#~ msgid "Email Settings"
-#~ msgstr "EMail-Einstellungen"
-
-#~ msgid "%(user_signature)s: User Name"
-#~ msgstr "%(user_signature)s: Benutzername"
-
-#~ msgid "Followup Statistics"
-#~ msgstr "Mahnungsstatistik"
-
-#~ msgid "Send email confirmation"
-#~ msgstr "Versende Bestätigung per EMail"
-
-#~ msgid "%(company_name)s: User's Company name"
-#~ msgstr "%(company_name)s: Unternehmensname d. Benutzers"
-
-#~ msgid "You can not create journal items on an account of type view."
-#~ msgstr "Sie können keine Buchungen in einem Ansichtskonto vornehmen."
-
-#~ msgid "Error! You can not create recursive companies."
-#~ msgstr ""
-#~ "Fehler! Sie können Unternehmen nicht rekursiv (auf sich selbst bezogen) "
-#~ "anlegen."
-
-#~ msgid "Print Followup & Send Mail to Customers"
-#~ msgstr "Drucke Mahnung & Sende EMail an Kunden"
-
-#~ msgid "%(partner_name)s: Partner Name"
-#~ msgstr "%(partner_name)s: Partnername"
-
-#~ msgid "%(company_currency)s: User's Company Currency"
-#~ msgstr "%(company_currency)s: Unternehmenswährung"
-
-#~ msgid "Followup Report"
-#~ msgstr "Bericht über Mahnungen"
-
-#~ msgid "Follow-Up lines"
-#~ msgstr "Mahnungspositionen"
-
-#~ msgid "Type of Term"
-#~ msgstr "Zahlungsziel"
-
-#~ msgid "Review Invoicing Follow-Ups"
-#~ msgstr "Mahnungen sichten"
-
-#~ msgid ""
-#~ "Define follow up levels and their related messages and delay. For each step, "
-#~ "specify the message and the day of delay. Use the legend to know the using "
-#~ "code to adapt the email content to the good context (good name, good date) "
-#~ "and you can manage the multi language of messages."
-#~ msgstr ""
-#~ "Definieren Sie die Mahnstufen und die dazugehörigen Nachrichten und Fristen. "
-#~ "Verwenden Sie die Variablen gemäß der Legende, und verwalten Sie die "
-#~ "Mahnungen mehrsprachig."
-
-#~ msgid "Payable Items"
-#~ msgstr "Ausstehende Beträge"
-
-#, python-format
-#~ msgid "Followup Summary"
-#~ msgstr "Zusammenfassung der Mahnungen"
-
-#~ msgid "Company must be the same for its related account and period."
-#~ msgstr "Das Unternehmen muss für Konto und Periode das gleiche sein."
-
-#, python-format
-#~ msgid ""
-#~ "E-Mail not sent to following Partners, E-mail not available !\n"
-#~ "\n"
-#~ "%s"
-#~ msgstr ""
-#~ "E-Mail wurde wegen fehlender E-Mail-Adresse an folgende Partner NICHT "
-#~ "versandt:\n"
-#~ "\n"
-#~ "%s"
-
-#~ msgid "%(followup_amount)s: Total Amount Due"
-#~ msgstr "%(followup_amount)s: Fälliger Gesamtbetrag"
-
-#~ msgid "Followup Level"
-#~ msgstr "Mahnstufe"
-
-#~ msgid "The company name must be unique !"
-#~ msgstr "Der Unternehmensname muss eindeutig sein!"
-
-#~ msgid "Days of delay"
-#~ msgstr "Verzugstage"
-
-#~ msgid "%(partner_name)s: Partner name"
-#~ msgstr "%(partner_name)s: Partnername"
-
-#~ msgid ""
-#~ "\n"
-#~ "Dear %(partner_name)s,\n"
-#~ "\n"
-#~ "Despite several reminders, your account is still not settled.\n"
-#~ "\n"
-#~ "Unless full payment is made in next 8 days, then legal action for the "
-#~ "recovery of the debt will be taken without further notice.\n"
-#~ "\n"
-#~ "I trust that this action will prove unnecessary and details of due payments "
-#~ "is printed below.\n"
-#~ "\n"
-#~ "In case of any queries concerning this matter, do not hesitate to contact "
-#~ "our accounting department at (+32).10.68.94.39.\n"
-#~ "\n"
-#~ "Best Regards,\n"
-#~ msgstr ""
-#~ "\n"
-#~ "Sehr geehrter %(partner_name)s,\n"
-#~ "\n"
-#~ "trotz Zahlungserinnerung ist Ihr Konto nach wie vor nicht ausgegelichen.\n"
-#~ "\n"
-#~ "Sollte innerhalb der nächsten 8 Tage keine Zahlung erfolgen, werden wir die "
-#~ "erforderlichen rechtlichen Schritte einleiten.\n"
-#~ "\n"
-#~ "Wir hoffen nach wie vor, dass diese sich als unnötig erweist. Details der "
-#~ "fälligen Forderungen finden Sie unten.\n"
-#~ "\n"
-#~ "Für alle Rückfragen in dieser Angelegenheit, zögern Sie nicht unsere "
-#~ "Finanzabteilung zu kontaktieren.\n"
-#~ "\n"
-#~ "Freundliche Grüsse\n"
-
-#~ msgid "You can not create journal items on closed account."
-#~ msgstr "Sie können auf ein abgeschlossenes Konto nicht mehr buchen."
-
-#~ msgid "Latest Followup Date"
-#~ msgstr "Letzte Mahnung"
-
-#~ msgid "Follow-Up Criteria"
-#~ msgstr "Mahngründe"
-
-#~ msgid "Search Followup"
-#~ msgstr "Suche Mahnung"
-
-#~ msgid ""
-#~ "Follow up on the reminders sent over to your partners for unpaid invoices."
-#~ msgstr ""
-#~ "Mahnung an Partner nach bereits erfolgter Erinnerung, wegen unbeglichener "
-#~ "Rechnungen."
-
-#~ msgid "Follow-Ups"
-#~ msgstr "Mahnungen"
+#~ "Möchten Sie Ausdrucke von Mahnungen ohne Wechsel der Stufe generieren."

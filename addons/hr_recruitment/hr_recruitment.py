@@ -240,7 +240,7 @@ class hr_applicant(base_stage, osv.Model):
 
     _defaults = {
         'active': lambda *a: 1,
-        'user_id':  lambda s, cr, uid, c: uid,
+        'user_id': lambda s, cr, uid, c: uid,
         'email_from': lambda s, cr, uid, c: s._get_default_email(cr, uid, c),
         'stage_id': lambda s, cr, uid, c: s._get_default_stage_id(cr, uid, c),
         'department_id': lambda s, cr, uid, c: s._get_default_department_id(cr, uid, c),
@@ -253,13 +253,11 @@ class hr_applicant(base_stage, osv.Model):
     }
 
     def onchange_job(self, cr, uid, ids, job, context=None):
-        result = {}
-
         if job:
-            job_obj = self.pool.get('hr.job')
-            result['department_id'] = job_obj.browse(cr, uid, job, context=context).department_id.id
-            return {'value': result}
-        return {'value': {'department_id': False}}
+            job_record = self.pool.get('hr.job').browse(cr, uid, job, context=context)
+            if job_record and job_record.department_id:
+                return {'value': {'department_id': job_record.department_id.id}}
+        return {}
 
     def onchange_department_id(self, cr, uid, ids, department_id=False, context=None):
         obj_recru_stage = self.pool.get('hr.recruitment.stage')
@@ -340,6 +338,15 @@ class hr_applicant(base_stage, osv.Model):
         value = self.pool.get("survey").action_print_survey(cr, uid, ids, context=context)
         return value
 
+    def message_get_suggested_recipients(self, cr, uid, ids, context=None):
+        recipients = super(hr_applicant, self).message_get_suggested_recipients(cr, uid, ids, context=context)
+        for applicant in self.browse(cr, uid, ids, context=context):
+            if applicant.partner_id:
+                self._message_add_suggested_recipient(cr, uid, recipients, applicant, partner=applicant.partner_id, reason=_('Contact'))
+            elif applicant.email_from:
+                self._message_add_suggested_recipient(cr, uid, recipients, applicant, email=applicant.email_from, reason=_('Contact Email'))
+        return recipients
+
     def message_new(self, cr, uid, msg, custom_values=None, context=None):
         """ Overrides mail_thread message_new that is called by the mailgateway
             through message_process.
@@ -392,6 +399,11 @@ class hr_applicant(base_stage, osv.Model):
         return super(hr_applicant, self).message_update(cr, uid, ids, msg, update_vals=update_vals, context=context)
 
     def create(self, cr, uid, vals, context=None):
+        if context is None:
+            context = {}
+        if vals.get('department_id') and not context.get('default_department_id'):
+            context['default_department_id'] = vals.get('department_id')
+
         obj_id = super(hr_applicant, self).create(cr, uid, vals, context=context)
         applicant = self.browse(cr, uid, obj_id, context=context)
         if applicant.job_id:
@@ -420,13 +432,12 @@ class hr_applicant(base_stage, osv.Model):
         act_window = self.pool.get('ir.actions.act_window')
         emp_id = False
         for applicant in self.browse(cr, uid, ids, context=context):
-            address_id = contact_name = False
+            address_id = False
             if applicant.partner_id:
                 address_id = self.pool.get('res.partner').address_get(cr,uid,[applicant.partner_id.id],['contact'])['contact']
-                contact_name = self.pool.get('res.partner').name_get(cr,uid,[applicant.partner_id.id])[0][1]
-            if applicant.job_id and (applicant.partner_name or contact_name):
+            if applicant.job_id:
                 applicant.job_id.write({'no_of_recruitment': applicant.job_id.no_of_recruitment - 1})
-                emp_id = hr_employee.create(cr,uid,{'name': applicant.partner_name or contact_name,
+                emp_id = hr_employee.create(cr,uid,{'name': applicant.partner_name or applicant.name,
                                                      'job_id': applicant.job_id.id,
                                                      'address_home_id': address_id,
                                                      'department_id': applicant.department_id.id
@@ -434,7 +445,7 @@ class hr_applicant(base_stage, osv.Model):
                 self.write(cr, uid, [applicant.id], {'emp_id': emp_id}, context=context)
                 self.case_close(cr, uid, [applicant.id], context)
             else:
-                raise osv.except_osv(_('Warning!'), _('You must define an Applied Job and a Contact Name for this applicant.'))
+                raise osv.except_osv(_('Warning!'), _('You must define Applied Job for this applicant.'))
 
         action_model, action_id = model_data.get_object_reference(cr, uid, 'hr', 'open_view_employee_list')
         dict_act_window = act_window.read(cr, uid, action_id, [])
@@ -485,7 +496,7 @@ class hr_job(osv.osv):
     _inherits = {'mail.alias': 'alias_id'}
     _columns = {
         'survey_id': fields.many2one('survey', 'Interview Form', help="Choose an interview form for this job position and you will be able to print/answer this interview from all applicants who apply for this job"),
-        'alias_id': fields.many2one('mail.alias', 'Alias', ondelete="cascade", required=True,
+        'alias_id': fields.many2one('mail.alias', 'Alias', ondelete="restrict", required=True,
                                     help="Email alias for this job position. New emails will automatically "
                                          "create new applicants for this job position."),
     }
@@ -495,8 +506,11 @@ class hr_job(osv.osv):
 
     def _auto_init(self, cr, context=None):
         """Installation hook to create aliases for all jobs and avoid constraint errors."""
-        self.pool.get('mail.alias').migrate_to_alias(cr, self._name, self._table, super(hr_job,self)._auto_init,
-            self._columns['alias_id'], 'name', alias_prefix='job+', alias_defaults={'job_id': 'id'}, context=context)
+        if context is None:
+            context = {}
+        alias_context = dict(context, alias_model_name='hr.applicant')
+        self.pool.get('mail.alias').migrate_to_alias(cr, self._name, self._table, super(hr_job, self)._auto_init,
+            self._columns['alias_id'], 'name', alias_prefix='job+', alias_defaults={'job_id': 'id'}, context=alias_context)
 
     def create(self, cr, uid, vals, context=None):
         mail_alias = self.pool.get('mail.alias')

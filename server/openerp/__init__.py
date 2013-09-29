@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
-#
+#    
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
 #
@@ -15,20 +15,30 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
 #
 ##############################################################################
 
 """ OpenERP core library.
 
 """
+
+# Make sure the OpenERP server runs in UTC. This is especially necessary
+# under Windows as under Linux it seems the real import of time is
+# sufficiently deferred so that setting the TZ environment variable
+# in openerp.cli.server was working.
+import os
+os.environ['TZ'] = 'UTC' # Set the timezone...
+import time              # ... *then* import time.
+del os
+del time
+
 # The hard-coded super-user id (a.k.a. administrator, or root user).
 SUPERUSER_ID = 1
 
 import addons
 import cli
 import conf
-import http
 import loglevels
 import modules
 import netsvc
@@ -50,8 +60,6 @@ wsgi.register_wsgi_handler = wsgi.wsgi_server.register_wsgi_handler
 # its own copy of the data structure and we don't need to care about
 # locks between threads.
 multi_process = False
-# Is the server running with gevent.
-evented = False
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
 

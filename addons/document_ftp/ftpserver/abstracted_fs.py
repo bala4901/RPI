@@ -10,11 +10,10 @@ import glob
 import fnmatch
 
 from openerp import pooler, netsvc, sql_db
-import openerp.service
 from openerp.service import security
 from openerp.osv import osv
 
-from openerp.addons.document.document import get_node_context
+from document.document import get_node_context
 
 def _get_month_name(month):
     month=int(month)
@@ -61,7 +60,7 @@ class abstracted_fs(object):
     def db_list(self):
         """Get the list of available databases, with FTPd support
         """
-        s = openerp.service.db
+        s = netsvc.ExportService.getService('db')
         result = s.exp_list(document=True)
         self.db_name_list = []
         for db_name in result:

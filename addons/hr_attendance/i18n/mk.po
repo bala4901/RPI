@@ -2,20 +2,21 @@
 # Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the openobject-addons package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
-#
+# Sofce Dimitrijeva <sofce@eskon.com.mk>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: openobject-addons\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-12-21 17:05+0000\n"
-"PO-Revision-Date: 2012-05-10 17:36+0000\n"
-"Last-Translator: Nikola Stojanoski <nstojanoski@vion.mk>\n"
-"Language-Team: Macedonian <mk@li.org>\n"
+"POT-Creation-Date: 2013-06-07 19:37+0000\n"
+"PO-Revision-Date: 2013-03-28 23:02+0000\n"
+"Last-Translator: Sofce Dimitrijeva <Unknown>\n"
+"Language-Team: ESKON-INZENERING\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-12-22 05:51+0000\n"
-"X-Generator: Launchpad (build 16378)\n"
+"X-Launchpad-Export-Date: 2013-07-11 06:00+0000\n"
+"X-Generator: Launchpad (build 16696)\n"
+"Language: mk\n"
 
 #. module: hr_attendance
 #: model:ir.model,name:hr_attendance.model_hr_attendance_month
@@ -30,7 +31,7 @@ msgstr "Пребарајте во апликацијата за Присутно
 #. module: hr_attendance
 #: field:hr.employee,last_sign:0
 msgid "Last Sign"
-msgstr ""
+msgstr "Последен знак"
 
 #. module: hr_attendance
 #: view:hr.attendance:0
@@ -44,12 +45,14 @@ msgstr "Присутност"
 #: code:addons/hr_attendance/static/src/js/attendance.js:34
 #, python-format
 msgid "Last sign in: %s,<br />%s.<br />Click to sign out."
-msgstr ""
+msgstr "Последна најава: %s,<br />%s.<br />Кликнете за да се одјавите."
 
 #. module: hr_attendance
 #: constraint:hr.attendance:0
 msgid "Error ! Sign in (resp. Sign out) must follow Sign out (resp. Sign in)"
 msgstr ""
+"Грешка ! Најавата (соодветно Одјавата) мора да следи после Одјавата "
+"(соодветно Најавата)"
 
 #. module: hr_attendance
 #: help:hr.action.reason,name:0
@@ -73,7 +76,7 @@ msgstr "Испечатете Извештај за Присутноста по �
 #: code:addons/hr_attendance/report/timesheet.py:120
 #, python-format
 msgid "Attendances by Week"
-msgstr ""
+msgstr "Присуства по недела"
 
 #. module: hr_attendance
 #: selection:hr.action.reason,action_type:0
@@ -98,7 +101,7 @@ msgstr "Октомври"
 #. module: hr_attendance
 #: field:hr.employee,attendance_access:0
 msgid "Attendance Access"
-msgstr ""
+msgstr "Пристап за присутност"
 
 #. module: hr_attendance
 #: code:addons/hr_attendance/hr_attendance.py:154
@@ -112,7 +115,7 @@ msgstr "Одјава"
 #: code:addons/hr_attendance/wizard/hr_attendance_error.py:49
 #, python-format
 msgid "No records are found for your selection!"
-msgstr ""
+msgstr "Не се пронајдени записи за вашиот избор!"
 
 #. module: hr_attendance
 #: view:hr.attendance.error:0
@@ -178,7 +181,7 @@ msgstr "Предупредување"
 #. module: hr_attendance
 #: help:hr.config.settings,group_hr_attendance:0
 msgid "Allocates attendance group to all users."
-msgstr ""
+msgstr "Распределува група за присуство на сите корисници."
 
 #. module: hr_attendance
 #: view:hr.attendance:0
@@ -194,7 +197,7 @@ msgstr "Јуни"
 #: code:addons/hr_attendance/report/attendance_by_month.py:190
 #, python-format
 msgid "Attendances by Month"
-msgstr ""
+msgstr "Присуства по месеци"
 
 #. module: hr_attendance
 #: model:ir.actions.act_window,name:hr_attendance.action_hr_attendance_week
@@ -250,7 +253,7 @@ msgstr "Датум"
 #. module: hr_attendance
 #: field:hr.config.settings,group_hr_attendance:0
 msgid "Track attendances for all employees"
-msgstr ""
+msgstr "Следи ги присуствата за сите вработени"
 
 #. module: hr_attendance
 #: selection:hr.attendance.month,month:0
@@ -334,7 +337,7 @@ msgstr "Јануари"
 #: code:addons/hr_attendance/wizard/hr_attendance_error.py:49
 #, python-format
 msgid "No Data Available !"
-msgstr ""
+msgstr "Нема достапни податоци !"
 
 #. module: hr_attendance
 #: selection:hr.attendance.month,month:0
@@ -407,14 +410,14 @@ msgstr "Испечатете Неделен Извештај за Присутн
 #. module: hr_attendance
 #: model:ir.model,name:hr_attendance.model_hr_config_settings
 msgid "hr.config.settings"
-msgstr ""
+msgstr "hr.config.settings"
 
 #. module: hr_attendance
 #. openerp-web
 #: code:addons/hr_attendance/static/src/js/attendance.js:36
 #, python-format
 msgid "Click to Sign In at %s."
-msgstr ""
+msgstr "Кликнете за да се најавите на %s."
 
 #. module: hr_attendance
 #: field:hr.action.reason,action_type:0
@@ -433,6 +436,9 @@ msgid ""
 "You tried to %s with a date anterior to another event !\n"
 "Try to contact the HR Manager to correct attendances."
 msgstr ""
+"Вие пробавте да %s со датум кој претходи на друг настан !\n"
+"Контактирајте го менаџерот за човечки ресурси за да ги корегирате "
+"присуствата."
 
 #. module: hr_attendance
 #: selection:hr.attendance.month,month:0
@@ -464,7 +470,7 @@ msgstr ""
 #: view:hr.attendance.month:0
 #: view:hr.attendance.week:0
 msgid "or"
-msgstr ""
+msgstr "или"
 
 #. module: hr_attendance
 #: help:hr.attendance,action_desc:0
@@ -473,144 +479,3 @@ msgid ""
 msgstr ""
 "Ги специфицира причините за Најава/Одјава во случај на дополнително "
 "одрбаотени работни часови."
-
-#~ msgid ""
-#~ "You did not sign out the last time. Please enter the date and time you "
-#~ "signed out."
-#~ msgstr ""
-#~ "Не се одјавивте правилно последниот пат кога го користевте системот. Ве "
-#~ "молиме внесете го датумот и времето на последната ваша одјава."
-
-#, python-format
-#~ msgid "The sign-out date must be in the past"
-#~ msgstr "Времето на одјава мора да биде веќе завршен период"
-
-#~ msgid "Ok"
-#~ msgstr "Во Ред"
-
-#~ msgid "Ask for Sign In Out"
-#~ msgstr "Побарајте Влез/Излез"
-
-#~ msgid ""
-#~ "Error ! You cannot select a department for which the employee is the manager."
-#~ msgstr ""
-#~ "Грешка! Не можете да одберете сектор во кој вработениот во исто време е и "
-#~ "Менаџер."
-
-#, python-format
-#~ msgid "A sign-in must be right after a sign-out !"
-#~ msgstr "Најавата мора да биде извршена пред да пробате да се Одјавите"
-
-#, python-format
-#~ msgid "UserError"
-#~ msgstr "Корисничка Грешка"
-
-#~ msgid "Employee attendance"
-#~ msgstr "Присутност по вработен"
-
-#, python-format
-#~ msgid "The Sign-in date must be in the past"
-#~ msgstr "Времето на Најава мора да е веќе поминат термин"
-
-#~ msgid "Employees name"
-#~ msgstr "Име на Вработениот"
-
-#, python-format
-#~ msgid "Sign in / Sign out"
-#~ msgstr "Најава / Одјава"
-
-#~ msgid "Sign In Sign Out"
-#~ msgstr "Најава Одјава"
-
-#, python-format
-#~ msgid "A sign-out must be right after a sign-in !"
-#~ msgstr "Одјавата мора да биде извршена по Најавата"
-
-#~ msgid "My Attendances"
-#~ msgstr "Моја Присутност"
-
-#~ msgid "Attendances Of Employees"
-#~ msgstr "Присутност на Вработените"
-
-#~ msgid "Error ! You cannot create recursive Hierarchy of Employees."
-#~ msgstr "Грешка! Не можете да креирате рекурзивна хиерархија на вработените."
-
-#~ msgid "Empoyee ID"
-#~ msgstr "Идентификационен Број на Вработениот"
-
-#~ msgid ""
-#~ "If you need your staff to sign in when they arrive at work and sign out "
-#~ "again at the end of the day, OpenERP allows you to manage this with this "
-#~ "tool. If each employee has been linked to a system user, then they can "
-#~ "encode their time with this action button."
-#~ msgstr ""
-#~ "Доколку имате потреба, вашите вработени мануелно да се најавуваат и "
-#~ "одјавуваат по истекот на работното време, OpenERP Апликацијата за Човечки "
-#~ "Ресурси ви го овозможува истото со оваа алатка. Доколку за секој вработен "
-#~ "има креирано системски корисник (корисничко име), вработените можат "
-#~ "Најавата/Одјавата да ја извршат директно преку Бизнис Апликацијата."
-
-#~ msgid "Sign-Out Entry must follow Sign-In."
-#~ msgstr "Одјавата мора да следи по Најавата"
-
-#~ msgid "Employee ID"
-#~ msgstr "Идентификационен Број на Вработениот"
-
-#~ msgid "Your last sign out"
-#~ msgstr "Вашата последна одјава"
-
-#, python-format
-#~ msgid ""
-#~ "You tried to %s with a date anterior to another event !\n"
-#~ "Try to contact the administrator to correct attendances."
-#~ msgstr ""
-#~ "Пробавте да %s со претходен датум поврзан со друг настан !\\n\n"
-#~ "Ве молиме контактирајте го администраторот за точниот преглед на присутноста."
-
-#~ msgid ""
-#~ "Sign in / Sign out. In some companies, staff have to sign in when they "
-#~ "arrive at work and sign out again at the end of the day. If each employee "
-#~ "has been linked to a system user, then they can encode their time with this "
-#~ "action button."
-#~ msgstr ""
-#~ "Најва / Одјава. Во одделни фирми, вработените мора да се најават по "
-#~ "доаѓањето на работното место и да се одјават по заминувањето. Доколку за "
-#~ "секој вработен има креирано системски корисник (корисничко име), вработените "
-#~ "можат Најавата/Одјавата да ја извршат директно преку Бизнис Апликацијата."
-
-#~ msgid "Employee's Name"
-#~ msgstr "Име на Вработениот"
-
-#~ msgid "Action's type"
-#~ msgstr "Тип на Акција"
-
-#~ msgid ""
-#~ "You did not sign in the last time. Please enter the date and time you signed "
-#~ "in."
-#~ msgstr ""
-#~ "Не се најавивте последниот пат. Ве молиме внесете го датумот и времето на "
-#~ "вашата последна најава."
-
-#, python-format
-#~ msgid "No records found for your selection!"
-#~ msgstr "Не се пронајдени записи во однос на вашата селекција!"
-
-#~ msgid "Current state"
-#~ msgstr "Тековен статус"
-
-#~ msgid "Your last sign in"
-#~ msgstr "Вашата последна најава"
-
-#~ msgid "hr.sign.out.ask"
-#~ msgstr "hr.sign.out.ask"
-
-#~ msgid "hr.sign.in.out.ask"
-#~ msgstr "hr.sign.in.out.ask"
-
-#~ msgid "Error: Sign in (resp. Sign out) must follow Sign out (resp. Sign in)"
-#~ msgstr ""
-#~ "Грешка: По Најава мора да следи Одјава, и по Одјава мора да следи Најава"
-
-#, python-format
-#~ msgid "No Data Available"
-#~ msgstr "Нема достапни податоци"

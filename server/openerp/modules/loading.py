@@ -34,6 +34,7 @@ import openerp
 import openerp.modules.db
 import openerp.modules.graph
 import openerp.modules.migration
+import openerp.modules.registry
 import openerp.osv as osv
 import openerp.pooler as pooler
 import openerp.tools as tools
@@ -44,6 +45,13 @@ from openerp.modules.module import initialize_sys_path, \
     load_openerp_module, init_module_models, adapt_version
 
 _logger = logging.getLogger(__name__)
+
+def open_openerp_namespace():
+    # See comment for open_openerp_namespace.
+    if openerp.conf.deprecation.open_openerp_namespace:
+        for k, v in list(sys.modules.items()):
+            if k.startswith('openerp.') and sys.modules.get(k[8:]) is None:
+                sys.modules[k[8:]] = v
 
 
 def load_module_graph(cr, graph, status=None, perform_checks=True, skip_modules=None, report=None):
@@ -95,10 +103,7 @@ def load_module_graph(cr, graph, status=None, perform_checks=True, skip_modules=
 
         """
         for filename in package.data[kind]:
-            if kind == 'test':
-                _logger.log(logging.TEST, "module %s: loading %s", module_name, filename)
-            else:
-                _logger.info("module %s: loading %s", module_name, filename)
+            _logger.info("module %s: loading %s", module_name, filename)
             _, ext = os.path.splitext(filename)
             pathname = os.path.join(module_name, filename)
             fp = tools.file_open(pathname)
@@ -131,7 +136,7 @@ def load_module_graph(cr, graph, status=None, perform_checks=True, skip_modules=
     loaded_modules = []
     pool = pooler.get_pool(cr.dbname)
     migrations = openerp.modules.migration.MigrationManager(cr, graph)
-    _logger.debug('loading %d packages...', len(graph))
+    _logger.info('loading %d modules...', len(graph))
 
     # Query manual fields for all models at once and save them on the registry
     # so the initialization code for each model does not have to do it
@@ -149,7 +154,7 @@ def load_module_graph(cr, graph, status=None, perform_checks=True, skip_modules=
         if skip_modules and module_name in skip_modules:
             continue
 
-        _logger.info('module %s: loading objects', package.name)
+        _logger.debug('module %s: loading objects', package.name)
         migrations.migrate_module(package, 'pre')
         load_openerp_module(package.name)
 
@@ -261,6 +266,8 @@ def load_modules(db, force_demo=False, status=None, update_module=False):
     # It should be a method exposed by the pool.
     initialize_sys_path()
 
+    open_openerp_namespace()
+
     force = []
     if force_demo:
         force.append('demo')
@@ -330,13 +337,21 @@ def load_modules(db, force_demo=False, status=None, update_module=False):
         #            they are part of the "currently installed" modules. They will
         #            be dropped in STEP 6 later, before restarting the loading
         #            process.
-        states_to_load = ['installed', 'to upgrade', 'to remove']
-        processed = load_marked_modules(cr, graph, states_to_load, force, status, report, loaded_modules, update_module)
-        processed_modules.extend(processed)
-        if update_module:
-            states_to_load = ['to install']
-            processed = load_marked_modules(cr, graph, states_to_load, force, status, report, loaded_modules, update_module)
-            processed_modules.extend(processed)
+        # IMPORTANT 2: We have to loop here until all relevant modules have been
+        #              processed, because in some rare cases the dependencies have
+        #              changed, and modules that depend on an uninstalled module
+        #              will not be processed on the first pass.
+        #              It's especially useful for migrations.
+        previously_processed = -1
+        while previously_processed < len(processed_modules):
+            previously_processed = len(processed_modules)
+            processed_modules += load_marked_modules(cr, graph,
+                ['installed', 'to upgrade', 'to remove'],
+                force, status, report, loaded_modules, update_module)
+            if update_module:
+                processed_modules += load_marked_modules(cr, graph,
+                    ['to install'], force, status, report,
+                    loaded_modules, update_module)
 
         # load custom models
         cr.execute('select model from ir_model where state=%s', ('manual',))

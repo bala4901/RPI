@@ -1,21 +1,21 @@
 # Dutch translation for openobject-addons
-# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the openobject-addons package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: openobject-addons\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-12-21 17:05+0000\n"
-"PO-Revision-Date: 2012-11-25 21:19+0000\n"
+"POT-Creation-Date: 2013-06-07 19:36+0000\n"
+"PO-Revision-Date: 2013-06-25 08:09+0000\n"
 "Last-Translator: Erwin van der Ploeg (Endian Solutions) <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-12-22 05:56+0000\n"
-"X-Generator: Launchpad (build 16378)\n"
+"X-Launchpad-Export-Date: 2013-07-11 05:49+0000\n"
+"X-Generator: Launchpad (build 16696)\n"
 
 #. module: analytic
 #: field:account.analytic.account,child_ids:0
@@ -34,12 +34,18 @@ msgid "Contract: "
 msgstr "Contract: "
 
 #. module: analytic
+#: model:mail.message.subtype,description:analytic.mt_account_pending
+msgid "Contract pending"
+msgstr "Contracten in afwachting"
+
+#. module: analytic
 #: selection:account.analytic.account,state:0
 msgid "Template"
 msgstr "Sjabloon"
 
 #. module: analytic
 #: view:account.analytic.account:0
+#: field:account.analytic.account,date:0
 msgid "End Date"
 msgstr "Einddatum"
 
@@ -54,19 +60,6 @@ msgid "Debit"
 msgstr "Debit"
 
 #. module: analytic
-#: help:account.analytic.account,type:0
-msgid ""
-"If you select the View Type, it means you won't allow to create journal "
-"entries using that account.\n"
-"The type 'Analytic account' stands for usual accounts that you only want to "
-"use in accounting.\n"
-"If you select Contract or Project, it offers you the possibility to manage "
-"the validity and the invoicing options for this account.\n"
-"The special type 'Template of Contract' allows you to define a template with "
-"default data that you can reuse easily."
-msgstr ""
-
-#. module: analytic
 #: view:account.analytic.account:0
 msgid ""
 "Once the end date of the contract is\n"
@@ -79,6 +72,16 @@ msgid ""
 "the\n"
 "                                        customer."
 msgstr ""
+"Wanneer de einddatum van een contract is\n"
+"                                        gepasseerd of het maximale aantal "
+"dienst\n"
+"                                        eenheden (bijv. support contract) "
+"is\n"
+"                                        bereikt, wordt de beheerder van de "
+"kostenplaats per e-mail\n"
+"                                        geïnformeerd om het contact te "
+"vernieuwen met\n"
+"                                        de klant."
 
 #. module: analytic
 #: selection:account.analytic.account,type:0
@@ -88,7 +91,7 @@ msgstr "Contract of project"
 #. module: analytic
 #: field:account.analytic.account,name:0
 msgid "Account/Contract Name"
-msgstr ""
+msgstr "Kostenplaats / Contractnaam"
 
 #. module: analytic
 #: field:account.analytic.account,manager_id:0
@@ -108,7 +111,7 @@ msgstr "Gesloten"
 #. module: analytic
 #: model:mail.message.subtype,name:analytic.mt_account_pending
 msgid "Contract to Renew"
-msgstr ""
+msgstr "Te vernieuwen contracten."
 
 #. module: analytic
 #: selection:account.analytic.account,state:0
@@ -126,7 +129,7 @@ msgid "Status"
 msgstr "Status"
 
 #. module: analytic
-#: code:addons/analytic/analytic.py:268
+#: code:addons/analytic/analytic.py:271
 #, python-format
 msgid "%s (copy)"
 msgstr "%s (kopie)"
@@ -141,6 +144,12 @@ msgstr "Kostenplaatsboeking"
 #: field:account.analytic.line,name:0
 msgid "Description"
 msgstr "Omschrijving"
+
+#. module: analytic
+#: code:addons/analytic/analytic.py:262
+#, python-format
+msgid "Quick account creation disallowed."
+msgstr "Snel aanmaken van rekeningen niet toegestaan"
 
 #. module: analytic
 #: field:account.analytic.account,message_unread:0
@@ -164,14 +173,19 @@ msgid "Renewal"
 msgstr "Vernieuwen"
 
 #. module: analytic
-#: help:account.analytic.account,message_ids:0
-msgid "Messages and communication history"
-msgstr "Berichten en communicatie historie"
+#: help:account.analytic.account,message_summary:0
+msgid ""
+"Holds the Chatter summary (number of messages, ...). This summary is "
+"directly in html format in order to be inserted in kanban views."
+msgstr ""
+"Bevat de samenvatting van de chatter (aantal berichten,...). Deze "
+"samenvatting is direct in html formaat om zo in de kanban weergave te worden "
+"ingevoegd."
 
 #. module: analytic
-#: model:mail.message.subtype,description:analytic.mt_account_opened
-msgid "Stage <b>opened</b>"
-msgstr ""
+#: help:account.analytic.account,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr "Indien aangevinkt zullen nieuwe berichten uw aandacht vragen."
 
 #. module: analytic
 #: help:account.analytic.account,quantity_max:0
@@ -179,6 +193,9 @@ msgid ""
 "Sets the higher limit of time to work on the contract, based on the "
 "timesheet. (for instance, number of hours in a limited support contract.)"
 msgstr ""
+"Stelt de bovengrens in  van de tijd om te werken aan het contract, op basis "
+"van urenstaten. (bijvoorbeeld aantal uren in een beperkte ondersteuning "
+"contract.)"
 
 #. module: analytic
 #: code:addons/analytic/analytic.py:160
@@ -209,9 +226,9 @@ msgid "User"
 msgstr "Gebruiker"
 
 #. module: analytic
-#: model:mail.message.subtype,description:analytic.mt_account_pending
-msgid "Contract <b>pending</b>"
-msgstr ""
+#: field:account.analytic.account,parent_id:0
+msgid "Parent Analytic Account"
+msgstr "Bovenliggende kostenplaats"
 
 #. module: analytic
 #: field:account.analytic.line,date:0
@@ -221,7 +238,7 @@ msgstr "Datum"
 #. module: analytic
 #: model:mail.message.subtype,name:analytic.mt_account_closed
 msgid "Contract Finished"
-msgstr ""
+msgstr "Contract afgerond"
 
 #. module: analytic
 #: view:account.analytic.account:0
@@ -253,9 +270,16 @@ msgid "Messages"
 msgstr "Berichten"
 
 #. module: analytic
-#: field:account.analytic.account,parent_id:0
-msgid "Parent Analytic Account"
-msgstr "Bovenliggende kostenplaats"
+#: help:account.analytic.account,message_ids:0
+msgid "Messages and communication history"
+msgstr "Berichten en communicatie historie"
+
+#. module: analytic
+#: constraint:account.analytic.line:0
+msgid "You cannot create analytic line on view account."
+msgstr ""
+"Het is niet mogelijk om kostenplaatsen aan te maken op een kostenplaats van "
+"het soort  'weergave'"
 
 #. module: analytic
 #: view:account.analytic.account:0
@@ -276,7 +300,7 @@ msgstr "Samenvatting"
 #. module: analytic
 #: field:account.analytic.account,quantity_max:0
 msgid "Prepaid Service Units"
-msgstr ""
+msgstr "Prepaid dienst eenheden"
 
 #. module: analytic
 #: field:account.analytic.account,credit:0
@@ -286,12 +310,28 @@ msgstr "Credit"
 #. module: analytic
 #: model:mail.message.subtype,name:analytic.mt_account_opened
 msgid "Contract Opened"
-msgstr ""
+msgstr "Contract geopend"
 
 #. module: analytic
-#: model:mail.message.subtype,description:analytic.mt_account_closed
-msgid "Contract <b>closed</b>"
+#: help:account.analytic.account,type:0
+msgid ""
+"If you select the View Type, it means you won't allow to create journal "
+"entries using that account.\n"
+"The type 'Analytic account' stands for usual accounts that you only want to "
+"use in accounting.\n"
+"If you select Contract or Project, it offers you the possibility to manage "
+"the validity and the invoicing options for this account.\n"
+"The special type 'Template of Contract' allows you to define a template with "
+"default data that you can reuse easily."
 msgstr ""
+"Als u de optie 'Weergave' kiest, betekent dit dat u niet toestaat ​​om "
+"boekingen op deze kostenplaats te maken.\n"
+"Het type 'Kostenplaats' staat voor gewone kostenplaatsen die u alleen wilt "
+"gebruiken in de boekhouding.\n"
+"Als u 'Contract' of 'Project' kiest, dan biedt dit u de mogelijkheid om de "
+"geldigheid en de facturatie opties voor deze kostenplaats te beheren.\n"
+"Het speciale type 'Sjabloon van het contract' kunt u een herbruikbaar "
+"sjabloon met standaard gegevens definiëren."
 
 #. module: analytic
 #: selection:account.analytic.account,state:0
@@ -301,7 +341,7 @@ msgstr "Geannuleerd"
 #. module: analytic
 #: selection:account.analytic.account,type:0
 msgid "Analytic View"
-msgstr ""
+msgstr "Kostenplaats weergave"
 
 #. module: analytic
 #: field:account.analytic.account,balance:0
@@ -309,9 +349,9 @@ msgid "Balance"
 msgstr "Saldo"
 
 #. module: analytic
-#: help:account.analytic.account,message_unread:0
-msgid "If checked new messages require your attention."
-msgstr "Indien aangevinkt zullen nieuwe berichten uw aandacht vragen."
+#: field:account.analytic.account,complete_name:0
+msgid "Full Name"
+msgstr "Volledige naam"
 
 #. module: analytic
 #: selection:account.analytic.account,state:0
@@ -322,12 +362,7 @@ msgstr "Te vernieuwen"
 #: field:account.analytic.account,quantity:0
 #: field:account.analytic.line,unit_amount:0
 msgid "Quantity"
-msgstr "Aantal"
-
-#. module: analytic
-#: field:account.analytic.account,date:0
-msgid "Date End"
-msgstr "Einddatum"
+msgstr "Hoeveelheid"
 
 #. module: analytic
 #: field:account.analytic.account,code:0
@@ -341,6 +376,11 @@ msgid "Error!"
 msgstr "Fout!"
 
 #. module: analytic
+#: model:mail.message.subtype,description:analytic.mt_account_closed
+msgid "Contract closed"
+msgstr "Contract afgesloten"
+
+#. module: analytic
 #: model:res.groups,name:analytic.group_analytic_accounting
 msgid "Analytic Accounting"
 msgstr "Kostenplaatsen"
@@ -349,11 +389,6 @@ msgstr "Kostenplaatsen"
 #: field:account.analytic.line,amount:0
 msgid "Amount"
 msgstr "Bedrag"
-
-#. module: analytic
-#: field:account.analytic.account,complete_name:0
-msgid "Full Account Name"
-msgstr "Volledige naam kostenplaats"
 
 #. module: analytic
 #: view:account.analytic.account:0
@@ -369,14 +404,15 @@ msgid "Currency"
 msgstr "Valuta"
 
 #. module: analytic
-#: help:account.analytic.account,message_summary:0
-msgid ""
-"Holds the Chatter summary (number of messages, ...). This summary is "
-"directly in html format in order to be inserted in kanban views."
-msgstr ""
-"Bevat de samenvatting van de chatter (aantal berichten,...). Deze "
-"samenvatting is direct in html formaat om zo in de kanban weergave te worden "
-"ingevoegd."
+#: model:mail.message.subtype,description:analytic.mt_account_opened
+msgid "Contract opened"
+msgstr "Contract geopend"
+
+#. module: analytic
+#: code:addons/analytic/analytic.py:262
+#, python-format
+msgid "Warning"
+msgstr "Waarschuwing"
 
 #. module: analytic
 #: field:account.analytic.account,type:0
@@ -389,130 +425,21 @@ msgid "Start Date"
 msgstr "Begindatum"
 
 #. module: analytic
-#: constraint:account.analytic.line:0
-msgid "You cannot create analytic line on view account."
-msgstr ""
-
-#. module: analytic
 #: field:account.analytic.account,line_ids:0
 msgid "Analytic Entries"
 msgstr "Kostenplaatsboekingen"
 
-#~ msgid "State"
-#~ msgstr "Status"
+#~ msgid "Date End"
+#~ msgstr "Einddatum"
 
-#~ msgid ""
-#~ "Module for defining analytic accounting object.\n"
-#~ "    "
-#~ msgstr ""
-#~ "Module voor het definiëren van kostenplaatsen.\n"
-#~ "    "
+#~ msgid "Full Account Name"
+#~ msgstr "Volledige naam kostenplaats"
 
-#~ msgid "Draft"
-#~ msgstr "Concept"
+#~ msgid "Contract <b>pending</b>"
+#~ msgstr "Contract <b>in afwachting</b>"
 
-#~ msgid "Pending"
-#~ msgstr "Wacht"
+#~ msgid "Contract <b>closed</b>"
+#~ msgstr "Contract <b>afgesloten</b>"
 
-#~ msgid "Contact"
-#~ msgstr "Contactpersoon"
-
-#~ msgid "Sets the higher limit of quantity of hours."
-#~ msgstr "Stelt de bovengrens in van het aantal uren."
-
-#~ msgid "View"
-#~ msgstr "Weergave"
-
-#~ msgid "Account currency"
-#~ msgstr "Kostenplaats valuta"
-
-#~ msgid "Account Code"
-#~ msgstr "Rekeningcode"
-
-#~ msgid "Normal"
-#~ msgstr "Normaal"
-
-#~ msgid "Date Start"
-#~ msgstr "Begindatum"
-
-#~ msgid "Open"
-#~ msgstr "Open"
-
-#~ msgid "Maximum Quantity"
-#~ msgstr "Maximum aantal"
-
-#~ msgid "Partner"
-#~ msgstr "Relatie"
-
-#~ msgid ""
-#~ "Error! The currency has to be the same as the currency of the selected "
-#~ "company"
-#~ msgstr ""
-#~ "Fout! De munteenheid moet hetzelfde zijn als de munteenheid van het "
-#~ "geselecteerde bedrijf"
-
-#~ msgid "Error! You can not create recursive analytic accounts."
-#~ msgstr "Fout! U kunt geen recursieve kostenplaatsen maken."
-
-#~ msgid "Code/Reference"
-#~ msgstr "Code/Referentie"
-
-#, python-format
-#~ msgid "Error !"
-#~ msgstr "Fout !"
-
-#~ msgid "Maximum Time"
-#~ msgstr "Maximum Tijd"
-
-#~ msgid "Sets the higher limit of time to work on the contract."
-#~ msgstr ""
-#~ "Bepaald het bovenbereik  van de tijd wat kan worden gewerkt op een contract."
-
-#~ msgid "You can not create analytic line on view account."
-#~ msgstr ""
-#~ "Het is niet mogelijk een kostenplaats boekingen te maken op een kostenplaats "
-#~ "van het type 'aanzicht'"
-
-#~ msgid "Account Name"
-#~ msgstr "Naam kostenplaats"
-
-#~ msgid "Account Type"
-#~ msgstr "Soort kostenplaats"
-
-#~ msgid ""
-#~ "* When an account is created its in 'Draft' state.                           "
-#~ "       \n"
-#~ "* If any associated partner is there, it can be in 'Open' state.             "
-#~ "                     \n"
-#~ "* If any pending balance is there it can be in 'Pending'.                    "
-#~ "               \n"
-#~ "* And finally when all the transactions are over, it can be in 'Close' "
-#~ "state.                                   \n"
-#~ "* The project can be in either if the states 'Template' and 'Running'.\n"
-#~ " If it is template then we can make projects based on the template projects. "
-#~ "If its in 'Running' state it is a normal project.                            "
-#~ "     \n"
-#~ " If it is to be reviewed then the state is 'Pending'.\n"
-#~ " When the project is completed the state is set to 'Done'."
-#~ msgstr ""
-#~ "* Nadat de kostenplaats is gemaakt, wordt de status 'Concept'.               "
-#~ "                   \n"
-#~ "* Als er een gekoppelde relatie is, kan de status naar 'Open'.               "
-#~ "                   \n"
-#~ "* Als er openstaand saldo is, kan de status naar 'Wacht'.                    "
-#~ "               \n"
-#~ "* En tenslotte als alle transacties klaar zijn, dan gaat de status naar "
-#~ "'Gesloten'.                                   \n"
-#~ "* Het project kan zowel in 'Sjabloon' als in 'Lopend' zijn.\n"
-#~ " Als het in 'Sjabloon' status is, dan kunnen we projecten maken op basis van "
-#~ "het sjabloon project. Als het status 'Lopend' heeft, dan is het een gewoon "
-#~ "project.                                 \n"
-#~ " Als het moet worden nagekeken is de status 'Wacht'.\n"
-#~ " Als het project klaar is dan is de status 'Klaar'."
-
-#~ msgid ""
-#~ "If you select the View Type, it means you won't allow to create journal "
-#~ "entries using that account."
-#~ msgstr ""
-#~ "Als u de soort weergave selecteert, betekent dat u het niet toelaat dat er "
-#~ "journaalposten op deze kostenplaats gemaakt worden."
+#~ msgid "Stage <b>opened</b>"
+#~ msgstr "Fase <b>geopend</b>"

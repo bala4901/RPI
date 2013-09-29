@@ -50,7 +50,7 @@ def html_sanitize(src):
     src = ustr(src, errors='replace')
 
     # html encode email tags
-    part = re.compile(r"(<[^<>]+@[^<>]+>)", re.IGNORECASE | re.DOTALL)
+    part = re.compile(r"(<(([^a<>]|a[^<>\s])[^<>]*)@[^<>]+>)", re.IGNORECASE | re.DOTALL)
     src = part.sub(lambda m: cgi.escape(m.group(1)), src)
     
     # some corner cases make the parser crash (such as <SCRIPT/XSS SRC=\"http://ha.ckers.org/xss.js\"></SCRIPT> in test_mail)
@@ -185,6 +185,8 @@ def html2plaintext(html, body_id=None, encoding='utf-8'):
             url_index.append(url)
 
     html = ustr(etree.tostring(tree, encoding=encoding))
+    # \r char is converted into &#13;, must remove it
+    html = html.replace('&#13;', '')
 
     html = html.replace('<strong>', '*').replace('</strong>', '*')
     html = html.replace('<b>', '*').replace('</b>', '*')
@@ -281,12 +283,14 @@ def append_content_to_html(html, content, plaintext=True, preserve=False, contai
 # Emails
 #----------------------------------------------------------
 
-# matches any email in a body of text
-email_re = re.compile(r"""([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})""", re.VERBOSE) 
-
-# matches a string containing only one email
-single_email_re = re.compile(r"""^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$""", re.VERBOSE)
-
+email_re = re.compile(r"""
+    ([a-zA-Z][\w\.-]*[a-zA-Z0-9]     # username part
+    @                                # mandatory @ sign
+    [a-zA-Z0-9][\w\.-]*              # domain must start with a letter ... Ged> why do we include a 0-9 then?
+     \.
+     [a-z]{2,3}                      # TLD
+    )
+    """, re.VERBOSE)
 res_re = re.compile(r"\[([0-9]+)\]", re.UNICODE)
 command_re = re.compile("^Set-([a-z]+) *: *(.+)$", re.I + re.UNICODE)
 

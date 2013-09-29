@@ -14,7 +14,7 @@
   Now I check workcenter lines.
 -
   !python {model: mrp.production}: |
-    from openerp.tools import float_compare
+    from tools import float_compare
     def assert_equals(value1, value2, msg, float_compare=float_compare):
         assert float_compare(value1, value2, precision_digits=2) == 0, msg
     order = self.browse(cr, uid, ref("mrp_production_test1"), context=context)
@@ -214,8 +214,7 @@
   I print a "BOM Structure".
 -
   !python {model: mrp.production}: |
-    import os
-    from openerp import netsvc, tools
+    import netsvc, tools, os
     order = self.browse(cr, uid, ref("mrp_production_test1"))
     (data, format) = netsvc.LocalService('report.bom.structure').create(cr, uid, [order.bom_id.id], {}, {})
     if tools.config['test_report_directory']:
@@ -224,8 +223,7 @@
   I print "Production Order".
 -
   !python {model: mrp.production}: |
-    import os
-    from openerp import netsvc, tools
+    import netsvc, tools, os
     (data, format) = netsvc.LocalService('report.mrp.production.order').create(cr, uid, [ref("mrp_production_test1")], {}, {})
     if tools.config['test_report_directory']:
         file(os.path.join(tools.config['test_report_directory'], 'mrp-production_order_report.'+format), 'wb+').write(data)
@@ -236,6 +234,6 @@
     ctx = context.copy()
     ctx.update({'model': 'mrp.workcenter','active_ids': [ref('mrp_workcenter_0'),ref('mrp_workcenter_1')]})
     data_dict = {'time_unit': 'day', 'measure_unit': 'hours'}
-    from openerp.tools import test_reports
+    from tools import test_reports
     test_reports.try_report_action(cr, uid, 'action_mrp_workcenter_load_wizard',wiz_data=data_dict, context=ctx, our_module='mrp')
     

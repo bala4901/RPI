@@ -1,4 +1,4 @@
-from openerp.osv import fields, osv
+from osv import osv, fields
 
 AVAILABLE_STATES = [
     ('draft', 'New'),
