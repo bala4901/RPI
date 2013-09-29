@@ -570,10 +570,6 @@
 
     <t t-name="PosTicket">
         <div class="pos-sale-ticket">
-            
-            <div class="pos-right-align"><t t-esc="new Date().toString(Date.CultureInfo.formatPatterns.shortDate + ' ' +
-                Date.CultureInfo.formatPatterns.longTime)"/> <t t-esc="widget.currentOrder.attributes.name"/></div>
-            <br />
             NOMOR: <t t-esc="widget.currentOrder.attributes.name"/><br />
             TANGGAL: <t t-esc="new Date().toString(Date.CultureInfo.formatPatterns.shortDate + ' ' + Date.CultureInfo.formatPatterns.longTime)"/><br />
             <t t-if="widget.client">
