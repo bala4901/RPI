@@ -188,6 +188,7 @@ $RECYCLE.BIN/
 #############
 
 *.py[co]
+*.pyc
 
 # Packages
 *.egg
@@ -200,6 +201,7 @@ var/
 sdist/
 develop-eggs/
 .installed.cfg
+
 
 # Installer logs
 pip-log.txt
