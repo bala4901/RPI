@@ -104,6 +104,11 @@
     color: #808080;
 }
 
+.point-of-sale .pos-signature {
+	 text-align: center;
+	border-top:solid;
+}
+
 /*  ********* The black header bar ********* */
 
 
