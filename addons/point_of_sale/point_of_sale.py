@@ -936,7 +936,7 @@ class pos_order(osv.osv):
                     'journal_id': order.sale_journal.id,
                 }, context=context)
 
-            def insert_data(data_type, values):
+             def insert_data(data_type, values, is_return=False):
                 # if have_to_group_by:
 
                 sale_journal_id = order.sale_journal.id
@@ -953,11 +953,11 @@ class pos_order(osv.osv):
                 })
 
                 if data_type == 'product':
-                    key = ('product', values['product_id'],)
+                    key = ('product', values['partner_id'], values['product_id'], is_return)
                 elif data_type == 'tax':
-                    key = ('tax', values['tax_code_id'],)
+                    key = ('tax', values['partner_id'], values['tax_code_id'], is_return,)
                 elif data_type == 'counter_part':
-                    key = ('counter_part', values['partner_id'], values['account_id'])
+                    key = ('counter_part', values['partner_id'], values['account_id'], is_return)
                 else:
                     return
 
@@ -1028,7 +1028,7 @@ class pos_order(osv.osv):
                     'tax_code_id': tax_code_id,
                     'tax_amount': tax_amount,
                     'partner_id': order.partner_id and order.partner_id.id or False
-                })
+				}}, True if amount<0 else False)
 
                 # For each remaining tax with a code, whe create a move line
                 for tax in computed_taxes:
@@ -1045,7 +1045,8 @@ class pos_order(osv.osv):
                         'debit': 0.0,
                         'tax_code_id': tax_code_id,
                         'tax_amount': tax_amount,
-                    })
+						'partner_id': order.partner_id and self.pool.get("res.partner")._find_accounting_partner(order.partner_id).id or False
+                    }, True if amount<0 else False)
 
             # Create a move for each tax group
             (tax_code_pos, base_code_pos, account_pos, tax_id)= (0, 1, 2, 3)
@@ -1061,7 +1062,8 @@ class pos_order(osv.osv):
                     'debit': ((tax_amount<0) and -tax_amount) or 0.0,
                     'tax_code_id': key[tax_code_pos],
                     'tax_amount': tax_amount,
-                })
+					'partner_id': order.partner_id and self.pool.get("res.partner")._find_accounting_partner(order.partner_id).id or False
+                }, True if amount<0 else False)
 
             # counterpart
             insert_data('counter_part', {
@@ -1070,7 +1072,7 @@ class pos_order(osv.osv):
                 'credit': ((order.amount_total < 0) and -order.amount_total) or 0.0,
                 'debit': ((order.amount_total > 0) and order.amount_total) or 0.0,
                 'partner_id': order.partner_id and order.partner_id.id or False
-            })
+             }, True if order.amount_total<0 else False)
 
             order.write({'state':'done', 'account_move': move_id})
 
