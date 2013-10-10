@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+    
+    
+        <record model="ir.ui.view" id="view_pos_order_lines">
+            <field name="name">Order lines</field>
+            <field name="model">pos.order.line.report</field>
+            <field name="arch" type="xml">
+                <tree string="POS Order lines">
+                    <field name="session_id" readonly="1"/>
+                    <field name="order_id" readonly="1"/>
+                    <field name="partner_id" readonly="1"/>
+                    <field name="product_id" readonly="1"/>
+                    
+                    <field name="qty" readonly="1" sum="Total qty"/>
+                    <field name="discount" readonly="1"/>
+                    <field name="price_unit" readonly="1"/>
+                    <field name="price_subtotal" readonly="1" sum="Sum of subtotals"/>
+                    <field name="price_subtotal_incl" readonly="1" sum="Sum of subtotals"/>
+                    <field name="create_date" readonly="1"/>
+                    <field name="user_id" readonly="1"/>
+                    <field name="order_date_string" readonly="1"/>
+                    
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_pos_order_lines_filter" model="ir.ui.view">
+            <field name="name">pos.order.lines.list.select</field>
+            <field name="model">pos.order.line.report</field>
+            <field name="arch" type="xml">
+                <search string="Search Order Lines">
+                    <filter string="Today" domain="[('create_date', '>=', time.strftime('%%Y-%%m-%%d 00:00:00'))]" />
+                    <field name="partner_id"/>
+                    <field name="product_id"/>
+                    <filter domain="[('user_id','=',uid)]" help="My Orders" icon="terp-personal"/>
+                    <separator/>
+                    <group expand="0" string="Group By...">
+                        <filter	 string="Product" icon="terp-personal" domain="[]" context="{'group_by':'product_id'}"/>
+                        <filter	 string="Customer" icon="terp-personal" domain="[]" context="{'group_by':'partner_id'}"/>
+                        <filter	 string="Date" icon="terp-personal" domain="[]" context="{'group_by':'order_date_string'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    
+
+        
+        <record id="pos_ext_order_line_form_view" model="ir.actions.act_window">
+            <field name="name">Order Lines</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pos.order.line.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_pos_order_lines"/>
+        </record>
+        
+        
+        
+		<menuitem parent="point_of_sale.menu_point_of_sale" id="menu_pos_extension_order_lines" action="pos_ext_order_line_form_view" sequence="3" groups="point_of_sale.group_pos_manager,point_of_sale.group_pos_user"/>
+		
+    </data>
+</openerp>

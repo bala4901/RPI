@@ -936,7 +936,7 @@ class pos_order(osv.osv):
                     'journal_id': order.sale_journal.id,
                 }, context=context)
 
-             def insert_data(data_type, values, is_return=False):
+            def insert_data(data_type, values, is_return=False):
                 # if have_to_group_by:
 
                 sale_journal_id = order.sale_journal.id
@@ -1028,7 +1028,7 @@ class pos_order(osv.osv):
                     'tax_code_id': tax_code_id,
                     'tax_amount': tax_amount,
                     'partner_id': order.partner_id and order.partner_id.id or False
-				}}, True if amount<0 else False)
+                    }, True if amount<0 else False)
 
                 # For each remaining tax with a code, whe create a move line
                 for tax in computed_taxes:
@@ -1046,7 +1046,7 @@ class pos_order(osv.osv):
                         'tax_code_id': tax_code_id,
                         'tax_amount': tax_amount,
 						'partner_id': order.partner_id and self.pool.get("res.partner")._find_accounting_partner(order.partner_id).id or False
-                    }, True if amount<0 else False)
+                        }, True if amount<0 else False)
 
             # Create a move for each tax group
             (tax_code_pos, base_code_pos, account_pos, tax_id)= (0, 1, 2, 3)
