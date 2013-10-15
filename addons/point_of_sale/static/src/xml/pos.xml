@@ -657,33 +657,6 @@
                     <t t-esc="widget.format_currency((widget.currentOrder.getPaidTotal() - widget.currentOrder.getTotal()).toFixed(2))"/>
                     </td></tr>
             </table>
-            
-            <br/>
-            <br/>
-            <br/>
-            <table>
-            	<tr>
-
-            	    <td width="40%">
-            		</td>
-            		<td class="pos-signature">
-            			<hr></hr>
-            			CUSTOMER
-            		</td>
-            		<td width="20px">
-            		</td>
-            		 <td class="pos-signature">
-            		 	<hr></hr>
-            		 	MARKETING
-            		</td>
-            		<td width="200px">
-            		</td>
-            		 <td class="pos-signature">
-            		 <hr></hr>
-            		 	KASIR
-            		</td>
-            	</tr>
-            </table>
         </div>
     </t>
 
