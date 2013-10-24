@@ -630,9 +630,6 @@
             </div>
             <br />
             <table>
-                <tr><td>Tax:</td><td class="pos-right-align">
-                    <t t-esc="widget.format_currency(widget.currentOrder.getTax().toFixed(2))"/>
-                    </td></tr>
                 <tr><td>Discount:</td><td class="pos-right-align">
                     <t t-esc="widget.format_currency(widget.currentOrder.getDiscountTotal().toFixed(2))"/>
                     </td></tr>
