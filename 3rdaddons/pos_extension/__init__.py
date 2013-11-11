@@ -20,6 +20,7 @@
 ##############################################################################
 
 import pos_extension
+import sale_order_extension
 
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
